@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'cities/index'
+    get 'cities/create'
+    get 'cities/edit'
+    get 'cities/update'
+    get 'cities/destroy'
+  end
   root :to => 'users#top'
   get 'admins/top' => 'admins#top'
 
