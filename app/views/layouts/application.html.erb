@@ -19,36 +19,6 @@
                 </nav>
                 <ul class="nav navbar-nav navbar-right">
                   <li role="presentation">
-                    <%= link_to admin_users_path, class: "glyphicon glyphicon-user users" do %>
-                    <span aria-hidden="true"> ユーザー</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to admin_orders_path, class: "glyphicon glyphicon-home home" do %>
-                      <span aria-hidden="true"> 購入履歴</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to admin_items_path, class: "glyphicon glyphicon-gift" do %>
-                    <span aria-hidden="true"> 商品</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to admin_artists_path, class: "glyphicon glyphicon-comment" do %>
-                      <span aria-hidden="true"> アーティスト</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to admin_labels_path, class: "glyphicon glyphicon-music" do %>
-                      <span aria-hidden="true"> レーベル</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to admin_genres_path, class: "glyphicon glyphicon-headphones" do %>
-                      <span aria-hidden="true"> ジャンル</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
                     <%= link_to destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" do %>
                       <span aria-hidden="true"> ログアウト</span>
                     <% end %>
