@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  root :to => 'users#top'
+  resources :users, only: [:show, :update, :edit]
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
