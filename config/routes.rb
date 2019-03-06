@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  
+
   root :to => 'users#top'
-  resources :users, only: [:show, :update, :edit]
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -13,5 +12,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords:     'users/passwords'
   }
+
+  resources :users, only: [:show, :update, :edit]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
