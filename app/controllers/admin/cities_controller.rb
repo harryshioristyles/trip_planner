@@ -8,12 +8,12 @@ class Admin::CitiesController < ApplicationController
   def create
         country = Country.new(country_params)
     if
+        @country = Country.new
         flash[:notice] = "created successfully!"
         redirect_to admin_cities_path
     else
-        @product = Product.new
         flash[:notice] = "Error"
-        redirect_to admin_cities_path
+        render action: :index
     end
   end
 
