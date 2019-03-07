@@ -2,6 +2,7 @@ class Admin::CitiesController < ApplicationController
   def index
     @country = Country.new
     @city = @country.cities.build
+
   end
 
   def create

@@ -1,9 +1,13 @@
 <h1>Admin::Cities#index</h1>
     <div>
-		<%= form_for @country, url:admin_cities_path do |f| %>
+		<%= form_for @country, :url => { :controller => :cities, :action => :create } do |f| %>
 		  <div class="field">
 		    <%= f.label :country_name, "Country Name" %>
 		    <%= f.text_field :country_name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :area, "Area" %>
+		    <%= f.select :area, Country.areas.keys.to_a %>
 		  </div>
 
 		  <h3>cities</h3>
