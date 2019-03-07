@@ -1,2 +1,34 @@
 <h1>Admin::Cities#index</h1>
-<p>Find me in app/views/admin/cities/index.html.erb</p>
+    <div>
+		<%= form_for @country, :url => { :controller => :cities, :action => :create } do |f| %>
+		  <div class="field">
+		    <%= f.label :country_name, "Country Name" %>
+		    <%= f.text_field :country_name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :area, "Area" %>
+		    <%= f.select :area, Country.areas.keys.to_a %>
+		  </div>
+
+		  <h3>cities</h3>
+		  <div id="city">
+		    <%= f.fields_for :cities do |city| %>
+		      <%= render 'city_fields', f: city %>
+		    <% end %>
+		    <div id="links">
+		      <%= link_to_add_association 'Add City',f, :cities %>
+		    </div>
+		    <%= f.submit :SAVE %>
+		  </div>
+		<% end %>
+	</div>
+
+	<div>
+		<% @countries.each do |country| %>
+		<h3><%= country.area %></h3>
+		<h4><%= country.country_name %></h4>
+		      <% country.cities.each do |city| %>
+		        <h5><%= city.city_name %></h5>
+		    <% end %>
+		<% end %>
+	</div>
