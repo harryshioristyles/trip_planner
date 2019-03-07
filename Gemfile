@@ -70,5 +70,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   # original
   gem 'devise'
-
+  # needs jquery
   gem 'cocoon'
+  # needs jquery
+  gem 'bootstrap-sass', '~> 3.3.6'
