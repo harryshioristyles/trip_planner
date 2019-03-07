@@ -23,3 +23,11 @@
 		<% end %>
 	</div>
 
+	<div>
+		<% @countries.each do |country| %>
+		<h3><%= country.country_name %></h3>
+		      <% country.cities.each do |city| %>
+		        <h5><%= city.city_name %></h5>
+		    <% end %>
+		<% end %>
+	</div>

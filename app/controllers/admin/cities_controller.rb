@@ -3,6 +3,7 @@ class Admin::CitiesController < ApplicationController
           @country = Country.new
           @city = @country.cities.build
 
+          @countries = Country.all
   end
 
   def create
