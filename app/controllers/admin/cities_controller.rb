@@ -9,7 +9,6 @@ class Admin::CitiesController < ApplicationController
   def create
           country = Country.new(country_params)
     if country.save
-          @country = Country.new
           flash[:notice] = "created successfully!"
           redirect_to admin_cities_path
     else
