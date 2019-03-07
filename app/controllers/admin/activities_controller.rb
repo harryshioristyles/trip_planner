@@ -1,5 +1,6 @@
 class Admin::ActivitiesController < ApplicationController
   def index
+          @activity = Activity.new
   end
 
   def create
