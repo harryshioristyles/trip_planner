@@ -3,7 +3,7 @@ class Admin::CitiesController < ApplicationController
           @country = Country.new
           @city = @country.cities.build
 
-          @countries = Country.all
+          @countries = Country.all.order(:area)
   end
 
   def create
