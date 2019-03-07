@@ -1,19 +1,19 @@
 class Admin::CitiesController < ApplicationController
   def index
-        @country = Country.new
-        @city = @country.cities.build
+          @country = Country.new
+          @city = @country.cities.build
 
   end
 
   def create
-        country = Country.new(country_params)
-    if
-        @country = Country.new
-        flash[:notice] = "created successfully!"
-        redirect_to admin_cities_path
+          country = Country.new(country_params)
+    if country.save
+          @country = Country.new
+          flash[:notice] = "created successfully!"
+          redirect_to admin_cities_path
     else
-        flash[:notice] = "Error"
-        render action: :index
+          flash[:notice] = "Error"
+          render action: :index
     end
   end
 
