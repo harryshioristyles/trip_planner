@@ -1,2 +1,20 @@
 <h1>Admin::Cities#index</h1>
-<p>Find me in app/views/admin/cities/index.html.erb</p>
+    <div>
+		<%= form_for @country, url:admin_cities_path do |f| %>
+		  <div class="field">
+		    <%= f.label :country_name, "Country Name" %>
+		    <%= f.text_field :country_name %>
+		  </div>
+
+		  <h3>cities</h3>
+		  <div id="city">
+		    <%= f.fields_for :cities do |city| %>
+		      <%= render 'city_fields', f: city %>
+		    <% end %>
+		    <div id="links">
+		      <%= link_to_add_association 'Add City',f, :cities %>
+		    </div>
+		    <%= f.submit :SAVE %>
+		  </div>
+		<% end %>
+	</div>
