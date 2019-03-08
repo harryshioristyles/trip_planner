@@ -3,5 +3,6 @@
 <p>Nickname：<%= @user.nickname %></p>
 <p>Mail：<%= @user.email %></p>
 <p>Introduce：<%= @user.introduce %></p>
+<%= image_tag @user.user_image %><br>
 
 <%= link_to "edit", edit_user_path(@user.id) %>
