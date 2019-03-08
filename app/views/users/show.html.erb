@@ -1,3 +1,7 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>change</p>
+<p>UserID:<%= @user.id %></p>
+<p>Nickname：<%= @user.nickname %></p>
+<p>Mail：<%= @user.email %></p>
+<p>Introduce：<%= @user.introduce %></p>
+
+<%= link_to "edit", edit_user_path(@user.id) %>
