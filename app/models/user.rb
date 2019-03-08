@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one_attached :user_image
+  validates_associated :user_image, allow_blank: true
 
 end
