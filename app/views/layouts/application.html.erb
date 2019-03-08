@@ -30,13 +30,11 @@
                 </nav>
                 <ul class="nav navbar-nav navbar-right">
                   <li role="presentation">
-                    <%= link_to user_path(current_user.id), class: "glyphicon glyphicon-home home" do %>
-                      <span aria-hidden="true"> マイページ</span>
-                    <% end %>
+                      <span aria-hidden="true"> Hello! You're on log-in now.</span>
                   </li>
                   <li role="presentation">
-                    <%= link_to carts_path, class: "glyphicon glyphicon-shopping-cart" do %>
-                      <span aria-hidden="true"> カート</span>
+                    <%= link_to user_path(current_user.id), class: "glyphicon glyphicon-home home" do %>
+                      <span aria-hidden="true"> マイページ</span>
                     <% end %>
                   </li>
                   <li role="presentation">
