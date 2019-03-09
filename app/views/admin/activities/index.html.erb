@@ -20,9 +20,11 @@
 	</div>
 	<div>
 		<% @activities.each do |activity| %>
+		    <h3>activity_ID:<%= activity.id %></h3>
 		    <div>activity_name:<%= activity.activity_name %></div>
 		    <div>description:<%= activity.description %></div>
 		    <div>country:<%= activity.city.country.country_name %></div>
 		    <div>city:<%= activity.city.city_name %></div>
+		    <div><%= link_to "Edit", edit_admin_activity_path(activity.id) %></div>
 		<% end %>
 	</div>
