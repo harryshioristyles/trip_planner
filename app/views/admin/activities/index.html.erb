@@ -18,3 +18,11 @@
 		    <%= f.submit :SAVE %>
 		<% end %>
 	</div>
+	<div>
+		<% @activities.each do |activity| %>
+		    <div>activity_name:<%= activity.activity_name %></div>
+		    <div>description:<%= activity.description %></div>
+		    <div>country:<%= activity.city.country.country_name %></div>
+		    <div>city:<%= activity.city.city_name %></div>
+		<% end %>
+	</div>
