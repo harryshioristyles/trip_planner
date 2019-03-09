@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_08_125656) do
+ActiveRecord::Schema.define(version: 2019_03_09_094137) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_03_08_125656) do
     t.string "activity_name"
     t.text "description"
     t.integer "city_id"
-    t.string "activity_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +67,35 @@ ActiveRecord::Schema.define(version: 2019_03_08_125656) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string "list_title"
+    t.string "list_subtitle"
+    t.integer "list_index"
+    t.time "begin"
+    t.time "end"
+    t.integer "activity_id"
+    t.integer "trip_date_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trip_dates", force: :cascade do |t|
+    t.integer "day_index"
+    t.date "date"
+    t.integer "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "trip_title"
+    t.string "trip_subtitle"
+    t.integer "check_finish"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -81,7 +109,6 @@ ActiveRecord::Schema.define(version: 2019_03_08_125656) do
     t.string "last_sign_in_ip"
     t.string "nickname"
     t.text "introduce"
-    t.string "user_image_id"
     t.integer "account_closed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
