@@ -2,12 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  get 'trips/index'
-  get 'trips/create'
-  get 'trips/show'
-  get 'trips/edit'
-  get 'trips/update'
-  get 'trips/destroy'
   root :to => 'users#top'
   get 'admins/top' => 'admins#top'
 
@@ -23,6 +17,7 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show, :update, :edit]
+  resources :trips, only: [:index, :create, :show, :edit, :update, :destroy]
 
   namespace :admin do
     resources :cities, only: [:index, :create, :edit, :update, :destroy]
