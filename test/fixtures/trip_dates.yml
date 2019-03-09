@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_index: 1
+  date: 2019-03-09
+  trip_id: 1
+
+two:
+  day_index: 1
+  date: 2019-03-09
+  trip_id: 1
