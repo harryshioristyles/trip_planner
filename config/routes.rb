@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   # trips
   resources :trips, only: [:index, :create, :show, :edit, :update, :destroy]
-  get "/trips/:id/activity" => "trips#activity", as: "avtivity"
-  post "/trips/:id/activity" => "trips#activity_create", as: "avtivity"
+  get "/trips/:id/list" => "trips#list", as: "list"
+  post "/trips/:id/list" => "trips#list_create"
 
 
   #maps

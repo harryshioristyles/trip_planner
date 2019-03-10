@@ -18,6 +18,12 @@ class TripsController < ApplicationController
         redirect_to world_path
   end
 
+  def list
+  end
+
+  def list_create
+  end
+
   def show
   end
 
