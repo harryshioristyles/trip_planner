@@ -22,6 +22,16 @@ class TripsController < ApplicationController
   end
 
   def list_create
+        city = params[:city_id]
+        trip = Trip.where(user_id: current_user.id).last
+
+        date = TripDate.new(day_index: 1, trip_id: trip.id)
+        date.save!
+
+        list = List.new(list_index: 1, activity_id: 1, trip_date_id: date.id)
+        list.save!
+        redirect_to list_path
+
   end
 
   def show

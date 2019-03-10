@@ -28,7 +28,8 @@
 		<h6><%= country.area %></h6>
 		<h4><%= country.country_name %></h4>
 		      <% country.cities.each do |city| %>
-		        <h5><%= city.city_name %></h5>
+		        <h5>City ID:<%= city.id %></h5>
+		        <h5>City name:<%= city.city_name %></h5>
 		    <% end %>
 		<% end %>
 	</div>
