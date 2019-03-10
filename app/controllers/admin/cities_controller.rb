@@ -18,6 +18,7 @@ class Admin::CitiesController < ApplicationController
   end
 
   def edit
+          @country = Country.find(params[:id])
   end
 
   def update
