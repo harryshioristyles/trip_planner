@@ -9,6 +9,41 @@ class TripsController < ApplicationController
   def area_south_america; end
   def area_oceania; end
 
+  def list
+  end
+
+  def list_create
+        city = params[:city_id]
+
+        @trip = params[:trip_id] #from list
+        if  @trip == nil #from new
+            @trip = Trip.where(user_id: current_user.id).last
+        end
+
+        @date = params[:trip_date_id]
+        if  @date == nil #from new
+            @date = TripDate.new(day_index: 1, trip_id: @trip.id)
+            @date.save!
+        end
+
+        list = List.new(list_index: 1, activity_id: 1, trip_date_id: @date.id)
+        list.save!
+        redirect_to list_path
+  end
+
+  def list_update
+  end
+
+  def date_create
+        trip = params[:trip_id]
+        date = TripDate.new(day_index: 1, trip_id: trip.id)
+        date.save!
+        redirect_to world_path
+  end
+
+  def date_update
+  end
+
   def index
   end
 
@@ -16,22 +51,6 @@ class TripsController < ApplicationController
         trip = Trip.new(check_finish: 0, user_id: current_user.id)
         trip.save!
         redirect_to world_path
-  end
-
-  def list
-  end
-
-  def list_create
-        city = params[:city_id]
-        trip = Trip.where(user_id: current_user.id).last
-
-        date = TripDate.new(day_index: 1, trip_id: trip.id)
-        date.save!
-
-        list = List.new(list_index: 1, activity_id: 1, trip_date_id: date.id)
-        list.save!
-        redirect_to list_path
-
   end
 
   def show
