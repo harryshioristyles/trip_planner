@@ -13,6 +13,8 @@ class TripsController < ApplicationController
   end
 
   def create
+        trip = Trip.new(check_finish: 0, user_id: current_user.id)
+        trip.save!
         redirect_to world_path
   end
 
