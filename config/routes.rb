@@ -19,10 +19,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit]
 
   # trips
-  resources :trips, only: [:index, :create, :show, :edit, :update, :destroy]
   get "/trips/list" => "trips#list", as: "list"
   post "/trips/list" => "trips#list_create"
-
+  resources :trips, only: [:index, :create, :show, :edit, :update, :destroy]
 
   #maps
   get "/world" => "trips#world", as:"world"
