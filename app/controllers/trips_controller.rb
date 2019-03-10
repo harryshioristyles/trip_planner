@@ -13,6 +13,7 @@ class TripsController < ApplicationController
   end
 
   def create
+        redirect_to world_path
   end
 
   def show
