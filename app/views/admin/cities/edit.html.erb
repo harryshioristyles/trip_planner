@@ -20,6 +20,7 @@
 		      <%= link_to_add_association 'Add City',f, :cities %>
 		    </div>
 		    <%= f.submit :UPDATE %>
+            <%= link_to "Delete", admin_city_path(@country.id), method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-danger", style:"margin-top:15px;" %>
 		  </div>
 		<% end %>
 	</div>
