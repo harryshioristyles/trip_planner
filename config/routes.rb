@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   get "/trips/list/:id" => "trips#list", as: "list"
   post "/trips/list" => "trips#list_create", as: "list_create"
   put "/trips/list/:id" => "trips#list_update", as: "list_update"
-  post "/trips/data" => "trips#data_create", as: "data_create"
-  put "/trips/data/:id" => "trips#data_update", as: "data_update"
+  post "/trips/date" => "trips#date_create", as: "date_create"
+  put "/trips/date/:id" => "trips#date_update", as: "date_update"
   resources :trips, only: [:index, :create, :show, :edit, :update, :destroy]
 
   #maps
