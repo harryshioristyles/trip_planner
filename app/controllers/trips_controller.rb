@@ -34,6 +34,9 @@ class TripsController < ApplicationController
   end
 
   def list_update
+        list = List.find(params[:id])
+        list.update(list_params)
+        redirect_to list_path(list)
   end
 
   def date_create
@@ -66,4 +69,11 @@ class TripsController < ApplicationController
 
   def destroy
   end
+
+    private
+
+    def list_params
+      params.require(:list).permit(:list_title, :list_subtitle, :list_index, :begin, :end, :activity_id, :trip_date_id)
+    end
+
 end
