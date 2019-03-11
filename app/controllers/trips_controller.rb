@@ -11,7 +11,7 @@ class TripsController < ApplicationController
 
   def list
         @list = List.find(params[:id])
-        @trip = Trip.find(id: @list.trip_data.trip_id)
+        @trip = Trip.find(@list.trip_date.trip_id)
   end
 
   def list_create
