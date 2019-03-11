@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   root :to => "users#top"
   get "admins/top" => "admins#top"
 
@@ -19,8 +17,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit]
 
   # trips
-  get "/trips/list" => "trips#list", as: "list"
-  post "/trips/list" => "trips#list_create"
+  get "/trips/list/:id" => "trips#list", as: "list"
+  post "/trips/list" => "trips#list_create", as: "list_create"
+  post "/trips/data" => "trips#data_create", as: "data_create"
   resources :trips, only: [:index, :create, :show, :edit, :update, :destroy]
 
   #maps

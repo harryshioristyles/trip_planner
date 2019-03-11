@@ -1,1 +1,11 @@
 <h1>Trips#list</h1>
+<div>ID:<%= @trip.id %><div>
+		<% @trip.trip_dates.each do |date| %>
+
+			<div>ID:<%= date.id %></div>
+
+			<% date.lists.each do |list| %>
+				<div>ID:<%= list.id %><div>
+			<% end %>
+
+		<% end %>

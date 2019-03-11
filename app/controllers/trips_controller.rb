@@ -10,25 +10,26 @@ class TripsController < ApplicationController
   def area_oceania; end
 
   def list
+        @trip = Trip.find(params[:id])
   end
 
   def list_create
         city = params[:city_id]
 
-        @trip = params[:trip_id] #from list
-        if  @trip == nil #from new
+        @trip = params[:trip_id] #from view_list
+        if  @trip == nil #from view_area
             @trip = Trip.where(user_id: current_user.id).last
         end
 
-        @date = params[:trip_date_id]
-        if  @date == nil #from new
+        @date = params[:trip_date_id] #from view_list
+        if  @date == nil #new list
             @date = TripDate.new(day_index: 1, trip_id: @trip.id)
             @date.save!
         end
 
         list = List.new(list_index: 1, activity_id: 1, trip_date_id: @date.id)
         list.save!
-        redirect_to list_path
+        redirect_to list_path(@trip)
   end
 
   def list_update
