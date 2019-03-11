@@ -37,7 +37,7 @@ class Admin::CitiesController < ApplicationController
           country = Country.find(params[:id])
 
     if
-          country.destroy(country_params)
+          country.destroy
           redirect_to admin_cities_path
           flash[:notice] = "successfully updated"
     else
