@@ -1,2 +1,26 @@
 <h1>Admin::Cities#edit</h1>
 <p>Find me in app/views/admin/cities/edit.html.erb</p>
+    <div>
+		<%= form_for @country, :url => { :controller => :cities, :action => :update } do |f| %>
+		  <div class="field">
+		    <%= f.label :country_name, "Country Name" %>
+		    <%= f.text_field :country_name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :area, "Area" %>
+		    <%= f.select :area, Country.areas.keys.to_a %>
+		  </div>
+
+		  <h3>cities</h3>
+		  <div id="city">
+		    <%= f.fields_for :cities do |city| %>
+		      <%= render 'city_fields', f: city %>
+		    <% end %>
+		    <div id="links">
+		      <%= link_to_add_association 'Add City',f, :cities %>
+		    </div>
+		    <%= f.submit :UPDATE %>
+            <%= link_to "Delete", admin_city_path(@country.id), method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-danger", style:"margin-top:15px;" %>
+		  </div>
+		<% end %>
+	</div>
