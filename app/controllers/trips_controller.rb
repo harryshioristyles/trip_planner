@@ -24,7 +24,7 @@ class TripsController < ApplicationController
             @trip = Trip.where(user_id: current_user.id).last
         end
 
-        @date = params[:trip_date_id] #from view_list
+        @date = TripDate.find_by(trip_id: @trip.id)
         if  @date == nil #new list
             @date = TripDate.new(day_index: 1, trip_id: @trip.id)
             @date.save!

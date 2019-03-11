@@ -48,6 +48,10 @@
 					<div>
 						<%= form_for @list, :url => { :controller => :trips, :action => :list_create } do |f| %>
 						  <div class="field">
+						    <%= f.label :trip_date_id, "Day" %>
+						    <%= f.collection_select :trip_date_id %>
+						  </div>
+						  <div class="field">
 						    <%= f.label :list_title, "List Title" %>
 						    <%= f.text_field :list_title %>
 						  </div>
