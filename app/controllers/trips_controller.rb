@@ -10,7 +10,8 @@ class TripsController < ApplicationController
   def area_oceania; end
 
   def list
-        @trip = Trip.find(params[:id])
+        @list = List.find(params[:id])
+        @trip = Trip.find(id: @list.trip_data.trip_id)
   end
 
   def list_create
@@ -29,7 +30,7 @@ class TripsController < ApplicationController
 
         list = List.new(list_index: 1, activity_id: 1, trip_date_id: @date.id)
         list.save!
-        redirect_to list_path(@trip)
+        redirect_to list_path(list)
   end
 
   def list_update
