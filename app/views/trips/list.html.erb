@@ -1,11 +1,76 @@
 <h1>Trips#list</h1>
-<div>ID:<%= @trip.id %><div>
+<h2>Temporary</h2>
+<div>TripID:<%= @trip.id %></div>
 		<% @trip.trip_dates.each do |date| %>
-
-			<div>ID:<%= date.id %></div>
-
-			<% date.lists.each do |list| %>
-				<div>ID:<%= list.id %><div>
-			<% end %>
-
+			<div>DateID:<%= date.id %></div>
+				<% date.lists.each do |list| %>
+					<div>ListID:<%= list.id %></div>
+				<% end %>
 		<% end %>
+
+<h2>main:trip</h2>
+    <div>
+		<%= form_for @trip, :url => { :controller => :trips, :action => :update } do |f| %>
+		  <div class="field">
+		    <%= f.label :trip_title, "Trip Plan Title" %>
+		    <%= f.text_field :trip_title %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :trip_subtitle, "Trip Plan SubTitle" %>
+		    <%= f.text_field :trip_subtitle %>
+		  </div>
+		    <%= f.submit :UPDATE %>
+		<% end %>
+	</div>
+	    <h2>left bar:date</h2>
+			<div><% @trip.trip_dates.each do |date| %>
+						<%= form_for date, :url => { :controller => :trips, :action => :date_update } do |f| %>
+						  <div class="field">
+						    <%= f.label :day_index, "Day" %>
+						    <%= f.text_field :day_index %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :date, "Date" %>
+						    <%= f.text_field :date %>
+						  </div>
+						    <%= f.submit :UPDATE %>
+						<% end %>
+						<div>
+							<% date.lists.each do |list| %>
+							    <div>list_title<%= list.list_title %></div>
+							    <div>list_index<%= list.list_index %></div>
+							<% end %>
+						</div>
+				<% end %>
+			</div>
+				<h2>center bar:list</h2>
+					<div>
+						<%= form_for @list, :url => { :controller => :trips, :action => :list_update } do |f| %>
+						  <div class="field">
+						    <%= f.label :list_title, "List Title" %>
+						    <%= f.text_field :list_title %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :list_subtitle, "List SubTitle" %>
+						    <%= f.text_field :list_subtitle %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :list_index, "No." %>
+						    <%= f.text_field :list_index %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :begin, "Start from" %>
+						    <%= f.text_field :begin %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :end, "finished by" %>
+						    <%= f.text_field :end %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :activity_id, "Activity" %>
+						    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
+						  </div>
+						    <%= f.submit :UPDATE %>
+						<% end %>
+					</div>
+
