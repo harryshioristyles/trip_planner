@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit]
 
   # trips
+  get "/trips/list/new/trips/:id" => "trips#list_new", as: "list_new"
   get "/trips/list/:id" => "trips#list", as: "list"
   post "/trips/list" => "trips#list_create", as: "list_create"
   patch "/trips/list/:id" => "trips#list_update", as: "list_update"

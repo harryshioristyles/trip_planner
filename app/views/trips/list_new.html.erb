@@ -46,7 +46,7 @@
 			</div>
 				<h2>center bar:list</h2>
 					<div>
-						<%= form_for @list, :url => { :controller => :trips, :action => :list_update } do |f| %>
+						<%= form_for @list, :url => { :controller => :trips, :action => :list_create } do |f| %>
 						  <div class="field">
 						    <%= f.label :list_title, "List Title" %>
 						    <%= f.text_field :list_title %>

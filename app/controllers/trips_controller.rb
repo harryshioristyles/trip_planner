@@ -9,6 +9,8 @@ class TripsController < ApplicationController
   def area_south_america; end
   def area_oceania; end
 
+
+
   def list
         @list = List.find(params[:id])
         @trip = Trip.find(@list.trip_date.trip_id)
@@ -35,8 +37,19 @@ class TripsController < ApplicationController
 
   def list_update
         list = List.find(params[:id])
-        list.update(list_params)
-        redirect_to list_path(list)
+        if
+          list.update(list_params)
+          redirect_to list_new_path(list.trip_date.trip_id)
+          flash[:notice] = 'successfully update!!'
+        else
+          redirect_to list_path(list)
+          flash[:notice] = 'update error!!'
+        end
+  end
+
+  def list_new
+        @trip = Trip.find(params[:id])
+        @list = List.new
   end
 
   def date_create
