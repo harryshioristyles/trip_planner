@@ -3,16 +3,14 @@ class ListsController < ApplicationController
   end
 
   def new
-        @trip = Trip.where(user_id: current_user.id).last
+        @trip = Trip.find_by(id: params[:trip_id])
         @list = List.new
   end
 
   def create
         list = List.new(list_params)
-        trip_id = Trip.where(user_id: current_user.id).last
-        list.trip_id = trip_id.id
         list.save!
-        redirect_to new_list_path
+        redirect_to new_list_path(trip_id: list.trip_id)
   end
 
   def show
@@ -26,7 +24,7 @@ class ListsController < ApplicationController
         list = List.find(params[:id])
       if
         list.update(list_params)
-        redirect_to new_list_path
+        redirect_to new_list_path(trip_id: list.trip_id)
         flash[:notice] = "successfully updated."
       else
         redirect_to edit_list_path(list.id)
@@ -48,7 +46,7 @@ class ListsController < ApplicationController
 private
 
   def list_params
-        params.require(:list).permit(:list_title, :list_details, :day_index, :date, :begin, :end, :city_id, :activity_id)
+        params.require(:list).permit(:list_title, :list_details, :day_index, :date, :begin, :end, :city_id, :activity_id, :trip_id)
   end
 
 end

@@ -12,7 +12,7 @@ class TripsController < ApplicationController
         trip.checking_finish = 0
         trip.user_id = current_user.id
         trip.save!
-        redirect_to new_list_path
+        redirect_to new_list_path(trip_id: trip)
   end
 
   def show
@@ -27,7 +27,7 @@ class TripsController < ApplicationController
         trip = Trip.find(params[:id])
       if
         trip.update(trip_params)
-        redirect_to new_list_path
+        redirect_to new_list_path(trip_id: list.trip_id)
         flash[:notice] = "successfully updated."
       else
         redirect_to edit_trip_path(trip.id)

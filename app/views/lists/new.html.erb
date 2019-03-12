@@ -52,6 +52,7 @@
 			    <%= f.label :activity_id, "Activity" %>
 			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
             </div>
+                <%= f.hidden_field :trip_id, value: @trip.id %>
             <%= f.submit :CREATEandNew %>
         <% end %>
     </div>
