@@ -36,7 +36,14 @@ class TripsController < ApplicationController
   end
 
   def destroy
-
+        trip = Trip.find(params[:id])
+        if
+           trip.destroy
+           flash[:notice] = 'successfully destroyed.'
+        else
+           flash[:notice] = 'destroy error!!'
+        end
+           redirect_to trip_path(trip)
   end
 
 private
