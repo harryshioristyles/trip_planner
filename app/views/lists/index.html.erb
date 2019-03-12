@@ -1,2 +1,10 @@
 <h1>Lists#index</h1>
 <p>Find me in app/views/lists/index.html.erb</p>
+			<% @trips.each do |trip| %>
+				    "Trip Title"<br>
+				    <%= trip.trip_title %><br>
+				    "Trip Details"<br>
+				    <%= trip.trip_details %><br>
+					<%= link_to "Show", trip_path(trip) %><br>
+					<%= link_to "Edit", edit_trip_path(trip) %><br>
+			<% end %>
