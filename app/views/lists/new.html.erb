@@ -3,6 +3,16 @@
 	<div>
 		Trip title:<%= @trip.trip_title %><br>
 		Trip details:<%= @trip.trip_details %>
+			<% @trip.lists.each do |list| %>
+					Day.<%= list.day_index %>
+					date:<%= list.date %><br>
+					begin:<%= list.begin %>
+					end:<%= list.end %><br>
+					list_title:<%= list.list_title %><br>
+					list_details:<%= list.list_details %><br>
+					City:<%= list.city.city_name %><br>
+					Activity:<%= list.activity.activity_name %><br>
+			<% end %>
     </div>
 	<div>
 		<%= form_for @list do |f| %>
@@ -35,9 +45,9 @@
 			    <%= f.collection_select :city_id, City.all, :id, :city_name %>
             </div>
 			<div class="field">
-			    <%= f.label :city_id, "City" %>
+			    <%= f.label :activity_id, "Activity" %>
 			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
             </div>
-            <%= f.submit :CREATE %>
+            <%= f.submit :CREATEandNew %>
         <% end %>
     </div>
