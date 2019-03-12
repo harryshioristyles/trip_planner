@@ -1,1 +1,14 @@
 <h1>Trips#new</h1>
+	<div>
+		<%= form_for @trip do |f| %>
+			<div class="field">
+			    <%= f.label :trip_title, "Trip Title" %>
+			    <%= f.text_field :trip_title %>
+            </div>
+			<div class="field">
+			    <%= f.label :trip_details, "Trip Details" %>
+			    <%= f.text_field :trip_details %>
+            </div>
+            <%= f.submit :CREATE %>
+        <% end %>
+    </div>
