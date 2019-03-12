@@ -23,6 +23,15 @@ class ListsController < ApplicationController
   end
 
   def update
+        list = List.find(params[:id])
+      if
+        list.update(list_params)
+        redirect_to new_list_path
+        flash[:notice] = "successfully updated."
+      else
+        redirect_to edit_list_path(list.id)
+        flash[:notice] = "update error!!"
+      end
   end
 
   def destroy
