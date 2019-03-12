@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_074524) do
+ActiveRecord::Schema.define(version: 2019_03_12_024948) do
 
   create_table "activities", force: :cascade do |t|
     t.string "activity_name"
@@ -43,6 +43,29 @@ ActiveRecord::Schema.define(version: 2019_03_07_074524) do
   create_table "countries", force: :cascade do |t|
     t.string "country_name"
     t.integer "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "list_title"
+    t.string "list_details"
+    t.integer "day_index"
+    t.date "date"
+    t.time "begin"
+    t.time "end"
+    t.integer "city_id"
+    t.integer "activity_id"
+    t.integer "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "trip_title"
+    t.string "trip_details"
+    t.integer "checking_finish"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
