@@ -43,7 +43,7 @@ class TripsController < ApplicationController
         else
            flash[:notice] = 'destroy error!!'
         end
-           redirect_to trip_path(trip)
+           redirect_to trips_path
   end
 
 private
