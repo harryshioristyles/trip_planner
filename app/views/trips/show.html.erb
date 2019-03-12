@@ -3,7 +3,7 @@
 		Trip title:<%= @trip.trip_title %><br>
 		Trip details:<%= @trip.trip_details %><br>
 		<%= link_to "Edit", edit_trip_path(@trip) %><br>
-		<%= link_to "Delete", edit_path(@trip), method: :delete, "data-confirm" => "Are you sure?" %><br>
+		<%= link_to "Delete", trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?" %><br>
 
 			<% @trip.lists.each do |list| %>
 					Day.<%= list.day_index %>

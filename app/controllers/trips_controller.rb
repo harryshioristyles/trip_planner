@@ -27,7 +27,7 @@ class TripsController < ApplicationController
         trip = Trip.find(params[:id])
       if
         trip.update(trip_params)
-        redirect_to new_list_path(trip_id: list.trip_id)
+        redirect_to new_list_path(trip_id: trip.id)
         flash[:notice] = "successfully updated."
       else
         redirect_to edit_trip_path(trip.id)
