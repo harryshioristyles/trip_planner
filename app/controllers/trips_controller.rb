@@ -15,9 +15,8 @@ class TripsController < ApplicationController
         redirect_to new_list_path
   end
 
-
-
   def show
+        @trip = Trip.find(params[:id])
   end
 
   def edit
@@ -37,6 +36,7 @@ class TripsController < ApplicationController
   end
 
   def destroy
+
   end
 
 private

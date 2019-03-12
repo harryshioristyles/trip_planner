@@ -1,11 +1,11 @@
 <h1>Trips#show</h1>
 	<div>
-		Trip title:<%= @list.trip.trip_title %><br>
-		Trip details:<%= @list.trip.trip_details %><br>
-		<%= link_to "Edit", edit_trip_path(@list.trip) %><br>
-		<%= link_to "Delete", edit_path(@list.trip), method: :delete, "data-confirm" => "Are you sure?" %><br>
+		Trip title:<%= @trip.trip_title %><br>
+		Trip details:<%= @trip.trip_details %><br>
+		<%= link_to "Edit", edit_trip_path(@trip) %><br>
+		<%= link_to "Delete", edit_path(@trip), method: :delete, "data-confirm" => "Are you sure?" %><br>
 
-			<% @list.trip.lists.each do |list| %>
+			<% @trip.lists.each do |list| %>
 					Day.<%= list.day_index %>
 					date:<%= list.date %><br>
 					begin:<%= list.begin %>
