@@ -1,2 +1,35 @@
 <h1>Lists#new</h1>
 <p>Find me in app/views/lists/new.html.erb</p>
+	<div>
+		Trip title:<%= @trip.trip_title %><br>
+		Trip details:<%= @trip.trip_details %>
+    </div>
+	<div>
+		<%= form_for @list do |f| %>
+			<div class="field">
+			    <%= f.label :day_index, "Day" %>
+			    <%= f.text_field :day_index %>
+            </div>
+			<div class="field">
+			    <%= f.label :date, "Date" %>
+			    <%= f.date_field :date %>
+            </div>
+			<div class="field">
+			    <%= f.label :begin, "Start from" %>
+			    <%= f.time_field :begin %>
+            </div>
+			<div class="field">
+			    <%= f.label :end, "finish by" %>
+			    <%= f.time_field :end %>
+            </div>
+			<div class="field">
+			    <%= f.label :list_title, "List Title" %>
+			    <%= f.text_field :list_title %>
+            </div>
+			<div class="field">
+			    <%= f.label :list_details, "List Details" %>
+			    <%= f.text_area :list_details %>
+            </div>
+            <%= f.submit :CREATE %>
+        <% end %>
+    </div>

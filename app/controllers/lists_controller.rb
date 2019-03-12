@@ -6,6 +6,8 @@ class ListsController < ApplicationController
   end
 
   def new
+        @trip = Trip.where(user_id: current_user.id).last
+        @list = List.new
   end
 
   def show
