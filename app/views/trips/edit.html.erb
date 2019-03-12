@@ -1,1 +1,28 @@
 <h1>Trips#edit</h1>
+	<div>
+		<div>
+			<%= form_for @trip do |f| %>
+				<div class="field">
+				    <%= f.label :trip_title, "Trip Title" %>
+				    <%= f.text_field :trip_title %>
+	            </div>
+				<div class="field">
+				    <%= f.label :trip_details, "Trip Details" %>
+				    <%= f.text_field :trip_details %>
+	            </div>
+	            <%= f.submit :UPDATE %>
+	        <% end %>
+	    </div>
+			<% @trip.lists.each do |list| %>
+					Day.<%= list.day_index %>
+					date:<%= list.date %><br>
+					begin:<%= list.begin %>
+					end:<%= list.end %><br>
+					list_title:<%= list.list_title %><br>
+					list_details:<%= list.list_details %><br>
+					City:<%= list.city.city_name %><br>
+					Activity:<%= list.activity.activity_name %><br>
+					<%= link_to "Edit", edit_list_path(list) %><br>
+					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?" %><br>
+			<% end %>
+    </div>

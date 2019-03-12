@@ -3,6 +3,8 @@
 	<div>
 		Trip title:<%= @list.trip.trip_title %><br>
 		Trip details:<%= @list.trip.trip_details %><br>
+		<%= link_to "Edit", edit_trip_path(@list.trip) %><br>
+
 			<% @list.trip.lists.each do |list| %>
 					Day.<%= list.day_index %>
 					date:<%= list.date %><br>
