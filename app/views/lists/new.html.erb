@@ -30,6 +30,14 @@
 			    <%= f.label :list_details, "List Details" %>
 			    <%= f.text_area :list_details %>
             </div>
+			<div class="field">
+			    <%= f.label :city_id, "City" %>
+			    <%= f.collection_select :city_id, City.all, :id, :city_name %>
+            </div>
+			<div class="field">
+			    <%= f.label :city_id, "City" %>
+			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
+            </div>
             <%= f.submit :CREATE %>
         <% end %>
     </div>
