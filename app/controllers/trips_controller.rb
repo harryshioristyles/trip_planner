@@ -24,6 +24,15 @@ class TripsController < ApplicationController
   end
 
   def update
+        trip = Trip.find(params[:id])
+      if
+        trip.update(trip_params)
+        redirect_to new_list_path
+        flash[:notice] = "successfully updated."
+      else
+        redirect_to edit_trip_path(trip.id)
+        flash[:notice] = "update error!!"
+      end
   end
 
   def destroy
