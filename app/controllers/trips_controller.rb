@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   def index
         @trips = Trip.where(user_id: current_user)
+        @search_trips = Trip.search(params[:search])
   end
 
   def new

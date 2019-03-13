@@ -1,4 +1,24 @@
 <h1>Trips#index</h1>
+
+			<p>検索</p>
+			<%= form_tag(trips_path,:method => 'get') do %>
+			  <%= text_field_tag :search %>
+			  <%= submit_tag 'Search', :trip_title => nil %>
+			<% end %>
+
+			<ul><% @search_trips.each do |trip| %>
+			  <li>
+				    "Trip Title"<br>
+				    <%= trip.trip_title %><br>
+			  </li>
+			  <li>
+				    "Trip Details"<br>
+				    <%= trip.trip_details %><br>
+			  </li>
+			  <% end %>
+			</ul>
+
+
 			<% @trips.each do |trip| %>
 				    "Trip Title"<br>
 				    <%= trip.trip_title %><br>
