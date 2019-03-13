@@ -2,12 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  namespace :admin do
-    get 'users/index'
-    get 'users/edit'
-    get 'users/update'
-    get 'users/destroy'
-  end
   root :to => 'users#top'
   get 'admins/top' => 'admins#top'
 
@@ -27,6 +21,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cities, only: [:index, :create, :edit, :update, :destroy]
     resources :activities, only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
