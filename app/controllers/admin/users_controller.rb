@@ -20,6 +20,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+        user = User.find(params[:id])
+    if
+        user.destroy
+        redirect_to admin_users_path
+        flash[:notice] = 'Book was successfully destroyed.'
+    else
+        redirect_to edit_admin_user_path(user.id)
+        flash[:notice] = 'destroy error!!'
+    end
   end
 
     private
