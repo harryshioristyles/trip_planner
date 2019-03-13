@@ -8,9 +8,24 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-
+  	    user = User.find(params[:id])
+	  if
+		  	user.update(user_params)
+		  	redirect_to admin_users_path
+		  	flash[:notice] = "successfully updated"
+	  else
+	  	  redirect_to edit_admin_user_path(user.id)
+        flash[:notice] = 'update error!!'
+    end
   end
 
   def destroy
   end
+
+    private
+
+    def user_params
+      params.require(:user).permit(:nickname, :introduction, :user_image)
+    end
+
 end
