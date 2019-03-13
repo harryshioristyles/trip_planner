@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
 
 
+  namespace :admin do
+    get 'users/index'
+    get 'users/edit'
+    get 'users/update'
+    get 'users/destroy'
+  end
   root :to => 'users#top'
   get 'admins/top' => 'admins#top'
 
