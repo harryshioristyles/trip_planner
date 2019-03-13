@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def top
   end
 
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:nickname, :introduce, :user_image)
+      params.require(:user).permit(:nickname, :introduction, :user_image)
     end
 
 end
