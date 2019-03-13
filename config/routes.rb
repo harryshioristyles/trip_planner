@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cities, only: [:index, :create, :edit, :update, :destroy]
     resources :activities, only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

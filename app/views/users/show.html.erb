@@ -2,6 +2,8 @@
 <p>UserID:<%= @user.id %></p>
 <p>Nickname：<%= @user.nickname %></p>
 <p>Mail：<%= @user.email %></p>
-<p>Introduce：<%= @user.introduce %></p>
+<p>Introduce：<%= @user.introduction %></p>
+
+<%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %>
 
 <%= link_to "edit", edit_user_path(@user.id) %>
