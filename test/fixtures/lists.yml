@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  list_title: MyString
+  list_details: MyString
+  day_index: 1
+  date: 2019-03-12
+  begin: 2019-03-12 02:49:48
+  end: 2019-03-12 02:49:48
+  city_id: 1
+  activity_id: 1
+  trip_id: 1
+
+two:
+  list_title: MyString
+  list_details: MyString
+  day_index: 1
+  date: 2019-03-12
+  begin: 2019-03-12 02:49:48
+  end: 2019-03-12 02:49:48
+  city_id: 1
+  activity_id: 1
+  trip_id: 1
