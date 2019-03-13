@@ -19,6 +19,12 @@ class TripsController < ApplicationController
         @trip = Trip.find(params[:id])
   end
 
+  def result
+        @trip = Trip.find(params[:id])
+        @trip.update(checking_finish: 1)
+        @days = List.where(trip_id: @trip).maximum(:day_index)
+  end
+
   def edit
         @trip = Trip.find(params[:id])
   end

@@ -55,4 +55,5 @@
                 <%= f.hidden_field :trip_id, value: @trip.id %>
             <%= f.submit :CREATEandNew %>
         <% end %>
+            <%= link_to "finish!!", result_trip_path(@trip) %>
     </div>

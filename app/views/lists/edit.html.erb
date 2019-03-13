@@ -55,4 +55,5 @@
             <%= f.submit :UPDATE %>
         <% end %>
             <%= link_to "NEW", new_list_path(trip_id: @list.trip.id) %>
+            <%= link_to "finish!!", result_trip_path(@list.trip.id) %>
     </div>
