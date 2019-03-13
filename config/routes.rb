@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   root :to => 'users#top'
   get 'admins/top' => 'admins#top'
 
@@ -17,6 +15,12 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show, :update, :edit]
+
+  get "trips/:id/result" => "trips#result", as:"result_trip"
+  resources :trips
+
+  resources :lists
+
 
   namespace :admin do
     resources :cities, only: [:index, :create, :edit, :update, :destroy]
