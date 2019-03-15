@@ -3,6 +3,10 @@
 		<div>
 			<%= form_for @trip do |f| %>
 				<div class="field">
+					<%= image_tag(@trip.trip_image) if @trip.trip_image.attached? %>
+				    <%= f.file_field :trip_image %><br>
+	            </div>
+				<div class="field">
 				    <%= f.label :trip_title, "Trip Title" %>
 				    <%= f.text_field :trip_title %>
 	            </div>

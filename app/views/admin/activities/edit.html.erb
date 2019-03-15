@@ -3,6 +3,9 @@
 
     <%= form_for @activity, :url => { :controller => :activities, :action => :update } do |f| %>
 
+	<%= image_tag(@activity.activity_image) if @activity.activity_image.attached? %>
+	<%= f.file_field :user_image %><br>
+
     <h4>activity_name:</h4>
     <%= f.text_field :activity_name %>
 
