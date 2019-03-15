@@ -1,0 +1,2 @@
+class FavoriteTrip < ApplicationRecord
+end
