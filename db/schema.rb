@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_03_13_032131) do
+ActiveRecord::Schema.define(version: 2019_03_15_114623) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +63,13 @@ ActiveRecord::Schema.define(version: 2019_03_13_032131) do
   create_table "countries", force: :cascade do |t|
     t.string "country_name"
     t.integer "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorite_trips", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
