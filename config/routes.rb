@@ -19,8 +19,8 @@ Rails.application.routes.draw do
      get :following, :followers
     end
   end
+   resources :relationships, only: [:create, :destroy]
 
-  resources :relationships,       only: [:create, :destroy]
   get "trips/:id/result" => "trips#result", as:"result_trip"
   resources :trips do
     resource :favorite_trips, only: [:create, :destroy]
