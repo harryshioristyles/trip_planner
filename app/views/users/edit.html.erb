@@ -6,7 +6,7 @@
 		    <%= f.text_field :nickname, class: "name" %>
 		    <h4>Introduction</h4>
 		    <%= f.text_area :introduction, class: "introduction" %>
-		    <%= image_tag(@user.user_image) if @user.user_image.attached? %>
+		    <%= image_tag(@user.user_image , :size => '100x100') if @user.user_image.attached? %>
 		    <%= f.file_field :user_image %><br>
 		</div>
         <%= f.submit 'Update' %></br>
