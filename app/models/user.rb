@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :user_image
   has_many :trips, dependent: :destroy
+  has_many :favorite_trips, dependent: :destroy
 
 end
 
