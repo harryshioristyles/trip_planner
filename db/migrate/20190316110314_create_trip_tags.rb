@@ -6,5 +6,10 @@ class CreateTripTags < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :trip_tags, :trip_id
+    add_index :trip_tags, :tag_id
+    add_index :trip_tags, [:trip_id,:tag_id], unique: true
+
   end
 end
