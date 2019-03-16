@@ -6,4 +6,7 @@
 
 <%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %>
 
+　　　<%= render 'follow_form' %>
+　　　<%= render 'stats' %>
+
 <%= link_to "edit", edit_user_path(@user.id) %>
