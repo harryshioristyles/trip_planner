@@ -2,8 +2,13 @@
 <p>Find me in app/views/lists/new.html.erb</p>
 	<div>
 		Trip title:<%= @trip.trip_title %><br>
+		TAGs:
+		<% @trip.tags.each do |tag| %>
+			<span>#<%= tag.tag %></span>
+		<% end %><br>
 		Trip details:<%= @trip.trip_details %><br>
 		<%= link_to "Edit", edit_trip_path(@trip) %><br>
+
 
 			<% @trip.lists.each do |list| %>
 					Day.<%= list.day_index %>
