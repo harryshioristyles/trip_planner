@@ -9,11 +9,17 @@ class TripsController < ApplicationController
   end
 
   def create
-        trip = Trip.new(trip_params)
+        trip = current_user.trips.build(trip_params)
         trip.checking_finish = 0
-        trip.user_id = current_user.id
-        trip.save!
-        redirect_to new_list_path(trip_id: trip)
+        tag_list = params[:tag_list].split(",")
+        if
+          trip.save!
+          trip.save_tags(tag_list)
+          flash[:notice] = "successfully created."
+          redirect_to new_list_path(trip_id: trip)
+        else
+          render 'new'
+        end
   end
 
   def show
@@ -28,17 +34,20 @@ class TripsController < ApplicationController
 
   def edit
         @trip = Trip.find(params[:id])
+        @tag_list = @trip.tags.pluck(:name).join(",")
   end
 
   def update
         trip = Trip.find(params[:id])
+        tag_list = params[:tag_list].split(",")
       if
-        trip.update(trip_params)
-        redirect_to new_list_path(trip_id: trip.id)
+        trip.update_attributes(trip_params)
+        trip.save_tags(tag_list)
         flash[:notice] = "successfully updated."
+        redirect_to new_list_path(trip_id: trip.id)
       else
-        redirect_to edit_trip_path(trip.id)
         flash[:notice] = "update error!!"
+        redirect_to edit_trip_path(trip.id)
       end
   end
 
