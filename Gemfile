@@ -74,3 +74,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'cocoon'
   # needs jquery
   gem 'bootstrap-sass', '~> 3.3.6'
+  # for tag-it
+  gem 'jquery-ui-rails'
