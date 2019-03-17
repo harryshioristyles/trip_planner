@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :edit]
 
+  get "trips/tag/:id" => "trips#tag", as:"tag_trip"
   get "trips/:id/result" => "trips#result", as:"result_trip"
   resources :trips do
     resource :favorite_trips, only: [:create, :destroy]
