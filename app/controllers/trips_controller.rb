@@ -34,7 +34,7 @@ class TripsController < ApplicationController
 
   def edit
         @trip = Trip.find(params[:id])
-        @tag_list = @trip.tags.pluck(:name).join(",")
+        @tag_list = @trip.tags.pluck(:tag).join(",")
   end
 
   def update
