@@ -4,8 +4,9 @@ class Trip < ApplicationRecord
 
     has_many :lists, ->{order(:day_index, :begin)}, dependent: :destroy
     has_many :favorite_trips, dependent: :destroy
-    has_many :tags, through: :trip_tags
     has_many :trip_tags, dependent: :destroy
+    has_many :tags, through: :trip_tags
+
 
     has_one_attached :trip_image
 
