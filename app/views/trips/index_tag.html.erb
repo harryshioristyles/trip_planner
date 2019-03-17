@@ -19,7 +19,7 @@
 				    <%= trip.trip_title %><br>
 				    TAGs:
 						<% trip.tags.each do |tag| %>
-						  <%= link_to "##{tag.tag}", tag_trip_path(tag) %>
+						  <%= link_to "##{tag.tag}", index_tag_path(tag) %>
 						<% end %><br>
 
 				    "Trip Details"<br>

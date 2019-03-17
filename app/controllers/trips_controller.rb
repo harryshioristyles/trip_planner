@@ -4,7 +4,7 @@ class TripsController < ApplicationController
         @search_trips = Trip.search(params[:search])
   end
 
-  def tag
+  def index_tag
         @trips = Tag.find(params[:id]).trips
   end
 
