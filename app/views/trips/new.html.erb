@@ -1,14 +1,20 @@
 <h1>Trips#new</h1>
-	<div>
+<div class="container">
+  <div class="row">
+    <div class="trip-form col-sm-6 col-sm-offset-3">
+    	<h3>What's your plan name??</h3>
+    	<h4>―旅行計画の名前は？</h4>
 		<%= form_for @trip do |f| %>
 			<div class="field">
-			    <%= f.label :trip_title, "Trip Title" %>
+			    <%= f.label :trip_title, "タイトル -Title" %><br>
 			    <%= f.text_field :trip_title %>
             </div>
 			<div class="field">
-			    <%= f.label :trip_details, "Trip Details" %>
-			    <%= f.text_field :trip_details %>
+			    <%= f.label :trip_details, "詳細 -Details" %><br>
+			    <%= f.text_area :trip_details %>
             </div>
-            <%= f.submit :CREATE %>
+            <%= f.submit :CREATE, class: "btn-gradient-radius" %>
         <% end %>
     </div>
+  </div>
+</div>

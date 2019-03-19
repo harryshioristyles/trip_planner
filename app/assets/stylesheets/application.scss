@@ -16,16 +16,19 @@
     @import "bootstrap-sprockets";
     @import "bootstrap";
 
-.container {
-	width: 80%;
-	margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar-inverse {
-	background-color: #FFF0F5;
+
+header {
+	background-color: #F99695;
 	margin-bottom: 0px;
 	height: 70px;
 }
+
 .navbar-fixd-top {
 	top: 0;
 }
@@ -47,17 +50,45 @@ main {
 	text-align: center;
 }
 
+/* ボタン */
 .btn-flat-border {
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: #67c5ff;
-  border: solid 2px #67c5ff;
+  color: #F0E68C;
+  border: solid 2px #F0E68C;
   border-radius: 3px;
   transition: .4s;
+  margin: 10px;
 }
 
 .btn-flat-border:hover {
-  background: #67c5ff;
+  background: #F0E68C;
   color: white;
 }
+/* ボタン */
+
+/* top */
+
+.jumbotron {
+  width: 100%;
+  height: 500px;
+  background:image-url("/images/top.jpg");
+  background-size: cover;
+  background-position: center 60%;
+}
+/* top */
+
+/* form */
+.trip-form  {
+    padding: 0.5em 1em;
+    color: #676F74;
+    background: #8EDAE5;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    height: 300px;
+}
+
+.text {
+	color: #000;
+}
+/* form */

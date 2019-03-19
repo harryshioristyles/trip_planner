@@ -1,24 +1,29 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
-	<div>
-		Trip title:<%= @trip.trip_title %><br>
-		Trip details:<%= @trip.trip_details %><br>
-		<%= link_to "Edit", edit_trip_path(@trip) %><br>
+<div class="container">
+  <div class="row">
+    <div class="plan-leftbar col-sm-4">
+		<h4>Trip title:<br>
+			<%= @trip.trip_title %></h4><br>
+		<h5>Trip details:<br>
+			<%= @trip.trip_details %></h5><br>
+		<%= link_to "Edit", edit_trip_path(@trip), class: "btn-gradient-radius" %><br>
 
+			<div class="plan-list">
 			<% @trip.lists.each do |list| %>
-					Day.<%= list.day_index %>
-					date:<%= list.date %><br>
-					begin:<%= list.begin %>
-					end:<%= list.end %><br>
+					Day.<%= list.day_index %><br>
 					list_title:<%= list.list_title %><br>
-					list_details:<%= list.list_details %><br>
+					Date:<%= list.date.strftime('%Y/%m/%d') %>
+					<%= list.begin.strftime('%H:%M') %>～
+					<%= list.end.strftime('%H:%M') %><br>
 					City:<%= list.city.city_name %><br>
 					Activity:<%= list.activity.activity_name %><br>
-					<%= link_to "Edit", edit_list_path(list) %><br>
-					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?" %><br>
+					list_details:<%= list.list_details %><br>
+
+					<%= link_to "Edit", edit_list_path(list), class: "btn-gradient-radius" %><br>
+					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-gradient-radius" %><br>
 			<% end %>
+		    </div>
     </div>
-	<div>
+	<div class="plan-rightbar col-sm-8">
 		<%= form_for @list do |f| %>
 			<div class="field">
 			    <%= f.label :day_index, "Day" %>
@@ -53,7 +58,9 @@
 			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
             </div>
                 <%= f.hidden_field :trip_id, value: @trip.id %>
-            <%= f.submit :CREATEandNew %>
+            <%= f.submit :CREATEandNew, class: "btn-gradient-radius" %>
         <% end %>
-            <%= link_to "finish!!", result_trip_path(@trip) %>
+            <%= link_to "finish!!", result_trip_path(@trip), class: "btn-gradient-radius" %>
     </div>
+  </div>
+</div>
