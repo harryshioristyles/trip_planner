@@ -2,29 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* 左の計画 */
-.plan-leftbar {
-	width: 100%;
-	height: 600px;
+/* 右の計画作成 */
+.main {
+  	background: pink;
+  	margin-bottom: 10px;
+  	width: 70%;
+	height: 100%;
+}
+/* 左の計画一覧 */
+.side {
+  	background: #fea;
+  	width: 30%;
+	height: 100%;
 	orverflow: scroll;
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #ff7d6e;
-    background: #ffebe9;
-    border-top: solid 10px #F99695;
+}
+.main,
+.side {
+  	padding: 2%;
 }
 
-/* 右の計画 */
-.plan-rightbar {
-	width: 100%;
-	height: 600px;
-	orverflow: scroll;
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #ff7d6e;
-    background: #8EDAE5;
-    border-top: solid 10px #ff7d6e;
+/* Responsive */
+@media ( min-width : 600px ){
+    .flexbox {
+      display: -webkit-flex;
+      display: flex;
+    }
+  .main {
+      margin: 0 10px 0 0;
+  }
 }
+
+/* 左の計画詳細 */
+.plan-leftbar {
+
+}
+
+
+
 
 /* ボタン */
 .btn-gradient-radius {
@@ -48,7 +62,4 @@
 	margin: 10px;
 }
 
-/* 左のリスト */
-.plan-list {
-	margin-top: 5px;
-}
+

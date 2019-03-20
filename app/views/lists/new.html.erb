@@ -1,15 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="plan-leftbar col-sm-4">
-		<h4>Trip title:<br>
-			<%= @trip.trip_title %></h4><br>
-		<h5>Trip details:<br>
-			<%= @trip.trip_details %></h5><br>
-		<%= link_to "Edit", edit_trip_path(@trip), class: "btn-gradient-radius" %><br>
-
-			<div class="plan-list">
+<div class="flexbox">
+  <section class="side">
+		<h4>旅行のタイトル:<br><%= @trip.trip_title %></h4>
+		<div>詳細:<br><%= @trip.trip_details %>
+		</div>
+		<div><%= link_to "Edit", edit_trip_path(@trip), class: "btn-gradient-radius" %>
+		</div>
+		<div class="plan-list">
 			<% @trip.lists.each do |list| %>
-					Day.<%= list.day_index %><br>
+					<%= list.day_index %>日目<br>
 					list_title:<%= list.list_title %><br>
 					Date:<%= list.date.strftime('%Y/%m/%d') %>
 					<%= list.begin.strftime('%H:%M') %>～
@@ -21,46 +19,48 @@
 					<%= link_to "Edit", edit_list_path(list), class: "btn-gradient-radius" %><br>
 					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-gradient-radius" %><br>
 			<% end %>
-		    </div>
-    </div>
-	<div class="plan-rightbar col-sm-8">
+		</div>
+  </section>
+  <section class="main">
+  	<h1>計画作成</h1>
 		<%= form_for @list do |f| %>
 			<div class="field">
-			    <%= f.label :day_index, "Day" %>
+			    <%= f.label :day_index, "Day" %><br>
 			    <%= f.text_field :day_index %>
             </div>
 			<div class="field">
-			    <%= f.label :date, "Date" %>
+			    <%= f.label :date, "Date" %><br>
 			    <%= f.date_field :date %>
             </div>
 			<div class="field">
-			    <%= f.label :begin, "Start from" %>
+			    <%= f.label :begin, "開始" %><br>
 			    <%= f.time_field :begin %>
             </div>
 			<div class="field">
-			    <%= f.label :end, "finish by" %>
+			    <%= f.label :end, "終了" %><br>
 			    <%= f.time_field :end %>
             </div>
 			<div class="field">
-			    <%= f.label :list_title, "List Title" %>
+			    <%= f.label :list_title, "タイトル" %><br>
 			    <%= f.text_field :list_title %>
             </div>
 			<div class="field">
-			    <%= f.label :list_details, "List Details" %>
+			    <%= f.label :list_details, "詳細" %><br>
 			    <%= f.text_area :list_details %>
             </div>
 			<div class="field">
-			    <%= f.label :city_id, "City" %>
+			    <%= f.label :city_id, "都市" %><br>
 			    <%= f.collection_select :city_id, City.all, :id, :city_name %>
             </div>
 			<div class="field">
-			    <%= f.label :activity_id, "Activity" %>
+			    <%= f.label :activity_id, "アクティビティ" %><br>
 			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
             </div>
-                <%= f.hidden_field :trip_id, value: @trip.id %>
-            <%= f.submit :CREATEandNew, class: "btn-gradient-radius" %>
+                <%= f.hidden_field :trip_id, value: @trip.id %><br>
+            	<%= f.submit :"新規作成", class: "btn-gradient-radius" %>
         <% end %>
-            <%= link_to "finish!!", result_trip_path(@trip), class: "btn-gradient-radius" %>
-    </div>
-  </div>
+            <div>旅行計画できた！
+            	<%= link_to "結果画面へ", result_trip_path(@trip), class: "btn-gradient-radius" %>
+            </div>
+  </section>
 </div>

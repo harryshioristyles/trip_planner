@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,6 +18,11 @@
                   <span>Travel Planner</span>
                 </nav>
                 <ul class="nav navbar-nav navbar-right">
+                  <li role="presentation">
+                    <%= link_to destroy_admin_session_path , method: :delete, class: "glyphicon glyphicon-log-out logout" do %>
+                      <span aria-hidden="true"> trip</span>
+                    <% end %>
+                  </li>
                   <li role="presentation">
                     <%= link_to destroy_admin_session_path , method: :delete, class: "glyphicon glyphicon-log-out logout" do %>
                       <span aria-hidden="true"> ログアウト</span>
