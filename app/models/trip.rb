@@ -2,7 +2,6 @@ class Trip < ApplicationRecord
 
     validates :trip_title,      presence: true, length: { in: 2..20 }
     validates :trip_details,    length: { maximum: 50 }
-    validates :checking_finish, numericality: { only_integer: true }
     validates :user_id,         numericality: { only_integer: true }
 
     belongs_to :user

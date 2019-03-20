@@ -1,7 +1,6 @@
 class Country < ApplicationRecord
 
  	validates :country_name, presence: true, length: { maximum: 50 }
-	validates :area, numericality: { only_integer: true }
 
 	has_many :cities, inverse_of: :country, dependent: :destroy
 	accepts_nested_attributes_for :cities, reject_if: :all_blank, allow_destroy: true
