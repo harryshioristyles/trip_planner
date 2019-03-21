@@ -1,9 +1,62 @@
 <h1>Users#show</h1>
-<p>UserID:<%= @user.id %></p>
-<p>Nickname：<%= @user.nickname %></p>
-<p>Mail：<%= @user.email %></p>
-<p>Introduce：<%= @user.introduction %></p>
+<div class="flexbox">
+  <div class="side user">
+  	<div class="user-profile">
+		<%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %>
+		<div class="user-profile-title">UserID</div>
+		<div class="user-profile-text"><%= @user.id %></div>
+		<div class="user-profile-title">Nickname</div>
+		<div class="user-profile-text"><%= @user.nickname %></div>
+		<div class="user-profile-title">Mail</div>
+		<div class="user-profile-text"><%= @user.email %></div>
+		<div class="user-profile-title">Introduce</div>
+		<div class="user-profile-introduction"><%= @user.introduction %></div>
+	</div>
+        <% if @user.id == current_user.id %>
+			<div><%= link_to "edit", edit_user_path(@user.id) %></div>
+		<% end %>
+		    <div><%= link_to "follow_user" %></div>
+			<div><%= link_to "favorite" %></div>
 
-<%= @user.user_image.attached? ? image_tag(@user.user_image , :size => '100x100') : image_tag("noimage/no_image.jpg") %>
+  </div>
+  <div class="main">
+  		<div class="box">
+		<% @trips.each do |trip| %>
 
-<%= link_to "edit", edit_user_path(@user.id) %>
+			<div class="plan-box">
+			          <div class="photo-image">
+			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("noimage/no_image.jpg") %>
+			          </div>
+			    <div class="trip-area">
+			        <div class="trip-title">
+			          <%= trip.trip_title %>
+			        </div>
+			        <div class="trip-details">
+			          <i class="fa fa-comment"></i>
+			          <div class="trip-details-text"><%= trip.trip_details %></div>
+			        </div>
+			    </div>
+			    <div class="under-area">
+			    	<!-- 以下、likes -->
+			    	<div class="likes">
+			    		<% if trip.user_id == current_user.id %>
+			    				<i class="fa fa-heart index" aria-hidden="true" style="color: #ff7f50;"></i><%= trip.favorite_trips.count %> likes
+			    		<% elsif trip.favorited_by?(current_user) %>
+			    			<%= link_to trip_favorite_trips_path(trip), method: :delete do %>
+								<i class="fa fa-heart index" aria-hidden="true" style="color: #ff00ff;"></i><%= trip.favorite_trips.count %> likes
+						    <% end %>
+						<% else %>
+							<%= link_to trip_favorite_trips_path(trip), method: :post do %>
+							  	<i class="fa fa-heart-o index" aria-hidden="true"></i><%= trip.favorite_trips.count %> likes
+							<% end %>
+						<% end %>
+					</div>
+						<!-- 以上、likes -->
+			            <%= link_to "詳細", trip_path(trip), class:"index" %>
+			    </div>
+			</div>
+
+		<% end %>
+		</div>
+  </div>
+</div>
