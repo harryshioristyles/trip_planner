@@ -103,14 +103,14 @@ footer {
 /* 以上ボタン */
 
 /* 以下top */
-
-.jumbotron {
-  width: 100%;
-  height: 200px;
-  background:image-url("/images/top.jpg");
-  background-size: cover;
-  background-position: center 60%;
+.header-bg {
+ background-image : url("top.jpg");
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
 }
+
 /* 以上top */
 
 /* 以下form */
