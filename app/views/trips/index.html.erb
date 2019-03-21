@@ -27,9 +27,11 @@
 			    <div class="under-area">
 			    	<!-- 以下、likes -->
 			    	<div class="likes">
-			    		<% if trip.favorited_by?(current_user) %>
+			    		<% if trip.user_id == current_user.id %>
+			    				<i class="fa fa-heart index" aria-hidden="true" style="color: #ff7f50;"></i><%= trip.favorite_trips.count %> likes
+			    		<% elsif trip.favorited_by?(current_user) %>
 			    			<%= link_to trip_favorite_trips_path(trip), method: :delete do %>
-								<i class="fa fa-heart index" aria-hidden="true" style="color: red;"></i><%= trip.favorite_trips.count %> likes
+								<i class="fa fa-heart index" aria-hidden="true" style="color: #ff00ff;"></i><%= trip.favorite_trips.count %> likes
 						    <% end %>
 						<% else %>
 							<%= link_to trip_favorite_trips_path(trip), method: :post do %>
