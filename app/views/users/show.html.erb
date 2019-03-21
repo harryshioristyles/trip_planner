@@ -3,12 +3,8 @@
   <div class="side user">
   	<div class="user-profile">
 		<%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %>
-		<div class="user-profile-title">UserID</div>
-		<div class="user-profile-text"><%= @user.id %></div>
 		<div class="user-profile-title">Nickname</div>
 		<div class="user-profile-text"><%= @user.nickname %></div>
-		<div class="user-profile-title">Mail</div>
-		<div class="user-profile-text"><%= @user.email %></div>
 		<div class="user-profile-title">Introduce</div>
 		<div class="user-profile-introduction"><%= @user.introduction %></div>
 	</div>
