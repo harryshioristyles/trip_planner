@@ -7,9 +7,9 @@
 
 			<% @list.trip.lists.each do |list| %>
 					Day.<%= list.day_index %>
-					date:<%= list.date %><br>
-					begin:<%= list.begin %>
-					end:<%= list.end %><br>
+					date:<%= list.date.strftime('%Y/%m/%d') if list.date? %><br>
+					begin:<%= list.begin.strftime('%H:%M') if list.begin? %>
+					end:<%= list.end.strftime('%H:%M') if list.end? %><br>
 					list_title:<%= list.list_title %><br>
 					list_details:<%= list.list_details %><br>
 					City:<%= list.city.city_name %><br>
