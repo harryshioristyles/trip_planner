@@ -1,31 +1,31 @@
-<h1>Users#show</h1>
 <div class="flexbox">
   <div class="side user">
   	<div class="profile-box">
   		<div class="profile TopLeft"><p>Travelar</p></div>
-		<div class="profile TopRight"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %></div>
-		<div class="profile BottomLeft"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %></div>
+		<div class="profile TopRight"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("no_user_image.jpg") %></div>
+		<div class="profile BottomLeft"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("no_user_image.jpg") %></div>
 		<div class="profile BottomRight"><p><%= @user.nickname %></p></div>
 	</div>
 	<div class="introduction-box">
         <div class="profile-title">About Me</div>
         <div class="profile-details"><%= @user.introduction %></div>
 	</div>
-
+    <div class="user-links">
         <% if @user.id == current_user.id %>
-			<div><%= link_to "edit", edit_user_path(@user.id) %></div>
+			<div><%= link_to "edit", edit_user_path(@user), class: "btn-horizontal-border" %></div>
 		<% end %>
-		    <div><%= link_to "follow_user" %></div>
-			<div><%= link_to "favorite" %></div>
-
+		    <div><%= link_to "follow_user", class: "btn-horizontal-border" %></div>
+			<div><%= link_to "favorite", class: "btn-horizontal-border" %></div>
+	</div>
   </div>
+
   <div class="main">
   		<div class="box">
 		<% @trips.each do |trip| %>
 
 			<div class="plan-box">
 			          <div class="photo-image">
-			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("noimage/no_image.jpg") %>
+			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("no_trip_image.jpg") %>
 			          </div>
 			    <div class="trip-area">
 			        <div class="trip-title">
@@ -40,10 +40,10 @@
 			    	<!-- 以下、likes -->
 			    	<div class="likes">
 			    		<% if trip.user_id == current_user.id %>
-			    				<i class="fa fa-heart index" aria-hidden="true" style="color: #ff7f50;"></i><%= trip.favorite_trips.count %> likes
+			    				<i class="fa fa-heart index" aria-hidden="true" style="color: #FCFF4B;"></i><%= trip.favorite_trips.count %> likes
 			    		<% elsif trip.favorited_by?(current_user) %>
 			    			<%= link_to trip_favorite_trips_path(trip), method: :delete do %>
-								<i class="fa fa-heart index" aria-hidden="true" style="color: #ff00ff;"></i><%= trip.favorite_trips.count %> likes
+								<i class="fa fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes
 						    <% end %>
 						<% else %>
 							<%= link_to trip_favorite_trips_path(trip), method: :post do %>
