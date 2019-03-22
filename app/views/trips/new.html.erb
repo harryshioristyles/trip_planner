@@ -5,6 +5,7 @@
     	<h3>What's your plan name??</h3>
     	<h4>―旅行計画の名前は？</h4>
 		<%= form_for @trip do |f| %>
+		    <%= f.file_field :trip_image %><br>
 			<div class="field">
 			    <%= f.label :trip_title, "タイトル -Title*" %><br>
 			    <%= f.text_field :trip_title %>
