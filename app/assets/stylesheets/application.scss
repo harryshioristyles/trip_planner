@@ -17,6 +17,7 @@
     @import "bootstrap";
     @import "trips";
     @import "lists";
+    @import "users";
 
 * {
   margin: 0;
@@ -40,9 +41,9 @@ body {
 }
 
 header {
-	background-color: #F99695;
+	background-color: #1D3461;
 	margin-bottom: 0px;
-	height: 70px;
+	height: 140px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -105,13 +106,30 @@ footer {
 /* 以下top */
 .header-bg {
  background-image : url("top.jpg");
- background-position: center center;
+ background-position: top center;
  background-repeat: no-repeat;
  background-size: cover;
  height: 100vh;
 }
 
 /* 以上top */
+
+/* 右メイン */
+.main {
+  	background: pink;
+  	margin-bottom: 10px;
+  	width: 70%;
+	height: 100%;
+}
+/* 左サイド */
+.side {
+  	background: #fea;
+  	width: 30%;
+	height: 100%;
+}
+.main,.side {
+  	padding: 2%;
+}
 
 /* 以下form */
 .trip-form  {
