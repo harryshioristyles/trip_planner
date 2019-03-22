@@ -1,13 +1,17 @@
 <h1>Users#show</h1>
 <div class="flexbox">
   <div class="side user">
-  	<div class="user-profile">
-		<%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %>
-		<div class="user-profile-title">Nickname</div>
-		<div class="user-profile-text"><%= @user.nickname %></div>
-		<div class="user-profile-title">Introduce</div>
-		<div class="user-profile-introduction"><%= @user.introduction %></div>
+  	<div class="profile-box">
+  		<div class="profile TopLeft"><p>Travelar</p></div>
+		<div class="profile TopRight"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %></div>
+		<div class="profile BottomLeft"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("noimage/no_image.jpg") %></div>
+		<div class="profile BottomRight"><p><%= @user.nickname %></p></div>
 	</div>
+	<div class="introduction-box">
+        <div class="profile-title">About Me</div>
+        <div class="profile-details"><%= @user.introduction %></div>
+	</div>
+
         <% if @user.id == current_user.id %>
 			<div><%= link_to "edit", edit_user_path(@user.id) %></div>
 		<% end %>
