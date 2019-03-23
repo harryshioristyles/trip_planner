@@ -7,7 +7,7 @@
   		<div class="box">
 		<% @trips.each do |trip| %>
 
-			<div class="plan-box">
+			<div class="plan-s-box">
 			          <div class="photo-image">
 			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("no_trip_image.jpg") %>
 			          </div>
