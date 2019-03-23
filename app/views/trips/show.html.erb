@@ -1,20 +1,87 @@
-<h1>Trips#show</h1>
-	<div>
-		Trip title:<%= @trip.trip_title %><br>
-		Trip details:<%= @trip.trip_details %><br>
-		<%= link_to "Edit", edit_trip_path(@trip) %><br>
-		<%= link_to "Delete", trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?" %><br>
-
-			<% @trip.lists.each do |list| %>
-					Day.<%= list.day_index %>
-					date:<%= list.date %><br>
-					begin:<%= list.begin %>
-					end:<%= list.end %><br>
-					list_title:<%= list.list_title %><br>
-					list_details:<%= list.list_details %><br>
-					City:<%= list.city.city_name %><br>
-					Activity:<%= list.activity.activity_name %><br>
-					<%= link_to "Edit", edit_list_path(list) %><br>
-					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?" %><br>
-			<% end %>
+<div class="flexbox">
+    <div class="side user">
+	<%= render 'users/profile', user: @user %>
     </div>
+
+    <div class="main">
+  		<div class="plan-b-box">
+  			<div class="trip-box">
+  				<div class="top-area">
+  					<div class="day-area">
+		  				<div class="day">Days.</div>
+						<div class="day-no">5<%= @days %></div>
+					</div>
+	  		        <div class="trip-image">
+	            		<%= @trip.trip_image.attached? ? image_tag(@trip.trip_image) : image_tag("no_trip_image.jpg") %>
+	          		</div>
+          		</div>
+
+				<div class="trip-title"><%= @trip.trip_title %></div>
+				<div class="trip-details">
+					<i class="fa fa-comment"></i>
+					<div class="trip-details-text"><%= @trip.trip_details %></div>
+				</div>
+				<div class="under-area">
+					<%= render 'favorite_trips/likes', trip: @trip %>
+					<div>
+					  <% if @trip.user_id == current_user.id %>
+						<%= link_to edit_trip_path(@trip), class:"btn-flat-logo" do %>
+					        <i class="fa fa-chevron-right"></i>Edit
+					    <% end %>
+						<%= link_to trip_path(@trip), method: :delete, "data-confirm" => "Are you sure? All trip data is gone?", class:"btn-flat-logo" do %>
+							<i class="fa fa-chevron-right"></i>Delete
+					    <% end %>
+					  <% end %>
+					</div>
+    			</div>
+			</div>
+
+			<div class="list-b-box">
+				<% @trip.lists.each do |list| %>
+					<div class="list-m-box">
+						<div class="arrow">
+							<div class="arrow-day">
+								<div><span>Day.<%= list.day_index %></span><br>
+									 <%= list.date.strftime('%Y/%m/%d') if list.date? %><br>
+									 <%= list.begin.strftime('%H:%M') if list.begin? %>～
+									 <%= list.end.strftime('%H:%M') if list.end? %><br>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="dot"></div>
+							<div class="line"><%= image_tag 'line.jpg',alt:"|" %></div>
+						</div>
+
+						<div class="list-s-box">
+							<div class="list-title"><%= list.list_title %></div>
+							<div class="list-details">
+								<i class="fa fa-comment"></i>
+								<div><%= list.list_details %></div>
+							</div>
+							<div class="list-details">
+								<i class="fas fa-map-marker-alt"></i>
+								<div><%= list.city.city_name %></div>
+							</div>
+							<div class="list-details">
+								<i class="fas fa-running"></i>
+								<div><%= list.activity.activity_name %></div>
+							</div>
+							<div>
+					          <% if @trip.user_id == current_user.id %>
+								<%= link_to edit_list_path(list), class:"btn-flat-logo" do %>
+							        <i class="fa fa-chevron-right"></i>Edit
+							    <% end %>
+								<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure? All trip data is gone?", class:"btn-flat-logo" do %>
+									<i class="fa fa-chevron-right"></i>Delete
+							    <% end %>
+					          <% end %>
+							</div>
+						</div>
+
+					</div>
+				<% end %>
+			</div>
+		</div>
+    </div>
+</div>
