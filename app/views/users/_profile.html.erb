@@ -1,0 +1,17 @@
+  	<div class="profile-box">
+  		<div class="profile TopLeft"><p>Travelar</p></div>
+		<div class="profile TopRight"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("no_user_image.jpg") %></div>
+		<div class="profile BottomLeft"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("no_user_image.jpg") %></div>
+		<div class="profile BottomRight"><p><%= user.nickname %></p></div>
+	</div>
+	<div class="introduction-box">
+        <div class="profile-title">About Me</div>
+        <div class="profile-details"><%= user.introduction %></div>
+	</div>
+    <div class="user-links">
+        <% if user.id == current_user.id %>
+			<div><%= link_to "edit", edit_user_path(user), class: "btn-horizontal-border" %></div>
+		<% end %>
+		    <div><%= link_to "follow_user", class: "btn-horizontal-border" %></div>
+			<div><%= link_to "favorite", class: "btn-horizontal-border" %></div>
+	</div>
