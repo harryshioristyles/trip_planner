@@ -4,22 +4,9 @@
 
 /* 右の計画作成 */
 .main {
-  	background: pink;
-  	margin-bottom: 10px;
-  	width: 70%;
-	height: 100%;
+
 }
 /* 左の計画一覧 */
-.side {
-  	background: #fea;
-  	width: 30%;
-	height: 100%;
-	orverflow: scroll;
-}
-.main,
-.side {
-  	padding: 2%;
-}
 
 /* Responsive */
 @media ( min-width : 600px ){

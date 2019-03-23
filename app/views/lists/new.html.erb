@@ -1,10 +1,15 @@
-<div class="flexbox">
-  <section class="side">
-		<h4>旅行のタイトル:<br><%= @trip.trip_title %></h4>
+<div class="lists flexbox">
+  <div class="lists-side">
+  	<div class="trip-box">
+  		<div class="trip-image">
+			<%= @trip.trip_image.attached? ? image_tag(@trip.trip_image) : image_tag("no_trip_image.jpg") %>
+		</div>
+		<div class="trip-title"><%= @trip.trip_title %></div>
 		<div>詳細:<br><%= @trip.trip_details %>
 		</div>
 		<div><%= link_to "Edit", edit_trip_path(@trip), class: "btn-gradient-radius" %>
 		</div>
+	</div>
 		<div class="plan-list">
 			<% @trip.lists.each do |list| %>
 					<%= list.day_index %>日目<br>
@@ -20,33 +25,34 @@
 					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-gradient-radius" %><br>
 			<% end %>
 		</div>
-  </section>
-  <section class="main">
-  	<h1>計画作成</h1>
+  </div>
+
+  <div class="lists-main">
 		<%= form_for @list do |f| %>
 			<div class="field">
-			    <%= f.label :day_index, "Day" %><br>
-			    <%= f.text_field :day_index %>
+			    <%= f.label :list_title %><br>
+			    <%= f.text_field :list_title, placeholder: "入力してね", autofocus: true, autocomplete: "タイトル*" %>
+            </div>
+            			<div class="field">
+			    <%= f.label :day_index %><br>
+			    <%= f.text_field :day_index, placeholder: "入力してね", autofocus: true, autocomplete: "Day" %>
             </div>
 			<div class="field">
-			    <%= f.label :date, "Date" %><br>
-			    <%= f.date_field :date %>
+			    <%= f.label :date %><br>
+			    <%= f.date_field :date, placeholder: "入力してね", autofocus: true, autocomplete: "Date" %>
             </div>
 			<div class="field">
-			    <%= f.label :begin, "開始" %><br>
-			    <%= f.time_field :begin %>
+			    <%= f.label :begin %><br>
+			    <%= f.time_field :begin, utofocus: true, autocomplete: "時間" %>
             </div>
 			<div class="field">
-			    <%= f.label :end, "終了" %><br>
-			    <%= f.time_field :end %>
+			    <%= f.label :end %><br>
+			    <%= f.time_field :end, autofocus: true, autocomplete: "時間" %>
             </div>
+
 			<div class="field">
-			    <%= f.label :list_title, "タイトル" %><br>
-			    <%= f.text_field :list_title %>
-            </div>
-			<div class="field">
-			    <%= f.label :list_details, "詳細" %><br>
-			    <%= f.text_area :list_details %>
+			    <%= f.label :list_details %><br>
+			    <%= f.text_area :list_details, placeholder: "入力してね", autofocus: true, autocomplete: "詳細" %>
             </div>
 			<div class="field">
 			    <%= f.label :city_id, "都市" %><br>
@@ -62,5 +68,5 @@
             <div>旅行計画できた！
             	<%= link_to "結果画面へ", result_trip_path(@trip), class: "btn-gradient-radius" %>
             </div>
-  </section>
+  </div>
 </div>

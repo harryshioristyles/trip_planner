@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-  	        @user = current_user
+    @user = User.find(params[:id])
+    @trips = Trip.where(user_id: @user, checking_finish: 1)
   end
 
   def edit
