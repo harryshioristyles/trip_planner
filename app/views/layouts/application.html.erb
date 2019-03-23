@@ -13,7 +13,7 @@
   <body>
         <header>
                 <% if admin_signed_in? %>
-                  <div class="header-left"><%= link_to "Travel Planner", admins_top_path %></div>
+                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-africa"></i> Travel Planner<% end %></div>
                       <div class="header-right">
                         <div class="header-link">
                           <%= link_to "アドミン：仮のリンク" %>
@@ -23,7 +23,7 @@
                         </div>
                       </div>
                 <% elsif user_signed_in? %>
-                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-asia"></i>Travel Planner<% end %></div>
+                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-asia"></i> Travel Planner<% end %></div>
                       <div class="header-right">
                         <div class="header-link">
                           <%= link_to "My Page", user_path(current_user) %>
@@ -33,7 +33,7 @@
                         </div>
                       </div>
                 <% else %>
-                  <div class="header-left"><%= link_to "Travel Planner", root_path %></div>
+                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-americas"></i> Travel Planner<% end %></div>
                       <div class="header-right">
                         <div class="header-link">
                           <%= link_to "Log in", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" %>

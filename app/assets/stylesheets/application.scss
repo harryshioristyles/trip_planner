@@ -48,15 +48,15 @@ body {
 header {
 	background-color: #1D3461;
 	margin-bottom: 0px;
-	height: 120px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+	height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .header-left a {
 	font-family: Arial Black;
-	font-size: 36px;
+	font-size: 30px;
 	color: #FFF;
 	text-decoration: none;
 }
@@ -226,4 +226,6 @@ footer {
 
 /* 以上top */
 
-
+.modal-body {
+  text-align: center;
+}
