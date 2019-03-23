@@ -1,8 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-        <h2>Log in</h2>
-
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
           <div class="field-login">
@@ -28,6 +32,6 @@
         <% end %>
 
         <%= render "users/shared/links" %>
+      </div>
     </div>
   </div>
-</div>
