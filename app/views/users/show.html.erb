@@ -1,22 +1,6 @@
 <div class="flexbox">
   <div class="side user">
-  	<div class="profile-box">
-  		<div class="profile TopLeft"><p>Travelar</p></div>
-		<div class="profile TopRight"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("no_user_image.jpg") %></div>
-		<div class="profile BottomLeft"><%= @user.user_image.attached? ? image_tag(@user.user_image) : image_tag("no_user_image.jpg") %></div>
-		<div class="profile BottomRight"><p><%= @user.nickname %></p></div>
-	</div>
-	<div class="introduction-box">
-        <div class="profile-title">About Me</div>
-        <div class="profile-details"><%= @user.introduction %></div>
-	</div>
-    <div class="user-links">
-        <% if @user.id == current_user.id %>
-			<div><%= link_to "edit", edit_user_path(@user), class: "btn-horizontal-border" %></div>
-		<% end %>
-		    <div><%= link_to "follow_user", class: "btn-horizontal-border" %></div>
-			<div><%= link_to "favorite", class: "btn-horizontal-border" %></div>
-	</div>
+	<%= render 'users/profile', user: @user %>
   </div>
 
   <div class="main">
@@ -37,22 +21,10 @@
 			        </div>
 			    </div>
 			    <div class="under-area">
-			    	<!-- 以下、likes -->
-			    	<div class="likes">
-			    		<% if trip.user_id == current_user.id %>
-			    				<i class="fa fa-heart index" aria-hidden="true" style="color: #FCFF4B;"></i><%= trip.favorite_trips.count %> likes
-			    		<% elsif trip.favorited_by?(current_user) %>
-			    			<%= link_to trip_favorite_trips_path(trip), method: :delete do %>
-								<i class="fa fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes
-						    <% end %>
-						<% else %>
-							<%= link_to trip_favorite_trips_path(trip), method: :post do %>
-							  	<i class="fa fa-heart-o index" aria-hidden="true"></i><%= trip.favorite_trips.count %> likes
-							<% end %>
-						<% end %>
-					</div>
-						<!-- 以上、likes -->
-			            <%= link_to "詳細", trip_path(trip), class:"index" %>
+					<%= render 'favorite_trips/likes', trip: trip %>
+			        <%= link_to trip_path(trip), class:"btn-flat-logo" do %>
+			          	<i class="fa fa-chevron-right"></i>詳細
+			        <% end %>
 			    </div>
 			</div>
 
