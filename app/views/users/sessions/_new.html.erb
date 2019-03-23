@@ -9,7 +9,7 @@
     <div class="modal-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-          <div class="field-login">
+          <div class="field">
             <%= f.label :nickname %><br />
             <%= f.text_field :nickname, placeholder: "Nickname", autofocus: true, autocomplete: "NickName" %>
           </div>
@@ -27,6 +27,7 @@
           <% end %>
 
           <div class="actions">
+            <%= f.hidden_field :url, value: request.fullpath %>
             <%= f.submit "Log in", class: "btn-flat-border" %>
           </div>
         <% end %>
