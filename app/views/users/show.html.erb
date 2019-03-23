@@ -5,30 +5,9 @@
 
   <div class="main">
   		<div class="box">
-		<% @trips.each do |trip| %>
-
-			<div class="plan-s-box">
-			          <div class="photo-image">
-			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("no_trip_image.jpg") %>
-			          </div>
-			    <div class="trip-area">
-			        <div class="trip-title">
-			          <%= trip.trip_title %>
-			        </div>
-			        <div class="trip-details">
-			          <i class="fa fa-comment"></i>
-			          <div class="trip-details-text"><%= trip.trip_details %></div>
-			        </div>
-			    </div>
-			    <div class="under-area">
-					<%= render 'favorite_trips/likes', trip: trip %>
-			        <%= link_to trip_path(trip), class:"btn-flat-logo" do %>
-			          	<i class="fa fa-chevron-right"></i>詳細
-			        <% end %>
-			    </div>
-			</div>
-
-		<% end %>
+			<% @trips.each do |trip| %>
+				<%= render 'trips/small_box', trip: trip %>
+			<% end %>
 		</div>
   </div>
 </div>
