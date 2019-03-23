@@ -10,40 +10,7 @@
 
 	    <div class="box">
 		<% @search_trips.each do |trip| %>
-
-			<div class="plan-box">
-			          <div class="photo-image">
-			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("noimage/no_image.jpg") %>
-			          </div>
-			    <div class="trip-area">
-			        <div class="trip-title">
-			          <%= trip.trip_title %>
-			        </div>
-			        <div class="trip-details">
-			          <i class="fa fa-comment"></i>
-			          <div class="trip-details-text"><%= trip.trip_details %></div>
-			        </div>
-			    </div>
-			    <div class="under-area">
-			    	<!-- 以下、likes -->
-			    	<div class="likes">
-			    		<% if trip.user_id == current_user.id %>
-			    				<i class="fa fa-heart index" aria-hidden="true" style="color: #ff7f50;"></i><%= trip.favorite_trips.count %> likes
-			    		<% elsif trip.favorited_by?(current_user) %>
-			    			<%= link_to trip_favorite_trips_path(trip), method: :delete do %>
-								<i class="fa fa-heart index" aria-hidden="true" style="color: #ff00ff;"></i><%= trip.favorite_trips.count %> likes
-						    <% end %>
-						<% else %>
-							<%= link_to trip_favorite_trips_path(trip), method: :post do %>
-							  	<i class="fa fa-heart-o index" aria-hidden="true"></i><%= trip.favorite_trips.count %> likes
-							<% end %>
-						<% end %>
-					</div>
-						<!-- 以上、likes -->
-			            <%= link_to "詳細", trip_path(trip), class:"index" %>
-			    </div>
-			</div>
-
+			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
 		</div>
 
