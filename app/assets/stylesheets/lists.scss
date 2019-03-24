@@ -2,29 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* 右の計画作成 */
-.main {
-
-}
-/* 左の計画一覧 */
 
 /* Responsive */
 @media ( min-width : 600px ){
-    .flexbox {
-      display: -webkit-flex;
-      display: flex;
-    }
+  .flexbox {
+    display: -webkit-flex;
+    display: flex;
+  }
   .main {
-      margin: 0 10px 0 0;
+    margin: 0 10px 0 0;
   }
 }
-
-/* 左の計画詳細 */
-.plan-leftbar {
-
-}
-
-
 
 
 /* ボタン */
