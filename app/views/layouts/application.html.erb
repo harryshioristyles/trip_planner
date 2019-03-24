@@ -36,12 +36,12 @@
             <% end %>
             <div class="header-right">
               <%= link_to user_path(current_user) do %>
-                <div class="header-link">
+                <div class="header-link btn-horizontal-border">
                   <i class="fas fa-user-astronaut"> My Page</i>
                 </div>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <div class="header-link">
+                <div class="header-link btn-horizontal-border">
                   <i class="fas fa-sign-out-alt"> Log Out</i>
                 </div>
               <% end %>
@@ -55,14 +55,14 @@
             <div class="header-right">
               <div class="header-link">
                 <!-- Login modal and render -->
-                <%= link_to "Login", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" %>
+                <%= link_to "Login", '', class: "nav-link btn-flat-border", "data-toggle": "modal", "data-target": "#signinModal" %>
                 <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
                   <%= render "users/sessions/new" %>
                 </div>
               </div>
               <div class="header-link">
                 <!-- Signup modal and render -->
-                <%= link_to "Signup", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signupModal" %>
+                <%= link_to "Signup", '', class: "nav-link btn-flat-border", "data-toggle": "modal", "data-target": "#signupModal" %>
                 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
                   <%= render "users/registrations/new" %>
                 </div>

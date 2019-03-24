@@ -70,8 +70,6 @@ header i {
 .header-link {
   margin: auto 10px;
   padding: 0 10px;
-  border-top: solid 3px #FFF;
-  border-bottom: solid 3px #FFF;
 }
 
 main {
@@ -134,7 +132,7 @@ footer {
 }
 /* 以上form */
 
-/* 以下スタートボタン */
+/* 以下黄色スタートボタン */
 .btn-flat-border {
   display: inline-block;
   padding: 0.3em 1em;
@@ -150,16 +148,16 @@ footer {
   background: #FCFF4B;
   color: white;
 }
-/* 以上ボタン */
+/* 以上黄色スタートボタン */
 
-/* 以下上下線付きボタン */
+/* 上下線付きボタン（ヘッダー） */
 .btn-horizontal-border {
   position: relative;
   display: inline-block;
   font-weight: bold;
   padding: 12px 20px 8px;
   text-decoration: none;
-  color: #FCFF4B;
+  color: #FFF;
   transition: .4s;
 }
 
@@ -171,7 +169,7 @@ footer {
   top:100%;
   left: 0;
   border-radius: 3px;
-  background: #FCFF4B;
+  background: #FFF;
   transition: .2s;
 }
 
@@ -183,7 +181,7 @@ footer {
   top:0;
   left: 0;
   border-radius: 3px;
-  background: #FCFF4B;
+  background: #FFF;
   transition: .2s;
 }
 
@@ -198,7 +196,7 @@ footer {
 .btn-horizontal-border a {
 	text-decoration: none;
 }
-/* 以上ボタン */
+/* 上下線付きボタン（ヘッダー） */
 
 /* 以下ロゴ風フラットボタン */
 .btn-flat-logo {
@@ -217,7 +215,7 @@ footer {
 .btn-flat-logo a {
   text-decoration: none;
 }
-/* 以上ボタン */
+/* 以上ロゴ風フラットボタン */
 
 /* 以下topimage */
 .header-bg {
