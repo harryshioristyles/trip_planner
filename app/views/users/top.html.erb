@@ -1,8 +1,11 @@
     <div class="header-bg">
 	    <div class="container">
 	      <div class="lead">旅行計画を作ってみよう！</div>
-	      <%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
-	    </div>
+	      	<%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
+	      </div>
+	      <div class="lead">検索！</div>
+	      		<%= link_to "Search", trips_path(0), class: "btn-flat-border" %>
+	      </div>
     </div>
 
   <h2>お気に入りユーザーの新着</h2>

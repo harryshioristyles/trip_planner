@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit]
 
   get "trips/:id/result" => "trips#result", as:"result_trip"
-  resources :trips do
+  get "trips/:id/" => "trips#index", as:"trips"
+  resources :trips, except:[:index] do
     resource :favorite_trips, only: [:create, :destroy]
   end
 

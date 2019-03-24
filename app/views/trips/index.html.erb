@@ -13,5 +13,11 @@
 			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
 		</div>
+	    <div class="lead"></div>
+	    	    <% if @previous_page >= 0  %>
+	         		<%= link_to "Pre", "/trips/#{@previous_page}/", class: "btn-flat-border" %>
+	         	<% end %>
+	         	<%= link_to "NEXT", "/trips/#{@next_page}/", class: "btn-flat-border" %>
+	    </div>
 
 </div>
