@@ -28,8 +28,8 @@
 
 a {
   color: #000;
-  font-family: fantasy;
   text-decoration: none;
+  font-family: fantasy;
 }
 
 body {
@@ -54,12 +54,12 @@ header {
   justify-content: space-around;
   align-items: center;
 }
-header a {
+header i {
   color: #FFF;
+  text-decoration: none;
 }
 
-.header-left a {
-	font-family: Arial Black;
+.header-left i {
 	font-size: 30px;
 	text-decoration: none;
 }

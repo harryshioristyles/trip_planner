@@ -13,45 +13,45 @@
   <body>
     <header>
         <% if admin_signed_in? %>
-            <div class="header-left">
-              <%= link_to top_path  do %>
+            <%= link_to top_path  do %>
+              <div class="header-left">
                 <i class="fas fa-globe-africa"></i><a> Travel Planner</a>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
             <div class="header-right">
-              <div class="header-link">
-                <%= link_to "アドミン：仮のリンク" %>
-              </div>
-              <div class="header-link">
-                <%= link_to destroy_admin_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i><a> Log Out</a>
-                <% end %>
-              </div>
+              <%= link_to "アドミン：仮のリンク" %>
+                <div class="header-link">
+                </div>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+                <div class="header-link">
+                  <i class="fas fa-sign-out-alt"> Log Out</i>
+                </div>
+              <% end %>
             </div>
         <% elsif user_signed_in? %>
-            <div class="header-left">
-              <%= link_to top_path  do %>
-                <i class="fas fa-globe-asia"></i><a> Travel Planner</a>
-              <% end %>
-            </div>
+            <%= link_to top_path  do %>
+              <div class="header-left">
+                <i class="fas fa-globe-asia"> Travel Planner</i>
+              </div>
+            <% end %>
             <div class="header-right">
-              <div class="header-link">
-                <%= link_to user_path(current_user) do %>
-                  <i class="fas fa-user-astronaut"></i><a> My Page</a>
-                <% end %>
-              </div>
-              <div class="header-link">
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i><a> Log Out</a>
-                <% end %>
-              </div>
+              <%= link_to user_path(current_user) do %>
+                <div class="header-link">
+                  <i class="fas fa-user-astronaut"> My Page</i>
+                </div>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <div class="header-link">
+                  <i class="fas fa-sign-out-alt"> Log Out</i>
+                </div>
+              <% end %>
             </div>
         <% else %>
-            <div class="header-left">
-              <%= link_to top_path  do %>
-                <i class="fas fa-globe-americas"></i> Travel Planner
-              <% end %>
-            </div>
+            <%= link_to top_path  do %>
+              <div class="header-left">
+                <i class="fas fa-globe-americas"> Travel Planner</i>
+              </div>
+            <% end %>
             <div class="header-right">
               <div class="header-link">
                 <!-- Login modal and render -->
