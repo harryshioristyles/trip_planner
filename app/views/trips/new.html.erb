@@ -1,21 +1,21 @@
-<h1>Trips#new</h1>
-<div class="container">
-  <div class="row">
-    <div class="trip-form col-sm-6 col-sm-offset-3">
-    	<h3>What's your plan name??</h3>
-    	<h4>―旅行計画の名前は？</h4>
-		<%= form_for @trip do |f| %>
-		    <%= f.file_field :trip_image %><br>
-			<div class="field">
-			    <%= f.label :trip_title, "タイトル -Title*" %><br>
-			    <%= f.text_field :trip_title %>
-            </div>
-			<div class="field">
-			    <%= f.label :trip_details, "詳細 -Details" %><br>
-			    <%= f.text_area :trip_details %>
-            </div>
-            <%= f.submit :CREATE, class: "btn-gradient-radius" %>
-        <% end %>
-    </div>
-  </div>
-</div>
+<ul class="form-style-1">
+  <h3>What's your plan name??</h3>
+  <h4>―旅行計画の名前は？</h4>
+	<%= form_for @trip do |f| %>
+      <li>
+        <%= f.label :trip_image, "Image" %>
+        <%= f.file_field :trip_image %>
+      </li>
+	  <li>
+	    <%= f.label :trip_title, "Title" %>
+	    <%= f.text_field :trip_title, placeholder: "Title(*required)" %>
+      </li>
+      <li>
+	    <%= f.label :trip_details, "Comment" %><br>
+	    <%= f.text_area :trip_details, placeholder: "Comment(*required)" %>
+      </li>
+      <li>
+        <%= f.submit :CREATE %>
+      </li>
+    <% end %>
+</ul>
