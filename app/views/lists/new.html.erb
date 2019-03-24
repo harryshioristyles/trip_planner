@@ -1,13 +1,16 @@
-<div class="lists flexbox">
-  <div class="lists-side">
-  	<div class="trip-box">
+<div class="flexbox">
+  <div class="side user">
+  	<div class="">
   		<div class="trip-image">
 			<%= @trip.trip_image.attached? ? image_tag(@trip.trip_image) : image_tag("no_trip_image.jpg") %>
 		</div>
 		<div class="trip-title"><%= @trip.trip_title %></div>
 		<div>詳細:<br><%= @trip.trip_details %>
 		</div>
-		<div><%= link_to "Edit", edit_trip_path(@trip), class: "btn-gradient-radius" %>
+		<div>
+			<%= link_to edit_trip_path(@trip), class: "btn-horizontal-border" do %>
+				<i class="fas fa-edit"> Edit</i>
+			<% end %>
 		</div>
 	</div>
 		<div class="plan-list">
@@ -21,52 +24,61 @@
 					Activity:<%= list.activity.activity_name %><br>
 					list_details:<%= list.list_details %><br>
 
-					<%= link_to "Edit", edit_list_path(list), class: "btn-gradient-radius" %><br>
-					<%= link_to "Delete", list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-gradient-radius" %><br>
+					<%= link_to edit_list_path(list), class: "btn-horizontal-border" do %>
+						<i class="fas fa-edit"> Edit</i>
+					<% end %>
+
+					<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-horizontal-border" do %>
+						<i class="fas fa-trash-alt"> Trash</i>
+					<% end %>
 			<% end %>
 		</div>
   </div>
 
-  <div class="lists-main">
+  <div class="main">
+  	<ul class="form-style-1">
 		<%= form_for @list do |f| %>
-			<div class="field">
-			    <%= f.label :list_title %><br>
-			    <%= f.text_field :list_title, placeholder: "入力してね", autofocus: true, autocomplete: "タイトル*" %>
-            </div>
-            			<div class="field">
-			    <%= f.label :day_index %><br>
-			    <%= f.text_field :day_index, placeholder: "入力してね", autofocus: true, autocomplete: "Day" %>
-            </div>
-			<div class="field">
-			    <%= f.label :date %><br>
-			    <%= f.date_field :date, placeholder: "入力してね", autofocus: true, autocomplete: "Date" %>
-            </div>
-			<div class="field">
-			    <%= f.label :begin %><br>
-			    <%= f.time_field :begin, utofocus: true, autocomplete: "時間" %>
-            </div>
-			<div class="field">
-			    <%= f.label :end %><br>
-			    <%= f.time_field :end, autofocus: true, autocomplete: "時間" %>
-            </div>
-
-			<div class="field">
-			    <%= f.label :list_details %><br>
-			    <%= f.text_area :list_details, placeholder: "入力してね", autofocus: true, autocomplete: "詳細" %>
-            </div>
-			<div class="field">
-			    <%= f.label :city_id, "都市" %><br>
-			    <%= f.collection_select :city_id, City.all, :id, :city_name %>
-            </div>
-			<div class="field">
-			    <%= f.label :activity_id, "アクティビティ" %><br>
-			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name %>
-            </div>
-                <%= f.hidden_field :trip_id, value: @trip.id %><br>
-            	<%= f.submit :"新規作成", class: "btn-gradient-radius" %>
+			<li>
+			    <%= f.label :list_title %>
+			    <%= f.text_field :list_title, placeholder: "Title(*required)", autofocus: true, autocomplete: "Title(*required)", required: "required" %>
+            </li>
+            <li>
+			    <%= f.label :day_index %>
+			    <%= f.number_field :day_index, placeholder: "Day", autofocus: true, autocomplete: "Day", min: "1" %>
+            </li>
+			<li>
+			    <%= f.label :date %>
+			    <%= f.date_field :date, autofocus: true, autocomplete: "Date" %>
+            </li>
+			<li>
+			    <%= f.label :begin %>
+			    <%= f.time_field :begin, utofocus: true, autocomplete: "Time" %>
+			    <%= f.label :end %>
+			    <%= f.time_field :end, autofocus: true %>
+            </li>
+			<li>
+			    <%= f.label :list_details %>
+			    <%= f.text_area :list_details, placeholder: "Comment", autofocus: true, autocomplete: "Comment" %>
+            </li>
+			<li>
+			    <%= f.label :city_id, City %>
+			    <%= f.collection_select :city_id, City.all, :id, :city_name, :include_blank => true %>
+            </li>
+			<li>
+			    <%= f.label :activity_id, "Activity" %>
+			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name, :include_blank => true %>
+            </li>
+            <li>
+                <%= f.hidden_field :trip_id, value: @trip.id %>
+                <%= f.submit :"CREATE" %>
+            </li>
         <% end %>
-            <div>旅行計画できた！
-            	<%= link_to "結果画面へ", result_trip_path(@trip), class: "btn-gradient-radius" %>
-            </div>
+            <li>旅行計画できた！
+            	<%= link_to result_trip_path(@trip), class: "btn-gradient-radius" do %>
+            		<i class="fas fa-plane-arrival"> FINISH!!</i>
+            	<% end %>
+            </li>
+    </ul>
+
   </div>
 </div>
