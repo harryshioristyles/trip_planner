@@ -10,7 +10,11 @@
 	</div>
     <div class="user-links">
         <% if user.id == current_user.id %>
-			<div><%= link_to "edit", edit_user_path(user), class: "btn-horizontal-border" %></div>
+		  <%= link_to edit_user_path(user), class: "btn-horizontal-border" do %>
+			<div>
+			  <i class="fas fa-user-edit"> Edit</i>
+			</div>
+		  <% end %>
 		<% end %>
 		    <div><%= link_to "follow_user", class: "btn-horizontal-border" %></div>
 			<div><%= link_to "favorite", class: "btn-horizontal-border" %></div>
