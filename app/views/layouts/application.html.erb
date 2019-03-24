@@ -11,55 +11,75 @@
   </head>
 
   <body>
-        <header>
-                <% if admin_signed_in? %>
-                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-africa"></i> Travel Planner<% end %></div>
-                      <div class="header-right">
-                        <div class="header-link">
-                          <%= link_to "アドミン：仮のリンク" %>
-                        </div>
-                        <div class="header-link">
-                          <%= link_to "ログアウト", destroy_admin_session_path , method: :delete, class: "glyphicon glyphicon-log-out logout" %>
-                        </div>
-                      </div>
-                <% elsif user_signed_in? %>
-                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-asia"></i> Travel Planner<% end %></div>
-                      <div class="header-right">
-                        <div class="header-link">
-                          <%= link_to "My Page", user_path(current_user) %>
-                        </div>
-                        <div class="header-link">
-                          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
-                        </div>
-                      </div>
-                <% else %>
-                  <div class="header-left"><%= link_to top_path  do %><i class="fas fa-globe-americas"></i> Travel Planner<% end %></div>
-                      <div class="header-right">
-                        <div class="header-link">
-                          <%= link_to "Log in", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" %>
-                          <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
-                                  <%= render "users/sessions/new" %>
-                          </div>
-                        </div>
-                        <div class="header-link">
-                          <%= link_to "Sign up", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signupModal" %>
-                          <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
-                                  <%= render "users/registrations/new" %>
-                          </div>
-                        </div>
-                      </div>
+    <header>
+        <% if admin_signed_in? %>
+            <div class="header-left">
+              <%= link_to top_path  do %>
+                <i class="fas fa-globe-africa"></i><a> Travel Planner</a>
+              <% end %>
+            </div>
+            <div class="header-right">
+              <div class="header-link">
+                <%= link_to "アドミン：仮のリンク" %>
+              </div>
+              <div class="header-link">
+                <%= link_to destroy_admin_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i><a> Log Out</a>
                 <% end %>
-        </header>
+              </div>
+            </div>
+        <% elsif user_signed_in? %>
+            <div class="header-left">
+              <%= link_to top_path  do %>
+                <i class="fas fa-globe-asia"></i><a> Travel Planner</a>
+              <% end %>
+            </div>
+            <div class="header-right">
+              <div class="header-link">
+                <%= link_to user_path(current_user) do %>
+                  <i class="fas fa-user-astronaut"></i><a> My Page</a>
+                <% end %>
+              </div>
+              <div class="header-link">
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i><a> Log Out</a>
+                <% end %>
+              </div>
+            </div>
+        <% else %>
+            <div class="header-left">
+              <%= link_to top_path  do %>
+                <i class="fas fa-globe-americas"></i> Travel Planner
+              <% end %>
+            </div>
+            <div class="header-right">
+              <div class="header-link">
+                <!-- Login modal and render -->
+                <%= link_to "Login", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" %>
+                <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+                  <%= render "users/sessions/new" %>
+                </div>
+              </div>
+              <div class="header-link">
+                <!-- Signup modal and render -->
+                <%= link_to "Signup", '', class: "nav-link", "data-toggle": "modal", "data-target": "#signupModal" %>
+                <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+                  <%= render "users/registrations/new" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    </header>
 
-        <main>
-          <% if flash[:notice] %>
-            <p id=notice><%= flash[:notice] %></p>
-          <% end %>
+    <main>
+      <% if flash[:notice] %>
+        <p id=notice><%= flash[:notice] %></p>
+      <% end %>
 
-          <%= yield %>
-        </main>
-          <footer>
-            <p class="copyright">©︎ Travel Planner </p>
-          </footer>
+      <%= yield %>
+    </main>
+    <footer>
+      <p class="copyright">©︎ Travel Planner </p>
+    </footer>
   </body>
 </html>

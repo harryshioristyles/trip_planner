@@ -54,11 +54,13 @@ header {
   justify-content: space-around;
   align-items: center;
 }
+header a {
+  color: #FFF;
+}
 
 .header-left a {
 	font-family: Arial Black;
 	font-size: 30px;
-	color: #FFF;
 	text-decoration: none;
 }
 .header-right {
@@ -67,7 +69,10 @@ header {
   align-items: center;
 }
 .header-link {
-	padding: 0 10px;
+  margin: auto 10px;
+  padding: 0 10px;
+  border-top: solid 3px #FFF;
+  border-bottom: solid 3px #FFF;
 }
 
 main {
