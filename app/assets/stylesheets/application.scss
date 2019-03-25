@@ -215,6 +215,25 @@ footer {
 }
 /* 以上ロゴ風フラットボタン */
 
+/* 以下（紺）ロゴ風フラットボタン */
+.btn-flat-logo-navy {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #1D3461;
+  transition: .4s;
+}
+
+.btn-flat-logo-navy:hover {
+  background: #4091E8;
+}
+.btn-flat-logo-navy a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
 /* 以下（緑）ロゴ風フラットボタン */
 .btn-flat-logo-green {
   position: relative;
@@ -248,7 +267,7 @@ footer {
 .btn-flat-logo-pink:hover {
   background: #4091E8;
 }
-.btn-flat-logo-green a {
+.btn-flat-logo-pink a {
   text-decoration: none;
 }
 /* 以上ロゴ風フラットボタン */
@@ -264,6 +283,8 @@ footer {
 
 /* 以上top */
 
+/* modal */
 .modal-body {
   text-align: center;
 }
+/* modal */

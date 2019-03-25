@@ -4,7 +4,9 @@
 	      	<%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
 	      </div>
 	      <div class="lead">検索！</div>
-	      		<%= link_to "Search", search_path(0), class: "btn-flat-border" %>
+	      	<%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
+	      	  <i class="fas fa-search"> Search</i>
+	      	<% end %>
 	      </div>
     </div>
 

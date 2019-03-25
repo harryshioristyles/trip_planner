@@ -7,17 +7,19 @@
 		  <%= submit_tag 'Search', :trip_title => nil %>
 		<% end %>
 	</div>
-
-	    <div class="box">
+	<div class="box">
 		<% @search_trips.each do |trip| %>
 			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
-		</div>
-	    <div class="lead"></div>
-	    	    <% if @previous_page >= 0  %>
-	         	  <%= link_to "Pre", "/search/#{@previous_page}/", class: "btn-flat-border" %>
-	         	<% end %>
-	         	<%= link_to "NEXT", "/search/#{@next_page}/", class: "btn-flat-border" %>
-	    </div>
-
+	</div>
+    <div>
+    	<% if @previous_page >= 0  %>
+            <%= link_to "/search/#{@previous_page}/", class: "btn-flat-logo-navy" do %>
+          		<i class="fas fa-angle-double-left"> Previous</i>
+        	<% end %>
+        <% end %>
+            <%= link_to "/search/#{@next_page}/", class: "btn-flat-logo-navy" do %>
+          		 Next<i class="fas fa-angle-double-right"></i>
+        	<% end %>
+	</div>
 </div>
