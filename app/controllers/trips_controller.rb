@@ -8,6 +8,14 @@ class TripsController < ApplicationController
     @previous_page = page_no - 1
   end
 
+  def favorite_trips
+    all_trips = FavoriteTrip.where(user_id: params[:user_id]).order(created_at: :desc).map{|a| a.trip}
+
+    page_no = params[:id].to_i
+    @trips = all_trips[page_no*10..page_no*10+9]
+    @next_page = page_no + 1
+    @previous_page = page_no - 1
+  end
 
   def new
     @trip = Trip.new
