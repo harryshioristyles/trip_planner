@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* trips#search */
 .search-index {
 	margin: 0 auto;
 }
@@ -9,10 +10,10 @@
 .search-bar {
 	margin: 10px;
 }
+/* trips#search */
 
-
-
-/* Small Box */
+/* trips#search, users#show */
+/* START-Small Box */
 .box {
   display: flex;
   flex-wrap: wrap;
@@ -60,15 +61,15 @@
   padding-left: 2px;
   font-size: 12px;
 }
-/* Small Box */
+/* END-Small Box */
 
-/* Big Box*/
+/* trips#show */
+/* START-Big Box*/
 .plan-b-box {
   width: 800px;
-  height: 90%;
   padding-top: 150px;
   margin: 150px auto 30px;
-  background-color: #93B5C6;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
   position: relative;
 }
 .trip-box {
@@ -76,12 +77,10 @@
   height: 300px;
   padding: 10px;
   margin: 0 auto;
-  background-color: #FEFEFA;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
   position: absolute;
   top: -150px;
   left: 200px;
-  border-top: solid 1px;
-  border-bottom: solid 1px;
 }
 .top-area {
   display: flex;
@@ -123,7 +122,11 @@
   display: flex;
   flex-direction: row;
 }
-/* the arrow*/
+/* START-the arrow*/
+.arrow-day {
+  width: 150px;
+}
+
 .arrow {
   margin:20px 0;
 }
@@ -134,7 +137,7 @@
   float:left;
   clear:both;
   padding: 8px 10px;
-  background-color: #ECCBD9;
+  background-color: #1C3144;
 }
 .arrow div::after {
   left: 100%;
@@ -148,9 +151,9 @@
   border-color: rgba(136, 183, 213, 0);
   border-width: 10px;
   margin-top: -10px;
-  border-left-color: #ECCBD9;
+  border-left-color: #1C3144;
 }
-/* the arrow*/
+/* END-the arrow*/
 
 .arrow div span {
   font-size: 18px;
@@ -180,16 +183,11 @@
   display: flex;
   flex-direction: row;
 }
+/* END-Big Box*/
 
-
-/* Big Box*/
-
-
-
-
-
-
-
-.underArea a {
-	text-decoration: none;
+/* lists#new */
+.make-trip img {
+  width: 250px;
+  height: 170px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
 }

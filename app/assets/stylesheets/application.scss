@@ -134,17 +134,19 @@ footer {
 .btn-flat-border {
   display: inline-block;
   padding: 0.3em 1em;
-  text-decoration: none;
-  color: #FCFF4B;
-  border: solid 2px #FCFF4B;
+  color: #FFE74C;
+  border: solid 2px #FFE74C;
   border-radius: 3px;
   transition: .4s;
   margin: 10px;
 }
 
 .btn-flat-border:hover {
-  background: #FCFF4B;
+  background: #FFE74C;
   color: white;
+}
+.btn-flat-border:hover a {
+  text-decoration: none;
 }
 /* 以上黄色スタートボタン */
 
@@ -227,7 +229,7 @@ footer {
 }
 
 .btn-flat-logo-navy:hover {
-  background: #4091E8;
+  background: #6F7D9A;
 }
 .btn-flat-logo-navy a {
   text-decoration: none;
@@ -246,9 +248,28 @@ footer {
 }
 
 .btn-flat-logo-green:hover {
-  background: #4091E8;
+  background: #74B5B0;
 }
 .btn-flat-logo-green a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（赤）ロゴ風フラットボタン */
+.btn-flat-logo-red {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #8D1717;
+  transition: .4s;
+}
+
+.btn-flat-logo-red:hover {
+  background: #B66B6B;
+}
+.btn-flat-logo-red a {
   text-decoration: none;
 }
 /* 以上ロゴ風フラットボタン */
@@ -265,7 +286,7 @@ footer {
 }
 
 .btn-flat-logo-pink:hover {
-  background: #4091E8;
+  background: #F0A9C7;
 }
 .btn-flat-logo-pink a {
   text-decoration: none;

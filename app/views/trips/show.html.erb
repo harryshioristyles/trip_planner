@@ -1,5 +1,5 @@
 <div class="flexbox">
-    <div class="side user">
+    <div class="side">
 	<%= render 'users/profile', user: @user %>
     </div>
 
@@ -25,12 +25,12 @@
 					<%= render 'favorite_trips/likes', trip: @trip %>
 					<div>
 					  <% if @trip.user_id == current_user.id %>
-						<%= link_to edit_trip_path(@trip), class:"btn-flat-logo" do %>
-					        <i class="fa fa-chevron-right"></i>Edit
-					    <% end %>
-						<%= link_to trip_path(@trip), method: :delete, "data-confirm" => "Are you sure? All trip data is gone?", class:"btn-flat-logo" do %>
-							<i class="fa fa-chevron-right"></i>Delete
-					    <% end %>
+			    		<%= link_to edit_trip_path(@trip), class: "btn-flat-logo-green" do %>
+							<i class="fas fa-edit"> Edit</i>
+						<% end %>
+						<%= link_to trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+							<i class="fas fa-trash-alt"> Trash</i>
+						<% end %>
 					  <% end %>
 					</div>
     			</div>
@@ -69,12 +69,12 @@
 							</div>
 							<div>
 					          <% if @trip.user_id == current_user.id %>
-								<%= link_to edit_list_path(list), class:"btn-flat-logo" do %>
-							        <i class="fa fa-chevron-right"></i>Edit
-							    <% end %>
-								<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure? All trip data is gone?", class:"btn-flat-logo" do %>
-									<i class="fa fa-chevron-right"></i>Delete
-							    <% end %>
+							    <%= link_to edit_list_path(list), class: "btn-flat-logo-green" do %>
+									<i class="fas fa-edit"> Edit</i>
+								<% end %>
+								<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+									<i class="fas fa-trash-alt"> Trash</i>
+								<% end %>
 					          <% end %>
 							</div>
 						</div>
