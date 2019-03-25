@@ -1,38 +1,78 @@
 <div class="flexbox">
-  <div class="side user">
-  	<div class="">
-  		<div class="trip-image">
-			<%= @trip.trip_image.attached? ? image_tag(@trip.trip_image) : image_tag("no_trip_image.jpg") %>
+  <div class="side-trip">
+	<div class="trip-side-box">
+		<div class="top-area-side">
+			<div class="day-area-side">
+				<div class="day-side">Days.</div>
+				<div class="day-no-side">5<%= @days %></div>
+			</div>
+	        <div class="trip-image-side">
+    		<%= @trip.trip_image.attached? ? image_tag(@trip.trip_image) : image_tag("no_trip_image.jpg") %>
+  			</div>
 		</div>
 		<div class="trip-title"><%= @trip.trip_title %></div>
-		<div>詳細:<br><%= @trip.trip_details %>
+		<div class="trip-details">
+			<i class="fa fa-comment"></i>
+			<div class="trip-details-text"><%= @trip.trip_details %></div>
 		</div>
-		<div>
-			<%= link_to edit_trip_path(@trip), class: "btn-horizontal-border" do %>
-				<i class="fas fa-edit"> Edit</i>
-			<% end %>
+		<div class="under-area">
+			<%= render 'favorite_trips/likes', trip: @trip %>
+			<div>
+			  <% if @trip.user_id == current_user.id %>
+	    		<%= link_to edit_trip_path(@trip), class: "btn-flat-logo-green" do %>
+					<i class="fas fa-edit"> Edit</i>
+				<% end %>
+				<%= link_to trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+					<i class="fas fa-trash-alt"> DELETE</i>
+				<% end %>
+			  <% end %>
+			</div>
 		</div>
 	</div>
-		<div class="plan-list">
-			<% @trip.lists.each do |list| %>
-					<%= list.day_index %>日目<br>
-					list_title:<%= list.list_title %><br>
-					Date:<%= list.date.strftime('%Y/%m/%d') if list.date? %>
-					<%= list.begin.strftime('%H:%M') if list.begin? %>～
-					<%= list.end.strftime('%H:%M') if list.end? %><br>
-					City:<%= list.city.city_name %><br>
-					Activity:<%= list.activity.activity_name %><br>
-					list_details:<%= list.list_details %><br>
-
-					<%= link_to edit_list_path(list), class: "btn-horizontal-border" do %>
-						<i class="fas fa-edit"> Edit</i>
-					<% end %>
-
-					<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-horizontal-border" do %>
-						<i class="fas fa-trash-alt"> Trash</i>
-					<% end %>
-			<% end %>
-		</div>
+	<div class="list-side-box">
+		<% @trip.lists.each do |list| %>
+			<div class="list-m-side-box">
+				<div>
+					<div class="dot-side"></div>
+					<div class="line"><%= image_tag 'line-white.jpg',alt:"|" %></div>
+				</div>
+				<div class="list-s-side-box">
+					<div class="arrow-day-side">
+						<div><span>Day.<%= list.day_index %></span><br>
+						</div>
+						<div>
+							<%= list.date.strftime('%Y/%m/%d') if list.date? %><br>
+							<%= list.begin.strftime('%H:%M') if list.begin? %>～
+							<%= list.end.strftime('%H:%M') if list.end? %><br>
+						</div>
+					</div>
+					<div class="list-title"><%= list.list_title %></div>
+					<div class="list-details">
+						<i class="fa fa-comment"></i>
+						<div><%= list.list_details %></div>
+					</div>
+					<div class="list-details">
+						<i class="fas fa-map-marker-alt"></i>
+						<div><%= list.city.city_name %></div>
+					</div>
+					<div class="list-details">
+						<i class="fas fa-running"></i>
+						<div><%= list.activity.activity_name %></div>
+					</div>
+					<div>
+			          <% if @trip.user_id == current_user.id %>
+					    <%= link_to edit_list_path(list), class: "btn-flat-logo-green" do %>
+							<i class="fas fa-edit"> Edit</i>
+						<% end %>
+						<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+							<i class="fas fa-trash-alt"> Trash</i>
+						<% end %>
+			          <% end %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
   </div>
 
   <div class="main">
@@ -57,10 +97,6 @@
 			    <%= f.time_field :end, autofocus: true %>
             </li>
 			<li>
-			    <%= f.label :list_details %>
-			    <%= f.text_area :list_details, placeholder: "Comment", autofocus: true, autocomplete: "Comment" %>
-            </li>
-			<li>
 			    <%= f.label :city_id, City %>
 			    <%= f.collection_select :city_id, City.all, :id, :city_name, :include_blank => true %>
             </li>
@@ -68,13 +104,17 @@
 			    <%= f.label :activity_id, "Activity" %>
 			    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name, :include_blank => true %>
             </li>
+			<li>
+			    <%= f.label :list_details %>
+			    <%= f.text_area :list_details, placeholder: "Comment", autofocus: true, autocomplete: "Comment" %>
+            </li>
             <li>
                 <%= f.hidden_field :trip_id, value: @trip.id %>
                 <%= f.submit :"CREATE" %>
             </li>
         <% end %>
-            <li>旅行計画できた！
-            	<%= link_to result_trip_path(@trip), class: "btn-gradient-radius" do %>
+            <li>Did you finish?? >>>
+            	<%= link_to result_trip_path(@trip), class: "btn-flat-border" do %>
             		<i class="fas fa-plane-arrival"> FINISH!!</i>
             	<% end %>
             </li>

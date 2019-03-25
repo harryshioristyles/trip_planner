@@ -16,7 +16,6 @@
     @import "bootstrap-sprockets";
     @import "bootstrap";
     @import "trips";
-    @import "lists";
     @import "users";
 
 * {
@@ -86,6 +85,17 @@ footer {
   position: absolute;
 }
 
+/* Responsive */
+@media ( min-width : 600px ){
+  .flexbox {
+    display: -webkit-flex;
+    display: flex;
+  }
+  .main {
+    margin: 0 10px 0 0;
+  }
+}
+
 #notice {
 	position: absolute;
 	top: 0; left: 0;
@@ -116,7 +126,12 @@ footer {
 .main,.side {
   padding: 2%;
 }
-
+.side-trip {
+  background-color: #306BAC;
+  width: 30%;
+  height: 100vh;
+  overflow: scroll;
+}
 /* 以下form */
 .trip-form  {
   padding: 0.5em 1em;

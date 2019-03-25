@@ -186,8 +186,70 @@
 /* END-Big Box*/
 
 /* lists#new */
-.make-trip img {
-  width: 250px;
-  height: 170px;
+.trip-side-box {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  padding: 20px;
   box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  color: #FFF;
+  background-color: #1C3144;
 }
+.top-area-side {
+  display: flex;
+  justify-content: space-between;
+}
+.day-side {
+  font-size: 20px;
+}
+.day-no-side {
+  font-size: 36px;
+}
+.trip-image-side img {
+  width: 200px;
+  height: 120px;
+}
+
+.list-side-box {
+  width: 320px;
+  margin: 20px auto;
+  color: #fff;
+  background-color: #1C3144;
+}
+.list-m-side-box {
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.list-s-side-box {
+  width: 90%;
+}
+/* START-the arrow*/
+.arrow-day-side {
+  display: flex;
+  justify-content: space-between;
+}
+.arrow-day-side div span {
+  font-size: 18px;
+}
+.dot-side {
+  background-color: #FFF;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  margin: 10px;
+}
+
+.list-side-box .list-s-box {
+  margin: 10px;
+}
+.list-title {
+  font-size: 18px;
+}
+.list-details {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+}
+/* END-Big Box*/
