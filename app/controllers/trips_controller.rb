@@ -1,12 +1,13 @@
 class TripsController < ApplicationController
-  def index
+  def search
     all_trips = Trip.search(params[:search]).order(created_at: :desc)
 
-    p = params[:id].to_i
-    @search_trips = all_trips.limit(10).offset(p*10)
-    @next_page = p + 1
-    @previous_page = p - 1
+    page_no = params[:id].to_i
+    @search_trips = all_trips.limit(10).offset(page_no*10)
+    @next_page = page_no + 1
+    @previous_page = page_no - 1
   end
+
 
   def new
     @trip = Trip.new

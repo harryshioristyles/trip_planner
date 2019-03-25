@@ -17,11 +17,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :edit]
 
+
+  get "favorites/:id/" => "trips#favorite_trips", as:"favorite_trips"
   get "trips/:id/result" => "trips#result", as:"result_trip"
-  get "trips/:id/" => "trips#index", as:"trips"
-  resources :trips, except:[:index] do
+  resources :trips, only: [:new, :create, :show, :edit, :update, :destroy] do
     resource :favorite_trips, only: [:create, :destroy]
   end
+  #search
+  get "search/:id/" => "trips#search", as:"search"
 
   resources :lists
 

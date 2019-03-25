@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="search-bar">
 	<p>検索</p>
-		<%= form_tag(trips_path,:method => 'get') do %>
+		<%= form_tag(search_path,:method => 'get') do %>
 		  <%= text_field_tag :search %>
 		  <%= submit_tag 'Search', :trip_title => nil %>
 		<% end %>
@@ -15,9 +15,9 @@
 		</div>
 	    <div class="lead"></div>
 	    	    <% if @previous_page >= 0  %>
-	         		<%= link_to "Pre", "/trips/#{@previous_page}/", class: "btn-flat-border" %>
+	         	  <%= link_to "Pre", "/search/#{@previous_page}/", class: "btn-flat-border" %>
 	         	<% end %>
-	         	<%= link_to "NEXT", "/trips/#{@next_page}/", class: "btn-flat-border" %>
+	         	<%= link_to "NEXT", "/search/#{@next_page}/", class: "btn-flat-border" %>
 	    </div>
 
 </div>
