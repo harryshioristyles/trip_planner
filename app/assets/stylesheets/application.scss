@@ -236,6 +236,25 @@ footer {
 }
 /* 以上ロゴ風フラットボタン */
 
+/* 以下（ピンク）ロゴ風フラットボタン */
+.btn-flat-logo-pink {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #E56399;
+  transition: .4s;
+}
+
+.btn-flat-logo-pink:hover {
+  background: #4091E8;
+}
+.btn-flat-logo-green a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
 /* 以下topimage */
 .header-bg {
  background-image : url("top.jpg");
