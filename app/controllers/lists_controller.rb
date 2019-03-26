@@ -1,46 +1,44 @@
 class ListsController < ApplicationController
-  def index
-  end
-
   def new
-        @trip = Trip.find_by(id: params[:trip_id])
-        @list = List.new
+      @list = List.new
+      @trip = Trip.find(params[:trip_id])
+      @days = List.where(trip_id: @trip).maximum(:day_index)
   end
 
   def create
-        list = List.new(list_params)
-        list.save!
-        redirect_to new_list_path(trip_id: list.trip_id)
-  end
-
-  def show
+      list = List.new(list_params)
+      list.save!
+      redirect_to new_list_path(trip_id: list.trip_id)
   end
 
   def edit
-        @list = List.find(params[:id])
+      @list = List.find(params[:id])
+      @trip = Trip.find(@list.trip_id)
+      @days = List.where(trip_id: @trip).maximum(:day_index)
+
   end
 
   def update
-        list = List.find(params[:id])
-      if
-        list.update(list_params)
-        redirect_to new_list_path(trip_id: list.trip_id)
-        flash[:notice] = "successfully updated."
-      else
-        redirect_to edit_list_path(list.id)
-        flash[:notice] = "update error!!"
-      end
+      list = List.find(params[:id])
+    if
+      list.update(list_params)
+      redirect_to new_list_path(trip_id: list.trip_id)
+      flash[:notice] = "successfully updated."
+    else
+      redirect_to edit_list_path(list.id)
+      flash[:notice] = "update error!!"
+    end
   end
 
   def destroy
-        list = List.find(params[:id])
-        if
-           list.destroy
-           flash[:notice] = 'successfully destroyed.'
-        else
-           flash[:notice] = 'destroy error!!'
-        end
-           redirect_to new_list_path
+      list = List.find(params[:id])
+    if
+      list.destroy
+      flash[:notice] = 'successfully destroyed.'
+    else
+      flash[:notice] = 'destroy error!!'
+    end
+      redirect_to new_list_path
   end
 
 private
