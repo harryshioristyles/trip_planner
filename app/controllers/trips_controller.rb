@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def search
-      all_trips = Trip.search(params[:search]).order(created_at: :desc)
+      all_trips = Trip.search(params[:search]).where(checking_finish: 1).order(updated_at: :desc)
 
       page_no = params[:id].to_i
       @search_trips = all_trips.limit(10).offset(page_no*10)
@@ -10,7 +10,7 @@ class TripsController < ApplicationController
   end
 
   def favorite_trips
-      all_trips = FavoriteTrip.where(user_id: params[:user_id]).order(created_at: :desc).map{|a| a.trip}
+      all_trips = FavoriteTrip.where(user_id: params[:user_id], checking_finish: 1).order(created_at: :desc).map{|a| a.trip}
 
       page_no = params[:id].to_i
       @trips = all_trips[page_no*10..page_no*10+9]
