@@ -4,7 +4,7 @@ class TripsController < ApplicationController
       all_trips = Trip.search(params[:search]).where(checking_finish: 1).order(updated_at: :desc)
 
       page_no = params[:id].to_i
-      @search_trips = all_trips.limit(10).offset(page_no*10)
+      @trips = all_trips[page_no*10..page_no*10+9]
       @next_page = page_no + 1
       @previous_page = page_no - 1
   end
