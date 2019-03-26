@@ -1,15 +1,44 @@
-    <div class="header-bg">
-	    <div class="container">
-	      <div class="lead">旅行計画を作ってみよう！</div>
-	      	<%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
+<div class="header-bg">
+    <div class="container-top">
+      <div class="lead">旅行計画を作ってみよう！</div>
+      	<%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
+    </div>
+</div>
+<div class="">
+	<div class="container-horizon">
+  	    <div class="top-link-box">
+  	      <div class="top-link-title">
+  	        <div class="top-link-text"><p>NEW!!</p></div>
+  	      </div>
+  	      <div class="top-under-area">
+  	      	  <div class="top-link-more">Search more<i class="far fa-hand-point-right"></i></div>
+	          <div  class="top-link-">
+	          	<%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
+	      	  		<i class="fas fa-search"> Search</i>
+	      	  	<% end %>
+	      	  </div>
+	      </div>
 	    </div>
-	    <div>
+
+		<% @new_trips.each do |trip| %>
+			<%= render 'trips/small_box', trip: trip %>
+		<% end %>
+	</div>
+
+	<div class="container-horizon">
+    <h2>Follow's new</h2>
+  	    <div>
 	      <%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
-	      	<i class="fas fa-search"> Search</i>
+	      	<div><i class="fas fa-kiss-wink-heart"> follow</i></div>
 	      <% end %>
 	    </div>
-    </div>
-
-  <h2>お気に入りユーザーの新着</h2>
-  <h2>お気に入りトリップ</h2>
-  <h2>最近作成したトリップ</h2>
+	</div>
+	<div class="container-horizon">
+    <h2>Favorites</h2>
+  	    <div>
+			<%= link_to favorite_trips_path(0, user_id: current_user.id), class: "btn-flat-logo-pink" do %>
+			  <div><i class="fab fa-gratipay"> Favorites</i></div>
+		  	<% end %>
+	    </div>
+	</div>
+</div>
