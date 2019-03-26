@@ -38,7 +38,8 @@ class TripsController < ApplicationController
   def result
       @trip = Trip.find(params[:id])
       @trip.update(checking_finish: 1)
-      @days = List.where(trip_id: @trip).maximum(:day_index)
+      flash[:notice] = "Successfully saved!! Have a nice trip!!"
+      redirect_to trip_path(@trip)
   end
 
   def edit
@@ -51,10 +52,10 @@ class TripsController < ApplicationController
     if
       trip.update(trip_params)
       redirect_to new_list_path(trip_id: trip.id)
-      flash[:notice] = "successfully updated."
+      flash[:notice] = "Successfully updated."
     else
       redirect_to edit_trip_path(trip.id)
-      flash[:notice] = "update error!!"
+      flash[:notice] = "Update error!!"
     end
   end
 
@@ -62,9 +63,9 @@ class TripsController < ApplicationController
       trip = Trip.find(params[:id])
     if
       trip.destroy
-      flash[:notice] = 'successfully destroyed.'
+      flash[:notice] = 'Successfully destroyed.'
     else
-      flash[:notice] = 'destroy error!!'
+      flash[:notice] = 'Destroy error!!'
     end
       redirect_to trips_path
   end
