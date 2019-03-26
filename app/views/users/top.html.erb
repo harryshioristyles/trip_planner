@@ -4,8 +4,9 @@
       	<%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
     </div>
 </div>
-<div>
-	<div class="container-horizon">
+
+<div class="container-horizon">
+	<div class="container-inner">
   	    <div class="top-link-box">
   	      <div class="top-link-title">
   	        <div class="top-link-text"><p>NEW!!</p></div>
@@ -24,8 +25,9 @@
 			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
 	</div>
-
-	<div class="container-horizon">
+</div>
+<div class="container-horizon">
+	<div class="container-inner">
     <h2>Follow's new</h2>
   	    <div>
 	      <%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
@@ -33,8 +35,9 @@
 	      <% end %>
 	    </div>
 	</div>
-
-	<div class="container-horizon">
+</div>
+<div class="container-horizon">
+	<div class="container-inner">
   	    <div class="top-link-box">
   	      <div class="top-link-title">
   	        <div class="top-link-text"><p>Favorites!!</p></div>
@@ -53,3 +56,4 @@
 			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
 	</div>
+</div>

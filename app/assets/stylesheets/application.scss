@@ -52,8 +52,15 @@ body {
   padding: 100px;
 }
 .container-horizon {
+  width: 100%;
+  padding: 10px 0;
+}
+.container-horizon:nth-child(odd) {
+  background-color: #F7F0F0;
+}
+.container-inner {
   width: 960px;
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
