@@ -10,7 +10,7 @@
 			<% end %>
 		</div>
 		<div>
-		  <% if @trips.length >= 11  %>
+		  <% if @trips.length >= 10  %>
             <%= link_to plan_path(1, user_id: @user), class: "btn-flat-logo-navy" do %>
           		 Next<i class="fas fa-angle-double-right"></i>
         	<% end %>
