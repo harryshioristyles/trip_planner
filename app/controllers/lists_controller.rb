@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+
   def new
       @list = List.new
       @trip = Trip.find(params[:trip_id])
@@ -44,7 +45,7 @@ class ListsController < ApplicationController
 private
 
   def list_params
-        params.require(:list).permit(:list_title, :list_details, :day_index, :date, :begin, :end, :city_id, :activity_id, :trip_id)
+      params.require(:list).permit(:list_title, :list_details, :day_index, :date, :begin, :end, :city_id, :activity_id, :trip_id)
   end
 
 end

@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+
   def search
       all_trips = Trip.search(params[:search]).order(created_at: :desc)
 
@@ -71,7 +72,7 @@ class TripsController < ApplicationController
 private
 
   def trip_params
-        params.require(:trip).permit(:trip_title, :trip_details, :trip_image)
+      params.require(:trip).permit(:trip_title, :trip_details, :trip_image)
   end
 
 end
