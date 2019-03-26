@@ -18,8 +18,10 @@
           		<i class="fas fa-angle-double-left"> Previous</i>
         	<% end %>
         <% end %>
+        <% if @trips.length >= 10  %>
             <%= link_to "/search/#{@next_page}/", class: "btn-flat-logo-navy" do %>
           		 Next<i class="fas fa-angle-double-right"></i>
         	<% end %>
+        <% end %>
 	</div>
 </div>

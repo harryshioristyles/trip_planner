@@ -6,9 +6,11 @@
 		<% end %>
 		</div>
 	    <div class="lead"></div>
-	    	    <% if @previous_page >= 0  %>
-	         	  <%= link_to "Pre", "/trips/#{@previous_page}/", class: "btn-flat-border" %>
-	         	<% end %>
-	         	<%= link_to "NEXT", "/trips/#{@next_page}/", class: "btn-flat-border" %>
+    	    <% if @previous_page >= 0  %>
+         	  <%= link_to "Pre", "/trips/#{@previous_page}/", class: "btn-flat-border" %>
+         	<% end %>
+         	<% if @trips.length >= 10  %>
+         		<%= link_to "NEXT", "/trips/#{@next_page}/", class: "btn-flat-border" %>
+         	<% end %>
 	    </div>
 </div>
