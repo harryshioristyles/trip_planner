@@ -13,7 +13,7 @@
   <body>
     <header>
         <% if admin_signed_in? %>
-            <%= link_to top_path  do %>
+            <%= link_to admin_top_path  do %>
               <div class="header-left">
                 <i class="fas fa-globe-africa"></i><a> Travel Planner</a>
               </div>
@@ -47,26 +47,32 @@
               <% end %>
             </div>
         <% else %>
-            <%= link_to top_path  do %>
+            <%= link_to root_path  do %>
               <div class="header-left">
                 <i class="fas fa-globe-americas"> Travel Planner</i>
               </div>
             <% end %>
             <div class="header-right">
-              <div class="header-link">
+                <!-- Login button -->
+                <%= link_to '', "data-toggle": "modal", "data-target": "#signinModal" do %>
+                  <div class="header-link btn-horizontal-border">
+                    <i class="fas fa-sign-in-alt"> Signin</i>
+                  </div>
+                <% end %>
                 <!-- Login modal and render -->
-                <%= link_to "Login", '', class: "nav-link btn-flat-border", "data-toggle": "modal", "data-target": "#signinModal" %>
                 <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
                   <%= render "users/sessions/new" %>
                 </div>
-              </div>
-              <div class="header-link">
+                <!-- Signup button -->
+                <%= link_to '', "data-toggle": "modal", "data-target": "#signupModal" do %>
+                  <div class="header-link btn-horizontal-border">
+                    <i class="fas fa-user-plus"> Signup</i>
+                  </div>
+                <% end %>
                 <!-- Signup modal and render -->
-                <%= link_to "Signup", '', class: "nav-link btn-flat-border", "data-toggle": "modal", "data-target": "#signupModal" %>
                 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
                   <%= render "users/registrations/new" %>
                 </div>
-              </div>
             </div>
         <% end %>
     </header>
@@ -79,7 +85,7 @@
       <%= yield %>
     </main>
     <footer>
-      <p class="copyright">©︎ Travel Planner </p>
+      <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
     </footer>
   </body>
 </html>
