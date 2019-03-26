@@ -1,4 +1,9 @@
 class FavoriteTrip < ApplicationRecord
-		belongs_to :user
-		belongs_to :trip
+
+	validates :user_id, numericality: { only_integer: true }
+	validates :trip_id, numericality: { only_integer: true }
+
+	belongs_to :user
+	belongs_to :trip
+
 end

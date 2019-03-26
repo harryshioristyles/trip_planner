@@ -1,0 +1,30 @@
+<li>
+    <%= f.label :list_title %>
+    <%= f.text_field :list_title, placeholder: "Title(*required)", autofocus: true, autocomplete: "Title(*required)", required: "required" %>
+</li>
+<li>
+    <%= f.label :day_index %>
+    <%= f.number_field :day_index, placeholder: "Day", autofocus: true, autocomplete: "Day", min: "1" %>
+</li>
+<li>
+    <%= f.label :date %>
+    <%= f.date_field :date, autofocus: true, autocomplete: "Date" %>
+</li>
+<li>
+    <%= f.label :begin %>
+    <%= f.time_field :begin, utofocus: true, autocomplete: "Time" %>
+    <%= f.label :end %>
+    <%= f.time_field :end, autofocus: true %>
+</li>
+<li>
+    <%= f.label :city_id, City %>
+    <%= f.collection_select :city_id, City.all, :id, :city_name, :include_blank => true %>
+</li>
+<li>
+    <%= f.label :activity_id, "Activity" %>
+    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name, :include_blank => true %>
+</li>
+<li>
+    <%= f.label :list_details %>
+    <%= f.text_area :list_details, placeholder: "Comment", autofocus: true, autocomplete: "Comment" %>
+</li>

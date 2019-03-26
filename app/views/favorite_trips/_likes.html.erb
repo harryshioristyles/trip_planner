@@ -1,0 +1,16 @@
+<div class="likes">
+	<!-- 自分にはlikeできない。イエローlike -->
+	<% if trip.user_id == current_user.id %>
+			<i class="fas fa-heart index" aria-hidden="true" style="color: #FCFF4B;"></i><%= trip.favorite_trips.count %> likes
+	<!-- likeしてたら消す。ピンクlike -->
+	<% elsif trip.favorited_by?(current_user) %>
+		<%= link_to trip_favorite_trips_path(trip), method: :delete do %>
+			<i class="fas fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes
+	    <% end %>
+	<!-- likeしてなければできる。色なし -->
+	<% else %>
+		<%= link_to trip_favorite_trips_path(trip), method: :post do %>
+		  	<i class="far fa-heart index" aria-hidden="true"></i><%= trip.favorite_trips.count %> likes
+		<% end %>
+	<% end %>
+</div>

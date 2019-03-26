@@ -3,7 +3,7 @@ class CreateLists < ActiveRecord::Migration[5.2]
     create_table :lists do |t|
       t.string :list_title
       t.string :list_details
-      t.integer :day_index
+      t.integer :day_index, default:1
       t.date :date
       t.time :begin
       t.time :end

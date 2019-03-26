@@ -1,0 +1,32 @@
+  	<div class="profile-box">
+  		<div class="profile TopLeft"><p>Travelar</p></div>
+		<div class="profile TopRight"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("no_user_image.jpg") %></div>
+		<div class="profile BottomLeft"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("no_user_image.jpg") %></div>
+		<div class="profile BottomRight"><p><%= user.nickname %></p></div>
+	</div>
+	<div class="introduction-box">
+        <div class="profile-title">About Me</div>
+        <div class="profile-details"><%= user.introduction %></div>
+	</div>
+    <div class="user-links">
+        <% if user.id == current_user.id %>
+        	<div>
+			  	<%= link_to edit_user_path(user), class: "btn-flat-logo-green" do %>
+				  <i class="fas fa-user-edit"> Edit</i>
+			  	<% end %>
+			</div>
+		<% end %>
+			    <div><%= link_to "follow_user", class: "btn-flat-logo" %></div>
+        	<div>
+				<%= link_to favorite_trips_path(0, user_id: user.id), class: "btn-flat-logo-pink" do %>
+				    <i class="fab fa-gratipay"> Favorites</i>
+			  	<% end %>
+			</div>
+		<% if user.id == current_user.id %>
+			<div>
+			  	<%= link_to new_trip_path, class: "btn-flat-border" do %>
+			  	  	<i class="fas fa-plane-departure"> Let's make a plan!!</i>
+			  	<% end %>
+			</div>
+		<% end %>
+	</div>

@@ -5,76 +5,87 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-        <header class="navbar navbar-inverse">
-          <div class="container">
-            <nav>
-              <% if admin_signed_in? %>
-                <nav class="nav navbar-nav navbar-left">
-                  <span>Travel Planner</span>
-                </nav>
-                <ul class="nav navbar-nav navbar-right">
-                  <li role="presentation">
-                    <%= link_to destroy_admin_session_path , method: :delete, class: "glyphicon glyphicon-log-out logout" do %>
-                      <span aria-hidden="true"> ログアウト</span>
-                    <% end %>
-                  </li>
-                </ul>
-              <% elsif user_signed_in? %>
-                <nav class="nav navbar-nav navbar-left">
-                  <span>Travel Planner</span>
-                </nav>
-                <ul class="nav navbar-nav navbar-right">
-                  <li role="presentation">
-                      <span aria-hidden="true"> Hello! You're on log-in now.</span>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to user_path(current_user.id), class: "glyphicon glyphicon-home home" do %>
-                      <span aria-hidden="true"> マイページ</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" do %>
-                      <span aria-hidden="true"> ログアウト</span>
-                    <% end %>
-                  </li>
-                </ul>
-              <% else %>
-                <nav class="nav navbar-nav navbar-left">
-                  <span>Travel Planner</span>
-                </nav>
-                <ul class="nav navbar-nav navbar-right">
-                  <li role="presentation">
-                    <%= link_to new_user_session_path, class: "glyphicon glyphicon-log-in sign_in" do %>
-                      <span aria-hidden="true"> ログイン</span>
-                    <% end %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to new_user_registration_path, class: "glyphicon glyphicon-edit sign_up" do %>
-                      <span aria-hidden="true"> 新規登録</span>
-                    <% end %>
-                  </li>
-                </ul>
+    <header>
+        <% if admin_signed_in? %>
+            <%= link_to admin_top_path  do %>
+              <div class="header-left">
+                <i class="fas fa-globe-africa"></i><a> Travel Planner</a>
+              </div>
+            <% end %>
+            <div class="header-right">
+              <%= link_to "アドミン：仮のリンク" %>
+                <div class="header-link">
+                </div>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+                <div class="header-link">
+                  <i class="fas fa-sign-out-alt"> Log Out</i>
+                </div>
               <% end %>
-            </nav>
-          </div>
-        </header>
+            </div>
+        <% elsif user_signed_in? %>
+            <%= link_to top_path  do %>
+              <div class="header-left">
+                <i class="fas fa-globe-asia"> Travel Planner</i>
+              </div>
+            <% end %>
+            <div class="header-right">
+              <%= link_to user_path(current_user) do %>
+                <div class="header-link btn-horizontal-border">
+                  <i class="fas fa-user-astronaut"> My Page</i>
+                </div>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <div class="header-link btn-horizontal-border">
+                  <i class="fas fa-sign-out-alt"> Log Out</i>
+                </div>
+              <% end %>
+            </div>
+        <% else %>
+            <%= link_to root_path  do %>
+              <div class="header-left">
+                <i class="fas fa-globe-americas"> Travel Planner</i>
+              </div>
+            <% end %>
+            <div class="header-right">
+                <!-- Login button -->
+                <%= link_to '', "data-toggle": "modal", "data-target": "#signinModal" do %>
+                  <div class="header-link btn-horizontal-border">
+                    <i class="fas fa-sign-in-alt"> Signin</i>
+                  </div>
+                <% end %>
+                <!-- Login modal and render -->
+                <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+                  <%= render "users/sessions/new" %>
+                </div>
+                <!-- Signup button -->
+                <%= link_to '', "data-toggle": "modal", "data-target": "#signupModal" do %>
+                  <div class="header-link btn-horizontal-border">
+                    <i class="fas fa-user-plus"> Signup</i>
+                  </div>
+                <% end %>
+                <!-- Signup modal and render -->
+                <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+                  <%= render "users/registrations/new" %>
+                </div>
+            </div>
+        <% end %>
+    </header>
 
-        <main>
-          <% if flash[:notice] %>
-            <p id=notice><%= flash[:notice] %></p>
-          <% end %>
+    <main>
+      <% if flash[:notice] %>
+        <p id=notice><%= flash[:notice] %></p>
+      <% end %>
 
-          <%= yield %>
-        </main>
-
-        <footer>
-          <p class="copyright">©︎ Travel Planner </p>
-        </footer>
-
+      <%= yield %>
+    </main>
+    <footer>
+      <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
+    </footer>
   </body>
 </html>
