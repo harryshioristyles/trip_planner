@@ -129,7 +129,20 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
+
+#notice {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  background-color: #FCFF4B;
+  color: #000;
+  text-align: center;
+}
+
 header i {
   color: #FFF;
   text-decoration: none;
@@ -173,16 +186,6 @@ footer {
   .main {
     margin: 0 10px 0 0;
   }
-}
-
-#notice {
-  position: absolute;
-  top: 0; left: 0;
-  z-index: 30;
-  width: 100%;
-  background-color: #98fb98;
-  color: #696969;
-  text-align: center;
 }
 
 /* top */
