@@ -1,31 +1,33 @@
-<h1>Trips#edit</h1>
-	<div>
-		<div>
-			<%= form_for @trip do |f| %>
-				<div class="field">
-					<%= image_tag(@trip.trip_image , :size => '100x100') if @trip.trip_image.attached? %>
-				    <%= f.file_field :trip_image %><br>
-	            </div>
-				<div class="field">
-				    <%= f.label :trip_title, "Trip Title" %>
-				    <%= f.text_field :trip_title %>
-	            </div>
-				<div class="field">
-				    <%= f.label :trip_details, "Trip Details" %>
-				    <%= f.text_field :trip_details %>
-	            </div>
-	            <%= f.submit :UPDATE %><br>
-    			<%= link_to "Delete", trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?" %><br>
-	        <% end %>
-	    </div>
-			<% @trip.lists.each do |list| %>
-					Day.<%= list.day_index %>
-					date:<%= list.date %><br>
-					begin:<%= list.begin %>
-					end:<%= list.end %><br>
-					list_title:<%= list.list_title %><br>
-					list_details:<%= list.list_details %><br>
-					City:<%= list.city.city_name %><br>
-					Activity:<%= list.activity.activity_name %><br>
-			<% end %>
-    </div>
+<div class="flexbox">
+  <div class="side-trip">
+    <%= render 'trips/side_trip', trip: @trip, days: @days %>
+  </div>
+  <div class="main">
+    <ul class="form-style-1">
+        <h3>What's your plan name??</h3>
+        <h4>―旅行計画の名前は？</h4>
+        <%= form_for @trip do |f| %>
+          <li>
+            <%= f.label :trip_image, "Image" %>
+            <%= f.file_field :trip_image %>
+          </li>
+          <li>
+            <%= f.label :trip_title, "Title" %>
+            <%= f.text_field :trip_title, placeholder: "Title(*required)" %>
+          </li>
+          <li>
+            <%= f.label :trip_details, "Comment" %><br>
+            <%= f.text_area :trip_details, placeholder: "Comment" %>
+          </li>
+          <li>
+            <%= f.submit :UPDATE %>
+          </li>
+        <% end %>
+          <li>
+          	<%= link_to trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+              <i class="fas fa-trash-alt"> DELETE</i>
+            <% end %>
+          </li>
+    </ul>
+  </div>
+</div>
