@@ -10,12 +10,20 @@
 			<% end %>
 		</div>
 		<div>
+		  <%if @previous_page == 0 %>
+            <%= link_to user_path(@user), class: "btn-flat-logo-navy" do %>
+          		<i class="fas fa-angle-double-left"> Previous</i>
+        	<% end %>
+		  <% else %>
             <%= link_to plan_path(@previous_page, user_id: @user), class: "btn-flat-logo-navy" do %>
           		<i class="fas fa-angle-double-left"> Previous</i>
         	<% end %>
+          <% end %>
+          <% if @trips.length >= 10  %>
             <%= link_to plan_path(@next_page, user_id: @user), class: "btn-flat-logo-navy" do %>
           		 Next<i class="fas fa-angle-double-right"></i>
         	<% end %>
+          <% end %>
 		</div>
   </div>
 </div>

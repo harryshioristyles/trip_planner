@@ -17,8 +17,7 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
-      # @trips = Trip.where(user_id: @user, checking_finish: 1)
-      @trips = Trip.all
+      @trips = Trip.where(user_id: @user, checking_finish: 1)
   end
 
   def edit
