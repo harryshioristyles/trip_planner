@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'top' => 'users#top'
   get 'admins/top' => 'admins#top'
 
+  get 'plan/:id' => "users#plan", as:"plan"
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
