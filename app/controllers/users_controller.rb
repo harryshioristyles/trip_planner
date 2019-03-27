@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :plan]
+  before_action :authenticate_user!
 
   def top
       @new_trips = Trip.where(checking_finish: 1).limit(7).order(updated_at: :desc)
