@@ -15,7 +15,7 @@
 
   <div class="tag-area">
     <i class="fas fa-tag"></i>
-    <% trip.tags.each do |tag| %>
+    <% trip.tags.first(3).each do |tag| %>
       <%= link_to "##{tag.tag}", index_tag_path(tag) %>
     <% end %>
   </div>

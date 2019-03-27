@@ -258,3 +258,18 @@
   flex-direction: row;
 }
 /* END-Big Box*/
+
+
+/* trips/side_trip */
+.tag-box {
+  padding: 3px;
+}
+.tag-box a {
+  color: #FFF;
+}
+/* trips#show, trips/small_box */
+.tag, .tag-area {
+  padding: 5px;
+  color: #000;
+  font-size: 12px;
+}
