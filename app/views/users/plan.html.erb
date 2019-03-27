@@ -9,7 +9,7 @@
 				<%= render 'trips/small_box', trip: trip %>
 			<% end %>
 		</div>
-		<div>
+		<div class="page">
 		  <%if @previous_page == 0 %>
             <%= link_to user_path(@user), class: "btn-flat-logo-navy" do %>
           		<i class="fas fa-angle-double-left"> Previous</i>
@@ -23,7 +23,7 @@
             <%= link_to plan_path(@next_page, user_id: @user), class: "btn-flat-logo-navy" do %>
           		 Next<i class="fas fa-angle-double-right"></i>
         	<% end %>
-          <% end %>
+      <% end %>
 		</div>
   </div>
 </div>
