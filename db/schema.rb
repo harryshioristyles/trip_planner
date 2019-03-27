@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_085601) do
+
+ActiveRecord::Schema.define(version: 2019_03_16_110314) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -103,6 +104,23 @@ ActiveRecord::Schema.define(version: 2019_03_16_085601) do
     t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
     t.index ["following_id"], name: "index_relationships_on_following_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag"], name: "index_tags_on_tag", unique: true
+  end
+
+  create_table "trip_tags", force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_trip_tags_on_tag_id"
+    t.index ["trip_id", "tag_id"], name: "index_trip_tags_on_trip_id_and_tag_id", unique: true
+    t.index ["trip_id"], name: "index_trip_tags_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|

@@ -20,6 +20,10 @@ class TripsController < ApplicationController
       @previous_page = page_no - 1
   end
 
+  def index_tag
+        @trips = Tag.find(params[:id]).trips
+  end
+
   def new
       @trip = Trip.new
   end
@@ -30,6 +34,18 @@ class TripsController < ApplicationController
       trip.user_id = current_user.id
       trip.save!
       redirect_to new_list_path(trip_id: trip)
+
+      trip = current_user.trips.build(trip_params)
+      trip.checking_finish = 0
+      tag_list = params[:tag_list].split(",")
+    if
+      trip.save!
+      trip.save_tags(tag_list)
+      flash[:notice] = "successfully created."
+      redirect_to new_list_path(trip_id: trip)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -47,17 +63,20 @@ class TripsController < ApplicationController
   def edit
       @trip = Trip.find(params[:id])
       @days = List.where(trip_id: @trip).maximum(:day_index)
+      @tag_list = @trip.tags.pluck(:tag).join(",")
   end
 
   def update
       trip = Trip.find(params[:id])
+      tag_list = params[:tag_list].split(",")
     if
-      trip.update(trip_params)
+      trip.update_attributes(trip_params)
+      trip.save_tags(tag_list)
+      flash[:notice] = "successfully updated."
       redirect_to new_list_path(trip_id: trip.id)
-      flash[:notice] = "Successfully updated."
     else
+      flash[:notice] = "update error!!"
       redirect_to edit_trip_path(trip.id)
-      flash[:notice] = "Update error!!"
     end
   end
 

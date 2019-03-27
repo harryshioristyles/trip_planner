@@ -25,13 +25,18 @@ Rails.application.routes.draw do
    resources :relationships, only: [:create, :destroy]
 
 
+  #likes
   get "favorites/:id/" => "trips#favorite_trips", as:"favorite_trips"
+  #tag
+  get "trips/tag/:id" => "trips#index_tag", as:"index_tag"
+  #nothing view
   get "trips/:id/result" => "trips#result", as:"result_trip"
+  #search
+  get "search/:id/" => "trips#search", as:"search"
+
   resources :trips, only: [:new, :create, :show, :edit, :update, :destroy] do
     resource :favorite_trips, only: [:create, :destroy]
   end
-  #search
-  get "search/:id/" => "trips#search", as:"search"
 
   resources :lists
 

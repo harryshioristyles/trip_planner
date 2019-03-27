@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link href="/assets/jquery.tagit.css" rel="stylesheet" type="text/css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -77,6 +79,7 @@
         <% end %>
     </header>
 
+<<<<<<< HEAD
     <main>
       <% if flash[:notice] %>
         <p id=notice><%= flash[:notice] %></p>
@@ -87,5 +90,13 @@
     <footer>
       <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
     </footer>
+=======
+        <footer>
+          <p class="copyright">©︎ Travel Planner </p>
+        </footer>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/assets/tag-it.js" type="text/javascript" charset="utf-8"></script>
+>>>>>>> 0be9c7972d232e841e47f55942d683127e455cf8
   </body>
 </html>
