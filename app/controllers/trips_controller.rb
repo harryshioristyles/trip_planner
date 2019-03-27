@@ -22,7 +22,7 @@ class TripsController < ApplicationController
   end
 
   def index_tag
-        @trips = Tag.find(params[:id]).trips
+      @trips = Tag.find(params[:id]).trips
   end
 
   def new
@@ -30,16 +30,14 @@ class TripsController < ApplicationController
   end
 
   def create
-      trip = Trip.new(trip_params)
-      trip.user_id = current_user.id
-      trip = current_user.trips.build(trip_params)
+      @trip = current_user.trips.build(trip_params)
       trip.checking_finish = 0
       tag_list = params[:tag_list].split(",")
     if
-      trip.save!
-      trip.save_tags(tag_list)
+      @trip.save!
+      @trip.save_tags(tag_list)
       flash[:notice] = "successfully created."
-      redirect_to new_list_path(trip_id: trip)
+      redirect_to new_list_path(trip_id: @trip)
     else
       render 'new'
     end
@@ -64,16 +62,16 @@ class TripsController < ApplicationController
   end
 
   def update
-      trip = Trip.find(params[:id])
+      @trip = Trip.find(params[:id])
       tag_list = params[:tag_list].split(",")
     if
-      trip.update_attributes(trip_params)
-      trip.save_tags(tag_list)
+      @trip.update_attributes(trip_params)
+      @trip.save_tags(tag_list)
       flash[:notice] = "successfully updated."
-      redirect_to new_list_path(trip_id: trip.id)
+      redirect_to new_list_path(trip_id: @trip.id)
     else
       flash[:notice] = "update error!!"
-      redirect_to edit_trip_path(trip.id)
+      redirect_to edit_trip_path(@trip)
     end
   end
 
