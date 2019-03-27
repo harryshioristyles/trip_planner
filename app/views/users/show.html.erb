@@ -9,12 +9,12 @@
 				<%= render 'trips/small_box', trip: trip %>
 			<% end %>
 		</div>
-		<div>
+		<div class="page">
 		  <% if @trips.length >= 10  %>
             <%= link_to plan_path(1, user_id: @user), class: "btn-flat-logo-navy" do %>
           		 Next<i class="fas fa-angle-double-right"></i>
         	<% end %>
-          <% end %>
+      <% end %>
 		</div>
   </div>
 </div>

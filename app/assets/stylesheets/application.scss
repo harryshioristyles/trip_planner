@@ -37,6 +37,9 @@ body {
   box-sizing: border-box;
   padding-bottom: 100px;/*←footerの高さ*/
 }
+html, main, .flexbox {
+  height: 100%;
+}
 
 /* users#top */
 .header-bg {
@@ -162,10 +165,6 @@ header i {
   padding: 0 10px;
 }
 
-main {
-
-}
-
 footer {
   width: 100%;
   background-color: #1D3461;
@@ -189,7 +188,6 @@ footer {
 }
 
 /* top */
-
 .lead {
   color: #FFF;
   padding: 20px;
@@ -392,6 +390,11 @@ footer {
   text-decoration: none;
 }
 /* 以上ロゴ風フラットボタン */
+
+.page {
+  text-align: center;
+  margin: 10px;
+}
 
 /* modal */
 .modal-body {
