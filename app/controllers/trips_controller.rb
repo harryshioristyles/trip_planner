@@ -22,7 +22,8 @@ class TripsController < ApplicationController
   end
 
   def index_tag
-      @trips = Tag.find(params[:id]).trips
+      @tag = Tag.find(params[:id])
+      @trips = @tag.trips
   end
 
   def new
