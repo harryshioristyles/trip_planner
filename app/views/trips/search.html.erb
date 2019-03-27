@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="search-bar">
-	<p>検索</p>
+	<h3><i class="fas fa-search"> Search</i></h3>
 		<%= form_tag(search_path,:method => 'get') do %>
 		  <%= text_field_tag :search %>
 		  <%= submit_tag 'Search', :trip_title => nil %>
