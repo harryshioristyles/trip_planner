@@ -15,7 +15,11 @@
 	    <%= f.text_area :trip_details, placeholder: "Comment" %>
 	  </li>
 	  <li>
-			<%= f.submit :CREATE %>
+	    <%= f.label :tag, "TAGs" %>
+		<ul id="trip-tags"></ul>
+	  </li>
+	  <li>
+		<%= f.submit :CREATE %>
 	  </li>
 	<% end %>
 </ul>
