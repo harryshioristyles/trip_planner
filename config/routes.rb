@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  root :to => 'users#top'
+  root :to => 'home#top'
+  get 'top' => 'users#top'
   get 'admins/top' => 'admins#top'
+
+  get 'plan/:id' => "users#plan", as:"plan"
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -21,10 +24,14 @@ Rails.application.routes.draw do
   end
    resources :relationships, only: [:create, :destroy]
 
+
+  get "favorites/:id/" => "trips#favorite_trips", as:"favorite_trips"
   get "trips/:id/result" => "trips#result", as:"result_trip"
-  resources :trips do
+  resources :trips, only: [:new, :create, :show, :edit, :update, :destroy] do
     resource :favorite_trips, only: [:create, :destroy]
   end
+  #search
+  get "search/:id/" => "trips#search", as:"search"
 
   resources :lists
 
