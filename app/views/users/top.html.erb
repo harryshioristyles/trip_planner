@@ -33,12 +33,15 @@
 
 <div class="container-horizon">
 	<div class="container-inner">
-    <h2>Follow's new</h2>
-  	    <div>
-	      <%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
-	      	<div><i class="fas fa-kiss-wink-heart"> follow</i></div>
-	      <% end %>
+  	    <div class="top-link-box">
+  	      <div class="top-link-title">
+  	        <div class="top-link-text"><p>Follow's new!!</p></div>
+  	      </div>
 	    </div>
+
+		<% @follows.each do |trip| %>
+			<%= render 'trips/small_box', trip: trip %>
+		<% end %>
 	</div>
 </div>
 

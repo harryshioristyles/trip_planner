@@ -12,7 +12,8 @@ class TripsController < ApplicationController
   end
 
   def favorite_trips
-      all_trips = FavoriteTrip.where(user_id: params[:user_id]).order(created_at: :desc).map{|a| a.trip}
+      @user = User.find(params[:user_id])
+      all_trips = FavoriteTrip.where(user_id: @user.id).order(created_at: :desc).map{|a| a.trip}
 
       page_no = params[:id].to_i
       @trips = all_trips[page_no*10..page_no*10+9]
