@@ -1,17 +1,20 @@
 <div class="header-bg">
     <div class="container-top">
+      <div class="no-login">
+      	（保存をするには、<%= link_to 'ログイン', '', "data-toggle": "modal", "data-target": "#signinModal"%>または<%= link_to 'サインアップ', '', "data-toggle": "modal", "data-target": "#signupModal" %>をしてください。）
+      </div>
       <div class="lead">旅行計画を作ってみよう！</div>
       	<%= link_to "Lest's make a plan!!", new_trip_path, class: "btn-flat-border" %>
     </div>
 </div>
 
-<div class="container-horizon">
+<!-- <div class="container-horizon">
 	<div class="container-inner">
     <h2>How to use it??</h2>
   	    <div>
 	    </div>
 	</div>
-</div>
+</div> -->
 
 <div class="container-horizon">
 	<div class="container-inner">
