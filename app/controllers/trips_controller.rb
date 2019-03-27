@@ -23,7 +23,7 @@ class TripsController < ApplicationController
 
   def index_tag
       @tag = Tag.find(params[:id])
-      @trips = @tag.trips
+      @trips = @tag.trips.order(updated_at: :desc)
   end
 
   def new
