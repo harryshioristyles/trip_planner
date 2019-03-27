@@ -37,6 +37,9 @@ body {
   box-sizing: border-box;
   padding-bottom: 100px;/*←footerの高さ*/
 }
+html, main, .flexbox {
+  height: 100%;
+}
 
 /* users#top */
 .header-bg {
@@ -162,10 +165,6 @@ header i {
   padding: 0 10px;
 }
 
-main {
-
-}
-
 footer {
   width: 100%;
   background-color: #1D3461;
@@ -189,10 +188,15 @@ footer {
 }
 
 /* top */
-
 .lead {
   color: #FFF;
   padding: 20px;
+}
+.no-login, .no-login a {
+  color: #FFF;
+}
+.no-login-black, .no-login-black a {
+  color: #000;
 }
 
 /* 右メイン */
@@ -203,7 +207,6 @@ footer {
 .side {
   background-color: #306BAC;
   width: 30%;
-  height: 100%;
 }
 .main,.side {
   padding: 2%;
@@ -461,6 +464,10 @@ footer {
 
 .follow-button {
   text-align: center;
+}
+.page {
+  text-align: center;
+  margin: 10px;
 }
 
 /* modal */
