@@ -31,11 +31,7 @@ class TripsController < ApplicationController
 
   def create
       trip = Trip.new(trip_params)
-      trip.checking_finish = 0
       trip.user_id = current_user.id
-      trip.save!
-      redirect_to new_list_path(trip_id: trip)
-
       trip = current_user.trips.build(trip_params)
       trip.checking_finish = 0
       tag_list = params[:tag_list].split(",")
