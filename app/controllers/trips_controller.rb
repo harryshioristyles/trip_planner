@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:search, :show]
+
   def search
       all_trips = Trip.search(params[:search]).where(checking_finish: 1).order(updated_at: :desc)
 
