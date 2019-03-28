@@ -8,8 +8,8 @@
       <div class="follow-user-box">
         <div class="profile-box">
             <div class="profile TopLeft"><p>Travelar</p></div>
-          <div class="profile TopRight"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("no_user_image.jpg") %></div>
-          <div class="profile BottomLeft"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("no_user_image.jpg") %></div>
+          <div class="profile TopRight"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("/images/no_user_image.jpg") %></div>
+          <div class="profile BottomLeft"><%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("/images/no_user_image.jpg") %></div>
           <div class="profile BottomRight"><p><%= user.nickname %></p></div>
         </div>
         <div class="follow-button"><%= render 'follow_form', user: user %></div>

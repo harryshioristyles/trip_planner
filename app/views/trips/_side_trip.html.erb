@@ -5,7 +5,7 @@
 			<div class="day-no-side"><%= days %></div>
 		</div>
         <div class="trip-image-side">
-			<%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("no_trip_image.jpg") %>
+			<%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("/images/no_trip_image.jpg") %>
 		</div>
 	</div>
 	<div class="trip-title"><%= trip.trip_title %></div>
