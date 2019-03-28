@@ -1,6 +1,6 @@
 class CreateTripTags < ActiveRecord::Migration[5.2]
   def change
-    create_table :trip_tags do |t|
+    create_table :trip_tags, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.integer :trip_id
       t.integer :tag_id
 

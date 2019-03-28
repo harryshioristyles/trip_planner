@@ -1,6 +1,6 @@
 class CreateTrips < ActiveRecord::Migration[5.2]
   def change
-    create_table :trips do |t|
+    create_table :trips, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :trip_title
       t.string :trip_details
       t.integer :checking_finish, null: false, default:0, limit: 1

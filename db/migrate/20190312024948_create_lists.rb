@@ -1,6 +1,6 @@
 class CreateLists < ActiveRecord::Migration[5.2]
   def change
-    create_table :lists do |t|
+    create_table :lists, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :list_title
       t.string :list_details
       t.integer :day_index, default:1
