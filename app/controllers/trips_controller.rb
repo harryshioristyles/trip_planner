@@ -32,7 +32,7 @@ class TripsController < ApplicationController
 
   def create
       @trip = current_user.trips.build(trip_params)
-      trip.checking_finish = 0
+      @trip.checking_finish = 0
       tag_list = params[:tag_list].split(",")
     if
       @trip.save!
