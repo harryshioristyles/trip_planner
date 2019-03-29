@@ -1,26 +1,28 @@
-<h2>Log in</h2>
+<h2>Admin Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+<ul class="form-style-1">
+  <li>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  </li>
 
-  <div class="field">
+  <li>
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  </li>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <li>
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
-    </div>
+    </li>
   <% end %>
 
-  <div class="actions">
+  <li>
     <%= f.submit "Log in" %>
-  </div>
+  </li>
+  <li>
+    <%= render "admins/shared/links" %>
+  </li>
 <% end %>
-
-<%= render "admins/shared/links" %>
