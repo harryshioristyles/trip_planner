@@ -1,0 +1,22 @@
+<div class="plan-s-box">
+          <div class="trip-image">
+            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("no_trip_image.jpg") %>
+          </div>
+    <div class="trip-area">
+        <div class="trip-title">
+          <%= trip.trip_title %>
+        </div>
+        <div class="trip-details">
+          <i class="fa fa-comment"></i>
+          <div class="trip-details-text"><%= trip.trip_details %></div>
+        </div>
+    </div>
+    <div class="under-area">
+      <div class="likes">
+        <i class="fas fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes
+      </div>
+        <%= link_to admin_edit_trip_path(trip), class:"btn-flat-logo-green" do %>
+          <i class="fas fa-edit"> Edit</i>
+        <% end %>
+    </div>
+</div>
