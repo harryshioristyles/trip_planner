@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get 'top' => 'users#top'
   get 'admins/top' => 'admins#top'
 
-  get 'plan/:id' => "users#plan", as:"plan"
-
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -19,23 +17,26 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update, :edit]
 
-
+  #search with pages
+  get "search/:id/" => "trips#search", as:"search"
+  #user's favorites with pages
   get "favorites/:id/" => "trips#favorite_trips", as:"favorite_trips"
+  #user's trips with pages
+  get 'plan/:id' => "users#plan", as:"plan"
+  #no view
   get "trips/:id/result" => "trips#result", as:"result_trip"
+
   resources :trips, only: [:new, :create, :show, :edit, :update, :destroy] do
     resource :favorite_trips, only: [:create, :destroy]
   end
-  #search
-  get "search/:id/" => "trips#search", as:"search"
 
   resources :lists
-
 
   namespace :admin do
     resources :cities, only: [:index, :create, :edit, :update, :destroy]
     resources :activities, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :users, only: [:index, :edit, :update, :destroy]
-
+    #trips and lists
     get    "trips/:id"      => "trips#index",        as:"trip"
     get    "trips/:id/edit" => "trips#trip_edit",    as:"edit_trip"
     patch  "trips/:id"      => "trips#trip_update",  as:"update_trip"
