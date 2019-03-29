@@ -12,4 +12,5 @@ class CreateTripTags < ActiveRecord::Migration[5.2]
     add_index :trip_tags, [:trip_id,:tag_id], unique: true
 
   end
+
 end

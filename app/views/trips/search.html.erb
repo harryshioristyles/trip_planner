@@ -11,16 +11,16 @@
 			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
 	</div>
-    <div class="page">
-    	<% if @previous_page >= 0  %>
-            <%= link_to "/search/#{@previous_page}/", class: "btn-flat-logo-navy" do %>
-          		<i class="fas fa-angle-double-left"> Previous</i>
-        	<% end %>
-        <% end %>
-        <% if @trips.length >= 10  %>
-            <%= link_to "/search/#{@next_page}/", class: "btn-flat-logo-navy" do %>
-          		 Next<i class="fas fa-angle-double-right"></i>
-        	<% end %>
-        <% end %>
+	<div class="page">
+		<% if @previous_page >= 0  %>
+			<%= link_to "/search/#{@previous_page}/", class: "btn-flat-logo-navy" do %>
+				<i class="fas fa-angle-double-left"> Previous</i>
+			<% end %>
+		<% end %>
+		<% if @next_page >= 1  %>
+			<%= link_to plan_path(@next_page, user_id: @user), class: "btn-flat-logo-navy" do %>
+		  		 Next<i class="fas fa-angle-double-right"></i>
+			<% end %>
+		<% end %>
 	</div>
 </div>

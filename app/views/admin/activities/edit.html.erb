@@ -1,21 +1,41 @@
-<h1>Admin::Activities#edit</h1>
-<p>Find me in app/views/admin/activities/edit.html.erb</p>
-
+<div class="flexbox">
+  <div class="side user">
+    <h3>Edit Activity</h3>
     <%= form_for @activity, :url => { :controller => :activities, :action => :update } do |f| %>
-
-	<%= image_tag(@activity.activity_image) if @activity.activity_image.attached? %>
-	<%= f.file_field :user_image %><br>
-
-    <h4>activity_name:</h4>
-    <%= f.text_field :activity_name %>
-
-    <h4>description:</h4>
-    <%= f.text_area :description %>
-
-    <%= f.submit 'Update' %>
-
+        <ul class="form-style-1">
+            <li>
+                <%= f.label :activity_image, "Image" %>
+                <%= image_tag(activity.activity_image) if @activity.activity_image.attached? %>
+                <%= f.file_field :activity_image %>
+            </li>
+            <li>
+                <%= f.label :city_id, "City" %>
+                <%= f.collection_select :city_id, City.all, :id, :city_name %>
+            </li>
+            <li>
+                <%= f.label :activity_name, "Activity Name" %>
+                <%= f.text_field :activity_name, placeholder: "Activity Name" %>
+            </li>
+            <li>
+                <%= f.label :description, "description" %>
+                <%= f.text_area :description, placeholder: "Description" %>
+            </li>
+            <li>
+                <%= f.submit 'Update' %>
+            </li>
+            <li>
+                <%= link_to admin_activity_path(@activity), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+                  <i class="fas fa-trash-alt"> DELETE</i>
+                <% end %>
+            </li>
+        </ul>
     <% end %>
-
-        <%= link_to " Show ", admin_activity_path(@activity.id) %> | <%= link_to " Back ", admin_activities_path %>
   </div>
+
+  <div class="main">
+        <div class="admin-box">
+            <%= render 'activities', activities: @activities %>
+        </div>
+  </div>
+
 </div>
