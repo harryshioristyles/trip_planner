@@ -19,9 +19,15 @@
               </div>
             <% end %>
             <div class="header-right">
-              <%= link_to "アドミン：仮のリンク" %>
-                <div class="header-link">
-                </div>
+              <%= link_to admin_users_path do %>
+                <div class="header-link"> Users</div>
+              <% end %>
+              <%= link_to admin_activities_path do %>
+                <div class="header-link"> Activities</div>
+              <% end %>
+              <%= link_to admin_cities_path do %>
+                <div class="header-link"> Cities</div>
+              <% end %>
               <%= link_to destroy_admin_session_path, method: :delete do %>
                 <div class="header-link">
                   <i class="fas fa-sign-out-alt"> Log Out</i>
