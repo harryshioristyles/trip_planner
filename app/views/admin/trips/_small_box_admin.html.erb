@@ -11,6 +11,14 @@
           <div class="trip-details-text"><%= trip.trip_details %></div>
         </div>
     </div>
+
+  <div class="tag-area">
+    <i class="fas fa-tag"></i>
+    <% trip.tags.first(3).each do |tag| %>
+      <%= link_to "##{tag.tag}", index_tag_path(tag) %>
+    <% end %>
+  </div>
+
     <div class="under-area">
       <div class="likes">
         <i class="fas fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes

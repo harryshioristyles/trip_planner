@@ -12,15 +12,18 @@ class Admin::TripsController < ApplicationController
   def trip_edit
       @trip = Trip.find(params[:id])
       @days = List.where(trip_id: @trip).maximum(:day_index)
+      @tag_list = @trip.tags.pluck(:tag).join(",")
   end
 
   def trip_update
-      trip = Trip.find(params[:id])
+      @trip = Trip.find(params[:id])
+      tag_list = params[:tag_list].split(",")
     if
-      trip.update(trip_params)
-      flash[:notice] = "Successfully updated."
+      @trip.update_attributes(trip_params)
+      @trip.save_tags(tag_list)
+      flash[:notice] = "successfully updated."
     else
-      flash[:notice] = "Update error!!"
+      flash[:notice] = "update error!!"
     end
       redirect_to admin_edit_trip_path(trip)
   end
