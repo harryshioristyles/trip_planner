@@ -7,8 +7,13 @@ class TripsController < ApplicationController
 
       page_no = params[:id].to_i
       @trips = all_trips[page_no*10..page_no*10+9]
-      @next_page = page_no + 1
       @previous_page = page_no - 1
+    if
+      all_trips.last == @trips.last
+      @next_page = 0
+    else
+      @next_page = page_no + 1
+    end
   end
 
   def favorite_trips
@@ -17,8 +22,13 @@ class TripsController < ApplicationController
 
       page_no = params[:id].to_i
       @trips = all_trips[page_no*10..page_no*10+9]
-      @next_page = page_no + 1
       @previous_page = page_no - 1
+    if
+      all_trips.last == @trips.last
+      @next_page = 0
+    else
+      @next_page = page_no + 1
+    end
   end
 
   def new
