@@ -1,0 +1,43 @@
+<div><%= link_to admin_activities_path, class: "btn-flat-logo" do %>
+	  <i class="fas fa-plus"> NEW</i>
+	<% end %>
+</div>
+<div class="admin-box">
+<% activities.each do |i| %>
+	<div class="panel panel-default">
+	    <div class="panel panel-heading"><%= i.city.country.country_name %></div>
+		  <% activities.each do |j| %>
+		  <% if i.city.country.country_name == j.city.country.country_name %>
+		    <div class="panel-body"><%= j.city.city_name %></div>
+			  <table class="table">
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th></th>
+						<th>Activity Name</th>
+						<th>Description</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<% activities.each do |activity| %>
+				<% if j.city.city_name == activity.city.city_name %>
+					<tr>
+						<td><%= activity.id %></td>
+						<td><%= image_tag(activity.activity_image, :size => '50x50') if activity.activity_image.attached? %></td>
+						<td><%= activity.activity_name %></td>
+						<td><%= activity.description %></td>
+						<td><%= link_to edit_admin_activity_path(activity), class: "btn-flat-logo-green" do %>
+							  <i class="fas fa-edit"> Edit</i>
+						  	<% end %>
+						</td>
+					</tr>
+				<% end %>
+				<% end %>
+				</tbody>
+			  </table>
+		  <% end %>
+		  <% end %>
+	</div>
+<% end %>
+</div>
