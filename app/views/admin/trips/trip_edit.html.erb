@@ -1,0 +1,33 @@
+<div class="flexbox">
+  <div class="side-trip">
+    <%= render 'admin/trips/side_trip_admin', trip: @trip, days: @days %>
+  </div>
+  <div class="main">
+    <ul class="form-style-1">
+        <h3>What's your plan name??</h3>
+        <h4>―旅行計画の名前は？</h4>
+        <%= form_for @trip, :url => { :controller => :trips, :action => :trip_update } do |f| %>
+          <li>
+            <%= f.label :trip_image, "Image" %>
+            <%= f.file_field :trip_image %>
+          </li>
+          <li>
+            <%= f.label :trip_title, "Title" %>
+            <%= f.text_field :trip_title, placeholder: "Title(*required)" %>
+          </li>
+          <li>
+            <%= f.label :trip_details, "Comment" %><br>
+            <%= f.text_area :trip_details, placeholder: "Comment" %>
+          </li>
+          <li>
+            <%= f.submit :UPDATE %>
+          </li>
+        <% end %>
+          <li>
+          	<%= link_to admin_destroy_trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+              <i class="fas fa-trash-alt"> DELETE</i>
+            <% end %>
+          </li>
+    </ul>
+  </div>
+</div>

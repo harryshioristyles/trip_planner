@@ -35,6 +35,14 @@ Rails.application.routes.draw do
     resources :cities, only: [:index, :create, :edit, :update, :destroy]
     resources :activities, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :users, only: [:index, :edit, :update, :destroy]
+
+    get    "trips/:id"      => "trips#index",        as:"trip"
+    get    "trips/:id/edit" => "trips#trip_edit",    as:"edit_trip"
+    patch  "trips/:id"      => "trips#trip_update",  as:"update_trip"
+    delete "trips/:id"      => "trips#trip_destroy", as:"destroy_trip"
+    get    "lists/:id/edit" => "trips#list_edit",    as:"edit_list"
+    patch  "lists/:id"      => "trips#list_update",  as:"update_list"
+    delete "lists/:id"      => "trips#list_destroy", as:"destroy_list"
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
