@@ -13,23 +13,23 @@
   <body>
     <header>
         <% if admin_signed_in? %>
-            <%= link_to admin_top_path  do %>
+            <%= link_to admins_top_path  do %>
               <div class="header-left">
-                <i class="fas fa-globe-africa"></i><a> Travel Planner</a>
+                <i class="fas fa-globe-africa"> Travel Planner</i>
               </div>
             <% end %>
             <div class="header-right">
               <%= link_to admin_users_path do %>
-                <div class="header-link"> Users</div>
+                <div class="header-link btn-horizontal-border"> Users</div>
               <% end %>
               <%= link_to admin_activities_path do %>
-                <div class="header-link"> Activities</div>
+                <div class="header-link btn-horizontal-border"> Activities</div>
               <% end %>
               <%= link_to admin_cities_path do %>
-                <div class="header-link"> Cities</div>
+                <div class="header-link btn-horizontal-border"> Cities</div>
               <% end %>
               <%= link_to destroy_admin_session_path, method: :delete do %>
-                <div class="header-link">
+                <div class="header-link btn-horizontal-border">
                   <i class="fas fa-sign-out-alt"> Log Out</i>
                 </div>
               <% end %>
