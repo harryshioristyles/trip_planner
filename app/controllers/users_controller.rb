@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def top
       @new_trips = Trip.where(checking_finish: 1).limit(7).order(updated_at: :desc)
-      @favorites = FavoriteTrip.where(user_id: current_user.id).order(created_at: :desc).map{|a| a.trip}
+      @favorites = FavoriteTrip.where(user_id: current_user.id).limit(7).order(created_at: :desc).map{|a| a.trip}
   end
 
   def plan
