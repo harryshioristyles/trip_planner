@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def top
+      @tags = Tag.find(TripTag.group(:tag_id).order('count(tag_id) desc').limit(20).pluck(:tag_id))
       @new_trips = Trip.where(checking_finish: 1).limit(7).order(updated_at: :desc)
       @follows = Trip.where(user_id: current_user.followings).limit(7).order(updated_at: :desc)
       @favorites = FavoriteTrip.where(user_id: current_user.id).order(created_at: :desc).map{|a| a.trip}

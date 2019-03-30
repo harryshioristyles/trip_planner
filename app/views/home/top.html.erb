@@ -10,6 +10,18 @@
 </div> -->
 
 <div class="container-horizon">
+	<div class="hot-words"><h3><i class="fas fa-tag"></i><a>HOT WORDS</a></h3></div>
+	<div class="container-inner">
+			<% @tags.shuffle.each do |tag| %>
+			<% n = TripTag.where(tag_id: tag.id).count %>
+				<div class="tag" style="font-size: -webkit-calc(8px * <%= n %> )">
+					<%= "##{tag.tag}" %>
+				</div>
+			<% end %>
+	</div>
+</div>
+
+<div class="container-horizon">
 	<div class="container-inner">
   	    <div class="top-link-box">
   	      <div class="top-link-title">
@@ -39,6 +51,14 @@
 			          <div class="trip-details-text"><%= trip.trip_details %></div>
 			        </div>
 			    </div>
+
+				<div class="tag-area">
+				  <i class="fas fa-tag"></i>
+				  <% trip.tags.first(3).each do |tag| %>
+				    <%= "##{tag.tag}" %>
+				  <% end %>
+				</div>
+
 			    <div class="under-area">
 					<div class="likes">
 					  <i class="fas fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes
