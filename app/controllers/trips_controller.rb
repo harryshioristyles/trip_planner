@@ -2,33 +2,30 @@ class TripsController < ApplicationController
 
   before_action :authenticate_user!, except: [:search]
 
+  def page(all_trips)
+      page_no = params[:id].to_i
+      trips = all_trips[page_no*10..page_no*10+9]
+      previous_page = page_no - 1
+    if
+      all_trips.last == trips.last
+      next_page = 0
+    else
+      next_page = page_no + 1
+    end
+    return trips,next_page,previous_page
+  end
+
   def search
       all_trips = Trip.search(params[:search]).where(checking_finish: 1).order(updated_at: :desc)
 
-      page_no = params[:id].to_i
-      @trips = all_trips[page_no*10..page_no*10+9]
-      @previous_page = page_no - 1
-    if
-      all_trips.last == @trips.last
-      @next_page = 0
-    else
-      @next_page = page_no + 1
-    end
+      @trips,@next_page,@previous_page = page(all_trips)
   end
 
   def favorite_trips
       @user = User.find(params[:user_id])
       all_trips = FavoriteTrip.where(user_id: @user.id).order(created_at: :desc).map{|a| a.trip}
 
-      page_no = params[:id].to_i
-      @trips = all_trips[page_no*10..page_no*10+9]
-      @previous_page = page_no - 1
-    if
-      all_trips.last == @trips.last
-      @next_page = 0
-    else
-      @next_page = page_no + 1
-    end
+      @trips,@next_page,@previous_page = page(all_trips)
   end
 
   def index_tag

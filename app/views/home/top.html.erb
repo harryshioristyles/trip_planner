@@ -1,4 +1,32 @@
 <div class="header-bg">
+    <div class="container-top">
+      <div class="lead"> Hello!! New travelar!!</div>
+		<div>
+            <!-- Signup button -->
+            <%= link_to '', "data-toggle": "modal", "data-target": "#signupModal" do %>
+              <div class="header-link btn-horizontal-border">
+                <i class="fas fa-user-plus"> Signup</i>
+              </div>
+            <% end %>
+            <!-- Signup modal and render -->
+            <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+              <%= render "users/registrations/new" %>
+            </div>
+		</div>
+	<div class="lead"> Hello!! Travelar!!</div>
+		<div>
+            <!-- Login button -->
+            <%= link_to '', "data-toggle": "modal", "data-target": "#signinModal" do %>
+              <div class="header-link btn-horizontal-border">
+                <i class="fas fa-sign-in-alt"> Login</i>
+              </div>
+            <% end %>
+            <!-- Login modal and render -->
+            <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+              <%= render "users/sessions/new" %>
+            </div>
+		</div>
+    </div>
 </div>
 
 <!-- <div class="container-horizon">

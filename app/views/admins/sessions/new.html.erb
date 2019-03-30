@@ -1,7 +1,5 @@
-<h2>Admin Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<ul class="form-style-1">
+<ul class="form-style-1"><h2>Admin Login</h2>
   <li>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

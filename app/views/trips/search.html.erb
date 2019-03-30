@@ -18,7 +18,7 @@
 			<% end %>
 		<% end %>
 		<% if @next_page >= 1  %>
-			<%= link_to plan_path(@next_page, user_id: @user), class: "btn-flat-logo-navy" do %>
+			<%= link_to "/search/#{@next_page}/", class: "btn-flat-logo-navy" do %>
 		  		 Next<i class="fas fa-angle-double-right"></i>
 			<% end %>
 		<% end %>

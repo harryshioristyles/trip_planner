@@ -2,6 +2,8 @@ class Admin::ActivitiesController < ApplicationController
   def index
       @activity = Activity.new
       @activities = Activity.all
+      @cities = City.all
+      @countries = Country.order(:area)
   end
 
   def create
