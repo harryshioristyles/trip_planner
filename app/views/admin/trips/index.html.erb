@@ -1,0 +1,25 @@
+<div class="flexbox">
+  <div class="side user">
+	<%= render 'admin/users/profile_admin', user: @user %>
+  </div>
+
+  <div class="main">
+  		<div class="box">
+			<% @trips.each do |trip| %>
+				<%= render 'admin/trips/small_box_admin', trip: trip %>
+			<% end %>
+		</div>
+    <div class="page">
+    	<% if @previous_page >= 0  %>
+            <%= link_to "/trips/#{@previous_page}/", class: "btn-flat-logo-navy" do %>
+          		<i class="fas fa-angle-double-left"> Previous</i>
+        	<% end %>
+        <% end %>
+        <% if @trips.length >= 10  %>
+            <%= link_to "/trips/#{@next_page}/", class: "btn-flat-logo-navy" do %>
+          		 Next<i class="fas fa-angle-double-right"></i>
+        	<% end %>
+        <% end %>
+	</div>
+  </div>
+</div>

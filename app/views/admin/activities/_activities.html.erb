@@ -1,0 +1,39 @@
+<div><%= link_to admin_activities_path, class: "btn-flat-logo" do %>
+	  <i class="fas fa-plus"> NEW</i>
+	<% end %>
+</div>
+<div class="admin-box">
+<% @countries.each do |i| %>
+	<div class="panel panel-default">
+	    <div class="panel panel-heading"><b><%= i.country_name %></b>（<%= i.area %>）</div>
+		  <% @cities.where(country_id: i.id).each do |j| %>
+		    <div class="panel-body"><%= j.city_name %></div>
+			  <table class="table">
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th></th>
+						<th>Activity Name</th>
+						<th>Description</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @activities.where(city_id: j.id).each do |activity| %>
+					<tr>
+						<td><%= activity.id %></td>
+						<td><%= image_tag(activity.activity_image, :size => '50x50') if activity.activity_image.attached? %></td>
+						<td><%= activity.activity_name %></td>
+						<td><%= activity.description %></td>
+						<td><%= link_to edit_admin_activity_path(activity), class: "btn-flat-logo-green" do %>
+							  <i class="fas fa-edit"> Edit</i>
+						  	<% end %>
+						</td>
+					</tr>
+				<% end %>
+				</tbody>
+			  </table>
+		  <% end %>
+	</div>
+<% end %>
+</div>

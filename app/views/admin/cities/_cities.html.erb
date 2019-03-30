@@ -1,0 +1,26 @@
+<div>
+  <%= link_to admin_cities_path, class: "btn-flat-logo" do %>
+    <i class="fas fa-plus"> NEW</i>
+  <% end %>
+</div>
+
+<div class="admin-box">
+<% countries.each do |country| %>
+  <div class="panel panel-default">
+      <div class="panel panel-heading"><%= country.area %></div>
+          <div class="panel-body">
+            <b><%= country.country_name %></b>
+            <%= link_to edit_admin_city_path(country), class: "btn-flat-logo-green" do %>
+                <i class="fas fa-edit"> Edit</i>
+            <% end %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <% country.cities.each do |city| %>
+              <li class="list-group-item">
+                <%= city.city_name %>
+              </li>
+            <% end %>
+          </ul>
+  </div>
+<% end %>
+</div>

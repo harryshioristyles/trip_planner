@@ -2,6 +2,8 @@ class Admin::ActivitiesController < ApplicationController
   def index
       @activity = Activity.new
       @activities = Activity.all
+      @cities = City.all
+      @countries = Country.order(:area)
   end
 
   def create
@@ -23,6 +25,7 @@ class Admin::ActivitiesController < ApplicationController
 
   def edit
       @activity = Activity.find(params[:id])
+      @activities = Activity.all
   end
 
   def update

@@ -19,6 +19,7 @@
     @import "bootstrap";
     @import "trips";
     @import "users";
+    @import "admins";
 
 * {
   margin: 0;
@@ -126,6 +127,14 @@ main, .flexbox {
 }
 .top-under-area div {
   color: #FFF;
+  font-family: fantasy;
+}
+.hot-words {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.hot-words{
   font-family: fantasy;
 }
 
