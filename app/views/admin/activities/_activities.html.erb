@@ -3,12 +3,11 @@
 	<% end %>
 </div>
 <div class="admin-box">
-<% activities.each do |i| %>
+<% @countries.each do |i| %>
 	<div class="panel panel-default">
-	    <div class="panel panel-heading"><%= i.city.country.country_name %></div>
-		  <% activities.each do |j| %>
-		  <% if i.city.country.country_name == j.city.country.country_name %>
-		    <div class="panel-body"><%= j.city.city_name %></div>
+	    <div class="panel panel-heading"><b><%= i.country_name %></b>（<%= i.area %>）</div>
+		  <% @cities.where(country_id: i.id).each do |j| %>
+		    <div class="panel-body"><%= j.city_name %></div>
 			  <table class="table">
 				<thead>
 					<tr>
@@ -20,8 +19,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<% activities.each do |activity| %>
-				<% if j.city.city_name == activity.city.city_name %>
+				<% @activities.where(city_id: j.id).each do |activity| %>
 					<tr>
 						<td><%= activity.id %></td>
 						<td><%= image_tag(activity.activity_image, :size => '50x50') if activity.activity_image.attached? %></td>
@@ -33,10 +31,8 @@
 						</td>
 					</tr>
 				<% end %>
-				<% end %>
 				</tbody>
 			  </table>
-		  <% end %>
 		  <% end %>
 	</div>
 <% end %>
