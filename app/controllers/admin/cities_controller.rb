@@ -1,4 +1,7 @@
 class Admin::CitiesController < ApplicationController
+
+  before_action :authenticate_admin!
+
   def index
       @country = Country.new
       @city = @country.cities.build
