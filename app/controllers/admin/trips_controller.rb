@@ -1,4 +1,7 @@
 class Admin::TripsController < ApplicationController
+
+  before_action :authenticate_admin!
+
   def index
   	  @user = User.find(params[:user_id])
       all_trips = Trip.where(user_id: @user, checking_finish: 1)
