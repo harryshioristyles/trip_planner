@@ -1,4 +1,7 @@
 class Admin::ActivitiesController < ApplicationController
+
+  before_action :authenticate_admin!
+
   def index
       @activity = Activity.new
       @activities = Activity.all
