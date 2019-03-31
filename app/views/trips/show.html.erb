@@ -9,7 +9,7 @@
   				<div class="top-area">
   					<div class="day-area">
 		  				<div class="day">Days.</div>
-						<div class="day-no">5<%= @days %></div>
+						<div class="day-no"><%= @days %></div>
 					</div>
 	  		        <div class="trip-image">
 	            		<%= @trip.trip_image.attached? ? image_tag(@trip.trip_image) : image_tag("no_trip_image.jpg") %>
