@@ -53,6 +53,7 @@ class TripsController < ApplicationController
 
   def show
       @trip = Trip.find(params[:id])
+      @days = List.where(trip_id: @trip).maximum(:day_index)
       @user = User.find(@trip.user_id)
   end
 
