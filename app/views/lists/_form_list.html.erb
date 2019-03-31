@@ -19,10 +19,7 @@
 <li>
     <%= f.label :city_id, "City*" %>
     <%= f.collection_select :city_id, City.all, :id, :city_name, :include_blank => true %>
-</li>
-<li>
-    <%= f.label :activity_id, "Activity*" %>
-    <%= f.collection_select :activity_id, Activity.all, :id, :activity_name, :include_blank => true %>
+    <%= f.hidden_field :activity_id, value: 1 %>
 </li>
 <li>
     <%= f.label :list_details %>
