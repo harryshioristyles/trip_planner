@@ -16,8 +16,7 @@ class UsersController < ApplicationController
       page_no = params[:id].to_i
       @trips = all_trips[page_no*10..page_no*10+9]
       @previous_page = page_no - 1
-    if
-      all_trips.last == @trips.last
+    if all_trips.last == @trips.last
       @next_page = 0
     else
       @next_page = page_no + 1
@@ -35,8 +34,7 @@ class UsersController < ApplicationController
 
   def update
       user = User.find(params[:id])
-	  if
-	  	user.update(user_params)
+	  if user.update(user_params)
 	  	redirect_to user_path(user.id)
 	  	flash[:notice] = "successfully updated"
 	  else

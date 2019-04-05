@@ -6,8 +6,7 @@ class TripsController < ApplicationController
       page_no = params[:id].to_i
       trips = all_trips[page_no*10..page_no*10+9]
       previous_page = page_no - 1
-    if
-      all_trips.last == trips.last
+    if all_trips.last == trips.last
       next_page = 0
     else
       next_page = page_no + 1
@@ -41,13 +40,13 @@ class TripsController < ApplicationController
       @trip = current_user.trips.build(trip_params)
       trip.checking_finish = 0
       tag_list = params[:tag_list].split(",")
-    if
-      @trip.save!
+    if @trip.save
       @trip.save_tags(tag_list)
-      flash[:notice] = "successfully created."
+      flash[:notice] = "Successfully created!!"
       redirect_to new_list_path(trip_id: @trip)
     else
-      render 'new'
+      flash[:notice] = "Created error!!"
+      redirect_to new_trip_path
     end
   end
 
@@ -73,26 +72,20 @@ class TripsController < ApplicationController
   def update
       @trip = Trip.find(params[:id])
       tag_list = params[:tag_list].split(",")
-    if
-      @trip.update_attributes(trip_params)
+    if @trip.update_attributes(trip_params)
       @trip.save_tags(tag_list)
-      flash[:notice] = "successfully updated."
+      flash[:notice] = "Successfully updated!!"
       redirect_to new_list_path(trip_id: @trip.id)
     else
-      flash[:notice] = "update error!!"
+      flash[:notice] = "Update error!!"
       redirect_to edit_trip_path(@trip)
     end
   end
 
   def destroy
       trip = Trip.find(params[:id])
-    if
-      trip.destroy
-      flash[:notice] = 'Successfully destroyed.'
-    else
-      flash[:notice] = 'Destroy error!!'
-    end
-      redirect_to trips_path
+      trip.destroy ? flash[:notice] = 'Successfully destroyed.' : flash[:notice] = 'Destroy error!!'
+      redirect_to user_path(trip.user_id)
   end
 
 private

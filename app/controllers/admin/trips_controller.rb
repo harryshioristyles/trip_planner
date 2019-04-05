@@ -8,8 +8,12 @@ class Admin::TripsController < ApplicationController
 
       page_no = params[:id].to_i
       @trips = all_trips[page_no*10..page_no*10+9]
-      @next_page = page_no + 1
       @previous_page = page_no - 1
+    if all_trips.last == @trips.last
+      @next_page = 0
+    else
+      @next_page = page_no + 1
+    end
   end
 
   def trip_edit
@@ -21,24 +25,18 @@ class Admin::TripsController < ApplicationController
   def trip_update
       @trip = Trip.find(params[:id])
       tag_list = params[:tag_list].split(",")
-    if
-      @trip.update_attributes(trip_params)
+    if @trip.update_attributes(trip_params)
       @trip.save_tags(tag_list)
       flash[:notice] = "successfully updated."
     else
-      flash[:notice] = "update error!!"
+      flash[:notice] = "Update error!!"
     end
-      redirect_to admin_edit_trip_path(trip)
+      redirect_to admin_edit_trip_path(@trip)
   end
 
   def trip_destroy
       trip = Trip.find(params[:id])
-    if
-      trip.destroy
-      flash[:notice] = 'Successfully destroyed.'
-    else
-      flash[:notice] = 'Destroy error!!'
-    end
+      trip.destroy ? flash[:notice] = 'Successfully destroyed.' : flash[:notice] = 'Destroy error!!'
       redirect_to admin_trip_path(trip.user_id)
   end
 
@@ -50,23 +48,13 @@ class Admin::TripsController < ApplicationController
 
   def list_update
       list = List.find(params[:id])
-    if
-      list.update(list_params)
-      flash[:notice] = "successfully updated."
-    else
-      flash[:notice] = "update error!!"
-    end
+      list.update(list_params) ? flash[:notice] = "successfully updated." : flash[:notice] = "update error!!"
       redirect_to admin_edit_list_path(list)
   end
 
   def list_destroy
       list = List.find(params[:id])
-    if
-      list.destroy
-      flash[:notice] = 'successfully destroyed.'
-    else
-      flash[:notice] = 'destroy error!!'
-    end
+      list.destroy ? flash[:notice] = 'successfully destroyed.' : flash[:notice] = 'destroy error!!'
       redirect_to admin_edit_trip_path(list.trip_id)
   end
 

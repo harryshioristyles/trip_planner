@@ -34,5 +34,10 @@
 	</div>
 </div>
 <div class="list-side-box">
+<div>
+  <%= link_to new_list_path(trip_id: trip), class: "btn-flat-logo" do %>
+    <i class="fas fa-plus"> New list</i>
+  <% end %>
+</div>
 	<%= render 'trips/side_list', trip: trip %>
 </div>
