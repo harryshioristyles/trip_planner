@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def top
       @new_trips = Trip.where(checking_finish: 1).limit(7).order(updated_at: :desc)
+      @follows = Trip.where(user_id: current_user.followings).limit(7).order(updated_at: :desc)
       @favorites = FavoriteTrip.where(user_id: current_user.id).limit(7).order(created_at: :desc).map{|a| a.trip}
   end
 
@@ -39,6 +40,18 @@ class UsersController < ApplicationController
 	  	redirect_to edit_user_path(user.id)
       flash[:notice] = 'update error!!'
     end
+  end
+
+  def following
+      @user  = User.find(params[:id])
+      @users = @user.followings
+      render 'show_follow'
+  end
+
+  def followers
+      @user  = User.find(params[:id])
+      @users = @user.followers
+      render 'show_follower'
   end
 
     private

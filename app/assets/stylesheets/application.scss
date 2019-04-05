@@ -293,8 +293,8 @@ footer {
 }
 
 .btn-flat-border:hover {
-  background: #FFE74C;
-  color: white;
+  background-color: #FFE74C;
+  color: #FFF;
 }
 .btn-flat-border:hover a {
   text-decoration: none;
@@ -446,6 +446,76 @@ footer {
   text-decoration: none;
 }
 /* 以上ロゴ風フラットボタン */
+
+/* 以下（オレンジ）ロゴ風フラットボタン */
+.btn-flat-logo-orange {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  background: #FF822E;
+  transition: .4s;
+}
+.btn-flat-logo-orange:hover {
+  background: #FFB98B;
+}
+.btn-flat-logo-orange a {
+  text-decoration: none;
+  color: #FFF;
+}
+.btn-flat-logo-orange:hover a {
+  color: #1D3461;
+}
+/* 以上ロゴ風フラットボタン */
+
+.stats {
+  margin: 5px;
+}
+
+/* 以下followボタン */
+.btn-flat-border-follow {
+  display: inline-block;
+  padding: 0.3em 1em;
+  color: #51BBFE;
+  border: solid 2px #51BBFE;
+  background-color: #306BAC;
+  transition: .4s;
+  margin: 5px;
+}
+.btn-flat-border-follow:hover {
+  background: #51BBFE;
+  color: #FFF;
+}
+.btn-flat-border-follow:hover a {
+  text-decoration: none;
+}
+/* 以上 */
+
+/* 以下unfollowボタン */
+.btn-flat-border-unfollow {
+  display: inline-block;
+  padding: 0.3em 1em;
+  background: #51BBFE;
+  color: #FFF;
+  transition: .4s;
+  margin: 5px;
+}
+.btn-flat-border-unfollow:hover {
+  color: #51BBFE;
+  border: solid 2px #51BBFE;
+  background-color: #306BAC;
+}
+.btn-flat-border-unfollow:hover a {
+  text-decoration: none;
+}
+/* 以上 */
+.follow-user-box {
+  text-align: center;
+}
+
+.follow-button {
+  text-align: center;
+}
 
 .top-under-area .btn-flat-logo-pink {
   margin: 0;

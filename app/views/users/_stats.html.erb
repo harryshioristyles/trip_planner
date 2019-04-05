@@ -1,0 +1,19 @@
+ <% user ||= current_user %>
+<div class="stats">
+  <div class="btn-flat-logo-orange">
+    <%= link_to following_user_path(user) do %>
+      <strong id="following" class="stat">
+        <%= user.followings.count %>
+      </strong>
+      following
+    <% end %>
+  </div>
+  <div class="btn-flat-logo-orange">
+    <%= link_to followers_user_path(user) do %>
+      <strong id="followers" class="stat">
+        <%= user.followers.count %>
+      </strong>
+      followers
+    <% end %>
+  </div>
+</div>
