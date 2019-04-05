@@ -10,7 +10,7 @@ class ListsController < ApplicationController
 
   def create
       list = List.new(list_params)
-      list.save!
+      list.save ? flash[:notice] = "Successfully created!!" : flash[:notice] = "Created error!!"
       redirect_to new_list_path(trip_id: list.trip_id)
   end
 
@@ -23,8 +23,7 @@ class ListsController < ApplicationController
 
   def update
       list = List.find(params[:id])
-    if
-      list.update(list_params)
+    if list.update(list_params)
       redirect_to new_list_path(trip_id: list.trip_id)
       flash[:notice] = "successfully updated."
     else
@@ -35,12 +34,7 @@ class ListsController < ApplicationController
 
   def destroy
       list = List.find(params[:id])
-    if
-      list.destroy
-      flash[:notice] = 'successfully destroyed.'
-    else
-      flash[:notice] = 'destroy error!!'
-    end
+      list.destroy ? flash[:notice] = 'Successfully destroyed.' : flash[:notice] = 'Destroy error!!'
       redirect_to new_list_path
   end
 
