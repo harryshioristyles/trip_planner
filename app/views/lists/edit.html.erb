@@ -4,6 +4,11 @@
   </div>
   <div class="main">
   	<ul class="form-style-1">
+    <li>
+      <%= link_to new_list_path(trip_id: @trip), class: "btn-flat-logo" do %>
+        <i class="fas fa-plus"> New List</i>
+      <% end %>
+    </li>
 	  <%= form_for @list do |f| %>
 	    <%= render 'lists/form_list', f: f %>
 	    <li>
