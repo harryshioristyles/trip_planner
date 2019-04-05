@@ -6,8 +6,7 @@ class TripsController < ApplicationController
       page_no = params[:id].to_i
       trips = all_trips[page_no*10..page_no*10+9]
       previous_page = page_no - 1
-    if
-      all_trips.last == trips.last
+    if all_trips.last == trips.last
       next_page = 0
     else
       next_page = page_no + 1
@@ -36,8 +35,13 @@ class TripsController < ApplicationController
       trip = Trip.new(trip_params)
       trip.checking_finish = 0
       trip.user_id = current_user.id
-      trip.save!
+    if trip.save
+      flash[:notice] = "Successfully created!!"
       redirect_to new_list_path(trip_id: trip)
+    else
+      flash[:notice] = "Created error!!"
+      redirect_to new_trip_path
+    end
   end
 
   def show
@@ -60,8 +64,7 @@ class TripsController < ApplicationController
 
   def update
       trip = Trip.find(params[:id])
-    if
-      trip.update(trip_params)
+    if trip.update(trip_params)
       redirect_to new_list_path(trip_id: trip.id)
       flash[:notice] = "Successfully updated."
     else
@@ -72,13 +75,8 @@ class TripsController < ApplicationController
 
   def destroy
       trip = Trip.find(params[:id])
-    if
-      trip.destroy
-      flash[:notice] = 'Successfully destroyed.'
-    else
-      flash[:notice] = 'Destroy error!!'
-    end
-      redirect_to trips_path
+      trip.destroy ? flash[:notice] = 'Successfully destroyed.' : flash[:notice] = 'Destroy error!!'
+      redirect_to user_path(trip.user_id)
   end
 
 private

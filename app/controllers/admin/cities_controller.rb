@@ -11,12 +11,7 @@ class Admin::CitiesController < ApplicationController
 
   def create
       country = Country.new(country_params)
-    if
-      country.save!
-      flash[:notice] = "created successfully!"
-    else
-      flash[:notice] = "Error"
-    end
+      country.save ? flash[:notice] = "created successfully!" : flash[:notice] = "Error"
       redirect_to admin_cities_path
   end
 
@@ -27,8 +22,7 @@ class Admin::CitiesController < ApplicationController
 
   def update
       country = Country.find(params[:id])
-    if
-      country.update(country_params)
+    if country.update(country_params)
       redirect_to admin_cities_path
       flash[:notice] = "successfully updated"
     else
@@ -39,8 +33,7 @@ class Admin::CitiesController < ApplicationController
 
   def destroy
       country = Country.find(params[:id])
-    if
-      country.destroy
+    if country.destroy
       redirect_to admin_cities_path
       flash[:notice] = "successfully updated"
     else
