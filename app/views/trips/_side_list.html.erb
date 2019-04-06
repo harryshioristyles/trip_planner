@@ -1,38 +1,39 @@
 <% trip.lists.each do |list| %>
-	<div class="list-m-side-box">
-		<div>
-			<div class="dot-side"></div>
-			<div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
-		</div>
-		<div class="list-s-side-box">
-			<div class="arrow-day-side">
-				<div><span>Day.<%= list.day_index %></span><br>
-				</div>
-				<div>
-					<%= list.date.strftime('%Y/%m/%d') if list.date? %><br>
-					<%= list.begin.strftime('%H:%M') if list.begin? %>～
-					<%= list.end.strftime('%H:%M') if list.end? %><br>
-				</div>
-			</div>
-			<div class="list-title"><%= list.list_title %></div>
-			<div class="list-details">
-				<i class="fa fa-comment"></i>
-				<div><%= list.list_details %></div>
-			</div>
-			<div class="list-details">
-				<i class="fas fa-map-marker-alt"></i>
-				<div><%= list.city.city_name %></div>
-			</div>
-			<div>
-	          <% if trip.user_id == current_user.id %>
-			    <%= link_to edit_list_path(list), class: "btn-flat-logo-green" do %>
-					<i class="fas fa-edit"> Edit</i>
-				<% end %>
-				<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
-					<i class="fas fa-trash-alt"> Trash</i>
-				<% end %>
-	          <% end %>
-			</div>
-		</div>
+  <div class="list-m-side-box">
+	<div>
+	  <div class="dot-side"></div>
+	  <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
 	</div>
+	<div class="list-s-side-box">
+	  <div class="arrow-day-side">
+		<div>
+		  <span>Day.<%= list.day_index %></span>
+		</div>
+		<div>
+		  <%= list.date.strftime('%Y/%m/%d') if list.date? %><br>
+		  <%= list.begin.strftime('%H:%M') if list.begin? %>～
+		  <%= list.end.strftime('%H:%M') if list.end? %><br>
+		</div>
+	  </div>
+	  <div class="list-title"><%= list.list_title %></div>
+	  <div class="list-details">
+		<i class="fa fa-comment"></i>
+		<div><%= list.list_details %></div>
+	  </div>
+	  <div class="list-details">
+		<i class="fas fa-map-marker-alt"></i>
+		<div><%= list.city.city_name %></div>
+	  </div>
+	  <div>
+        <% if trip.user_id == current_user.id %>
+		  <%= link_to edit_list_path(list), class: "btn-flat-logo-green" do %>
+			<i class="fas fa-edit"> Edit</i>
+	      <% end %>
+	      <%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+			<i class="fas fa-trash-alt"> Trash</i>
+	      <% end %>
+        <% end %>
+	  </div>
+	</div>
+  </div>
 <% end %>
