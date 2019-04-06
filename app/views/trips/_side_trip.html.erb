@@ -14,22 +14,12 @@
 	<div class="trip-details-text"><%= trip.trip_details %></div>
   </div>
   <div class="tag-box">
-	<i class="fas fa-tag"></i>
-	<% trip.tags.each do |tag| %>
-	  <%= link_to "##{tag.tag}", index_tag_path(tag) %>
-	<% end %>
+  	<%= render 'trips/tag', trip: trip %>
   </div>
   <div class="under-area">
 	<%= render 'favorite_trips/likes', trip: trip %>
 	<div>
-	  <% if trip.user_id == current_user.id %>
-		<%= link_to edit_trip_path(trip), class: "btn-flat-logo-green" do %>
-		  <i class="fas fa-edit"> Edit</i>
-		<% end %>
-		<%= link_to trip_path(trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
-		  <i class="fas fa-trash-alt"> DELETE</i>
-		<% end %>
-	  <% end %>
+	  <%= render 'trips/btn_trip_edit', trip: trip %>
 	</div>
   </div>
 </div>

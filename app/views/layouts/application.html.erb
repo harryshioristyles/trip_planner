@@ -11,72 +11,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
-        <% if admin_signed_in? %>
-            <%= link_to admins_top_path  do %>
-              <div class="header-left">
-                <i class="fas fa-globe-africa"> Travel Planner</i>
-              </div>
-            <% end %>
-            <div class="header-right">
-              <%= link_to admin_users_path do %>
-                <div class="header-link btn-horizontal-border"> Users</div>
-              <% end %>
-              <%= link_to admin_cities_path do %>
-                <div class="header-link btn-horizontal-border"> Cities</div>
-              <% end %>
-              <%= link_to destroy_admin_session_path, method: :delete do %>
-                <div class="header-link btn-horizontal-border">
-                  <i class="fas fa-sign-out-alt"> Log Out</i>
-                </div>
-              <% end %>
-            </div>
-        <% elsif user_signed_in? %>
-            <%= link_to top_path  do %>
-              <div class="header-left">
-                <i class="fas fa-globe-asia"> Travel Planner</i>
-              </div>
-            <% end %>
-            <div class="header-right">
-              <%= link_to user_path(current_user) do %>
-                <div class="header-link btn-horizontal-border">
-                  <i class="fas fa-user-astronaut"> My Page</i>
-                </div>
-              <% end %>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <div class="header-link btn-horizontal-border">
-                  <i class="fas fa-sign-out-alt"> Log Out</i>
-                </div>
-              <% end %>
-            </div>
-        <% else %>
-            <%= link_to root_path  do %>
-              <div class="header-left">
-                <i class="fas fa-globe-americas"> Travel Planner</i>
-              </div>
-            <% end %>
-
-            <div class="header-right">
-            </div>
-        <% end %>
+      <%= render 'layouts/header' %>
     </header>
-
     <main>
       <% if flash[:notice] %>
         <p id=notice><%= flash[:notice] %></p>
       <% end %>
-
       <%= yield %>
     </main>
     <footer>
       <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
     </footer>
-
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="/assets/tag-it.js" type="text/javascript" charset="utf-8"></script>
-
   </body>
 </html>

@@ -1,0 +1,4 @@
+<i class="fas fa-tag"></i>
+<% trip.tags.each do |tag| %>
+  <%= link_to "##{tag.tag}", index_tag_path(tag) %>
+<% end %>
