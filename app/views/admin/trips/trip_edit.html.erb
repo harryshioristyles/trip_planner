@@ -22,6 +22,7 @@
           <li>
             <%= f.label :tag, "TAGs" %>
             <ul id="trip-tags"></ul>
+            <%= hidden_field_tag :tag_hidden, @tag_list %>
           </li>
           <li>
             <%= f.submit :UPDATE %>
