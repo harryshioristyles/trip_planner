@@ -27,13 +27,19 @@
     <% end %>
     <div class="header-right">
       <%= link_to user_path(current_user) do %>
-        <div class="header-link btn-horizontal-border">
+        <div class="header-link btn-horizontal-border sp-none">
           <i class="fas fa-user-astronaut"> My Page</i>
         </div>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <div class="header-link btn-horizontal-border">
+        <div class="header-link btn-horizontal-border sp-none">
           <i class="fas fa-sign-out-alt"> Log Out</i>
+        </div>
+      <% end %>
+      <!-- Responsive -->
+      <%= link_to user_path(current_user) do %>
+        <div class="header-link btn-circle-3d">
+          <i class="fas fa-user-astronaut"></i>
         </div>
       <% end %>
     </div>
