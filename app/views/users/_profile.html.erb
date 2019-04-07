@@ -1,16 +1,5 @@
 <div class="profile-box">
-  <div class="profile TopLeft sp-none">
-  	<p>Travelar</p>
-  </div>
-  <div class="profile TopRight">
-    <%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("/images/no_user_image.jpg") %>
-  </div>
-  <div class="profile BottomLeft sp-none">
-  	<%= user.user_image.attached? ? image_tag(user.user_image) : image_tag("/images/no_user_image.jpg") %>
-  </div>
-  <div class="profile BottomRight">
-  	<p><%= user.nickname %></p>
-  </div>
+  <%= render 'users/profile_photo', user: user %>
 </div>
 
 <div class="follow-button">

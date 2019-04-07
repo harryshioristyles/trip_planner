@@ -677,5 +677,18 @@ footer p {
     overflow: none;
   }
 /* list-side */
+/* follow */
+  .follow-user-box {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .follow-button {
+    text-align: left;
+  }
+  .follow-profile {
+    padding: 5px;
+  }
+/* follow */
 
 }
