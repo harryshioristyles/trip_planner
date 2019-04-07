@@ -555,6 +555,10 @@ footer p {
   display: none;
 }
 
+.web-none {
+  display: none;
+}
+
 /* Responsive */
 @media (min-width:600px){
   .flexbox {
@@ -568,8 +572,13 @@ footer p {
 
 /* Responsive */
 @media screen and (max-width:425px) {
+  /* Responsiveで非表示 */
   .sp-none {
     display: none;
+  }
+  /* webブラウザで非表示*/
+  .web-none {
+    display: block;
   }
 /* top */
   html, body, header {
@@ -668,4 +677,5 @@ footer p {
     overflow: none;
   }
 /* list-side */
+
 }

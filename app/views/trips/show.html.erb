@@ -1,9 +1,14 @@
 <div class="flexbox">
-  <div class="side">
+  <div class="side user">
   	<%= render 'users/profile', user: @user %>
   </div>
 
   <div class="main">
-  	<%= render 'trips/detail', trip: @trip, days: @days %>
+  	<div class="sp-none">
+  	  <%= render 'trips/detail', trip: @trip, days: @days %>
+    </div>
+    <div class="web-none">
+      <%= render 'trips/side_trip', trip: @trip, days: @days %>
+    </div>
   </div>
 </div>
