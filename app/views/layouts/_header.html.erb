@@ -1,0 +1,66 @@
+<!-- 管理者ログイン -->
+<% if admin_signed_in? %>
+    <%= link_to admins_top_path  do %>
+      <div class="header-left">
+        <i class="fas fa-globe-africa"> Travel Planner</i>
+      </div>
+    <% end %>
+    <div class="header-right">
+      <%= link_to admin_users_path do %>
+        <div class="header-link btn-horizontal-border"> Users</div>
+      <% end %>
+      <%= link_to admin_cities_path do %>
+        <div class="header-link btn-horizontal-border"> Cities</div>
+      <% end %>
+      <%= link_to destroy_admin_session_path, method: :delete do %>
+        <div class="header-link btn-horizontal-border">
+          <i class="fas fa-sign-out-alt"> Log Out</i>
+        </div>
+      <% end %>
+    </div>
+<!-- ユーザーログイン -->
+<% elsif user_signed_in? %>
+    <%= link_to top_path  do %>
+      <div class="header-left">
+        <i class="fas fa-globe-asia"> Travel Planner</i>
+      </div>
+    <% end %>
+    <div class="header-right">
+      <%= link_to about_path do %>
+        <div class="header-link btn-horizontal-border sp-none">
+          <i> 本サイトについて</i>
+        </div>
+      <% end %>
+      <%= link_to user_path(current_user) do %>
+        <div class="header-link btn-horizontal-border sp-none">
+          <i class="fas fa-user-astronaut"> My Page</i>
+        </div>
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <div class="header-link btn-horizontal-border sp-none">
+          <i class="fas fa-sign-out-alt"> Log Out</i>
+        </div>
+      <% end %>
+      <!-- Responsive -->
+      <%= link_to user_path(current_user) do %>
+        <div class="header-link btn-circle-3d">
+          <i class="fas fa-user-astronaut"></i>
+        </div>
+      <% end %>
+    </div>
+<!-- 未ログイン -->
+<% else %>
+    <%= link_to root_path  do %>
+      <div class="header-left">
+        <i class="fas fa-globe-americas"> Travel Planner</i>
+      </div>
+    <% end %>
+
+    <div class="header-right">
+      <%= link_to about_path do %>
+        <div class="header-link btn-horizontal-border sp-none">
+          <i> 本サイトについて</i>
+        </div>
+      <% end %>
+    </div>
+<% end %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => 'home#top'
   get 'top' => 'users#top'
   get 'admins/top' => 'admins#top'
+  get 'about' => 'home#about'
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',

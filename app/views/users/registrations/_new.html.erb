@@ -12,12 +12,12 @@
 
           <div class="field">
             <%= f.label :nickname %><br>
-            <%= f.text_field :nickname, autofocus: true, autocomplete: "Nickname" %>
+            <%= f.text_field :nickname, placeholder: "Your nickname", autofocus: true, autocomplete: "Nickname" %>
           </div>
 
           <div class="field">
             <%= f.label :email %><br>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, placeholder: "example@gmail.com", autofocus: true, autocomplete: "email" %>
           </div>
 
           <div class="field">
@@ -25,12 +25,12 @@
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br>
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password, placeholder: "Password (at least 6 letters)", autocomplete: "new-password" %>
           </div>
 
           <div class="field">
             <%= f.label :password_confirmation %><br>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            <%= f.password_field :password_confirmation, placeholder: "Password (at least 6 letters)", autocomplete: "new-password" %>
           </div>
 
           <div class="actions">

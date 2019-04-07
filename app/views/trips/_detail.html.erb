@@ -1,0 +1,29 @@
+<div class="plan-b-box">
+  	<div class="trip-box">
+  		<div class="top-area">
+  		  <div class="day-area">
+		  	<div class="day">Days.</div>
+			<div class="day-no"><%= days %></div>
+		  </div>
+	  	  <div class="trip-image">
+	        <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("/images/no_trip_image.jpg") %>
+	      </div>
+        </div>
+		<div class="trip-title"><%= trip.trip_title %></div>
+		<div class="trip-details">
+		  <i class="fa fa-comment"></i>
+		  <div class="trip-details-text"><%= trip.trip_details %></div>
+		</div>
+		<div class="tag">
+	  	  <%= render 'trips/tag', trip: trip %>
+		</div>
+		<div class="under-area">
+		  <%= render 'favorite_trips/likes', trip: trip %>
+		  <div><%= render 'trips/btn_trip_edit', trip: trip %></div>
+    	</div>
+	</div>
+
+	<div class="list-b-box">
+	  <%= render 'trips/detail_list', trip: trip %>
+	</div>
+</div>

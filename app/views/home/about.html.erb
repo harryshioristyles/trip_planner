@@ -1,0 +1,212 @@
+<h1>このサイトはポートフォリオ用のサイトです</h1>
+<div class="flexbox">
+  <div class="side user">
+	<div class="profile-box">
+    <div class="profile TopLeft sp-none">
+      <p>Profile</p>
+    </div>
+    <div class="profile TopRight">
+      <%= image_tag(@user.user_image) %>
+    </div>
+    <div class="profile BottomLeft sp-none">
+      <%= image_tag(@user.user_image) %>
+    </div>
+    <div class="profile BottomRight">
+      <p><%= @user.nickname %></p>
+    </div>
+  </div>
+
+  <div class="introduction-box">
+    <div class="profile-title">About Me</div>
+    <div class="profile-details">
+          <h4 class="label-pink">github</h4>
+          <h5><a class="about-link" href="https://github.com/harryshioristyles">https://github.com/harryshioristyles</a></h5>
+          <h4 class="label-pink"> 学習期間</h4>
+          <h5>プログラミング歴：<%= (Date.today - Date.new(2019, 1, 1)).to_i %>日目(2019年1月〜)</h5>
+          <h4 class="label-pink"> 学習内容</h4>
+          <ul>
+            <li>
+              <h5>本のレビューアプリ作成</h5>
+              github:<br>
+              <a class="about-link" href="https://github.com/harryshioristyles/app_level2">https://github.com/harryshioristyles/app_level2</a>
+            </li>
+            <li>
+              <h5>チーム開発でECサイト構築</h5>
+              github:<br>
+              <a class="about-link" href="https://github.com/pandasaan/Pandam/tree/develop">https://github.com/pandasaan/Pandam/tree/develop</a>
+            </li>
+            <li>
+              <h5>ポートフォリオ制作（このサイト）</h5>
+              github:<br>
+              <a class="about-link" href="https://github.com/harryshioristyles/trip_planner/tree/deploying">https://github.com/harryshioristyles/trip_planner/...</a>
+              URL:<br>
+              <a class="about-link" href="http://ec2-52-198-16-50.ap-northeast-1.compute.amazonaws.com/">http://ec2-52-198-16-50.ap-northeast-1.compute.amazonaws.com/</a>
+            </li>
+          </ul>
+        </li>
+          <h4 class="label-pink">使用言語・フレームワーク</h4>
+          <h5> Ruby, Ruby on Rails, Java Script, jQuery, mysql, AWS</h5>
+    </div>
+  </div>
+  </div>
+  <div class="main">
+  		<div class="about-box">
+        <div class="trip-side-box">
+          <div class="about-detail">
+            <i class="fas fa-calendar-alt"> 制作期間</i><br>
+            １ヶ月（2019年3月1日〜3月31日）
+          </div>
+          <div class="about-detail">
+            <i class="fas fa-link"> github</i><br>
+            <a href="https://github.com/harryshioristyles/trip_planner/tree/deploying">https://github.com/harryshioristyles/...</a></i>
+          </div>
+          <div class="about-detail">
+            <i class="fa fa-comment"> 制作理由</i><br>
+            他の人の旅行計画を参考にしたかったから。フォームがバラバラだったり、欲しい情報が得られないことが多い。
+          </div>
+          <div class="about-detail">
+            <i class="fas fa-tag"> 使用言語・フレームワーク</i><br>
+            #Ruby #Ruby on Rails #JavaScript #jQuery #bootstrap4 #mysql #AWS
+          </div>
+        </div>
+        <div class="list-side-box">
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">旅行計画投稿機能</div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>旅行計画の作成/投稿ができます。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>記載事項：<br>旅行計画タイトル/何日目/日付/何時から何時まで/詳細/都市</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>web用ではサイドバーで旅行計画を確認しながら、編集ができます。</div>
+                </div>
+              </div>
+            </div>
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">ハッシュタグ機能</div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>旅行計画に#ハッシュタグを付けることができます。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-lightbulb"></i>
+                  <div>トップのホットワードは、<br>人気の#ハッシュタグがランダムに表示され、投稿数が多いほど文字が大きくなります。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>ログインした状態で、<br>#ハッシュタグをクリックすると指定の#ハッシュタグを含んだ旅行計画の検索ができます。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-wrench"></i>
+                  <div>入力フォームには、<br>jQueryのライブラリ tag-it を使用しています。</div>
+                </div>
+              </div>
+            </div>
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">ページ機能</div>
+                <div class="list-details">
+                  <i class="fas fa-lightbulb"></i>
+                  <div>ページャー機能を、<br>gem kaminariを使わずに、実装しました。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>NextとPreviousでページ送りができます。</div>
+                </div>
+              </div>
+            </div>
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">いいね/お気に入り機能</div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>ログインした状態で、<br>旅行計画に対していいねができます。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>いいねは、1つの旅行計画に対して1ユーザー1回に制限しています。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>いいね(お気に入り)した旅行計画を一覧表示できます。</div>
+                </div>
+              </div>
+            </div>
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">フォロー機能</div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>ログインした状態で、<br>ユーザーに対してフォローすることができます。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>フォロー/フォロワーのユーザーを一覧表示できます。</div>
+                </div>
+              </div>
+            </div>
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">検索機能</div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>タイトルに検索ワードを含んだ旅行計画の検索ができます。</div>
+                </div>
+              </div>
+            </div>
+            <div class="list-m-side-box">
+              <div>
+                <div class="dot-side"></div>
+                <div class="line"><%= image_tag '/images/line-white.jpg',alt:"|" %></div>
+              </div>
+              <div class="list-s-side-box">
+                <div class="list-title">ユーザー登録/ログイン機能</div>
+                <div class="list-details">
+                  <i class="fas fa-comment-dots"></i>
+                  <div>メールアドレス、パスワードで登録できます。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-wrench"></i>
+                  <div>gem deviseを使用しています。</div>
+                </div>
+                <div class="list-details">
+                  <i class="fas fa-wrench"></i>
+                  <div>bootstrapのモーダル機能を使用しています。</div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+  		</div>
+  </div>
+</div>
