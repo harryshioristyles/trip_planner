@@ -5,4 +5,8 @@ class HomeController < ApplicationController
 	    @new_trips = Trip.where(checking_finish: 1).limit(19).order(updated_at: :desc)
 	end
 
+	def about
+		@user = User.first
+	end
+
 end

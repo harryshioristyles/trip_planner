@@ -26,6 +26,11 @@
       </div>
     <% end %>
     <div class="header-right">
+      <%= link_to about_path do %>
+        <div class="header-link btn-horizontal-border sp-none">
+          <i> 本サイトについて</i>
+        </div>
+      <% end %>
       <%= link_to user_path(current_user) do %>
         <div class="header-link btn-horizontal-border sp-none">
           <i class="fas fa-user-astronaut"> My Page</i>
@@ -52,5 +57,10 @@
     <% end %>
 
     <div class="header-right">
+      <%= link_to about_path do %>
+        <div class="header-link btn-horizontal-border sp-none">
+          <i> 本サイトについて</i>
+        </div>
+      <% end %>
     </div>
 <% end %>
