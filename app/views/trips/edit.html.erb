@@ -1,4 +1,4 @@
-<div class="flexbox">
+<div class="flexbox reverse">
   <div class="side-trip">
     <%= render 'trips/side_trip', trip: @trip, days: @days %>
   </div>
@@ -31,6 +31,11 @@
         <li>
         	<%= link_to trip_path(@trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
             <i class="fas fa-trash-alt"> DELETE</i>
+          <% end %>
+        </li>
+        <li>Did you finish?? >>>
+          <%= link_to result_trip_path(@trip), class: "btn-flat-border" do %>
+            <i class="fas fa-plane-arrival"> FINISH!!</i>
           <% end %>
         </li>
     </ul>

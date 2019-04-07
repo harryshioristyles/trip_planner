@@ -656,4 +656,16 @@ footer p {
     border-bottom: none;
   }
 /* btn */
+/* list-side */
+  .reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .side-trip {
+    background-color: #306BAC;
+    width: 100%;
+    height: 100vh;
+    overflow: none;
+  }
+/* list-side */
 }
