@@ -1,8 +1,10 @@
-<% if trip.user_id == current_user.id %>
-  <%= link_to edit_trip_path(trip), class: "btn-flat-logo-green" do %>
-	<i class="fas fa-edit"> Edit</i>
-  <% end %>
-  <%= link_to trip_path(trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
-	<i class="fas fa-trash-alt"> DELETE</i>
-  <% end %>
+<% if user_signed_in? %>
+	<% if trip.user_id == current_user.id %>
+	  <%= link_to edit_trip_path(trip), class: "btn-flat-logo-green" do %>
+		<i class="fas fa-edit"> Edit</i>
+	  <% end %>
+	  <%= link_to trip_path(trip), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+		<i class="fas fa-trash-alt"> DELETE</i>
+	  <% end %>
+	<% end %>
 <% end %>

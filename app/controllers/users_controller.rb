@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:plan, :show]
 
   def top
       @tags = Tag.find(TripTag.group(:tag_id).order('count(tag_id) desc').limit(20).pluck(:tag_id))

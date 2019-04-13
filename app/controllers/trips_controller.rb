@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:search]
+  before_action :authenticate_user!, except: [:search, :favorite_trips, :index_tag, :show]
 
   def page(all_trips)
       page_no = params[:id].to_i
