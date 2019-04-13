@@ -27,14 +27,16 @@
 			<div><%= list.city.city_name %></div>
 		</div>
 		<div>
-          <% if trip.user_id == current_user.id %>
-		    <%= link_to edit_list_path(list), class: "btn-flat-logo-green" do %>
-				<i class="fas fa-edit"> Edit</i>
-			<% end %>
-			<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
-				<i class="fas fa-trash-alt"> Trash</i>
-			<% end %>
-          <% end %>
+			<% if user_signed_in? %>
+        <% if trip.user_id == current_user.id %>
+			    <%= link_to edit_list_path(list), class: "btn-flat-logo-green" do %>
+						<i class="fas fa-edit"> Edit</i>
+					<% end %>
+					<%= link_to list_path(list), method: :delete, "data-confirm" => "Are you sure?", class: "btn-flat-logo-red" do %>
+						<i class="fas fa-trash-alt"> Trash</i>
+					<% end %>
+        <% end %>
+      <% end %>
 		</div>
 	</div>
 

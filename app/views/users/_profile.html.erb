@@ -7,32 +7,49 @@
 </div>
 
 <div class="user-links">
-  <% if user.id == current_user.id %>
-	<div>
-      <%= link_to edit_user_path(user), class: "btn-flat-logo-green" do %>
-        <i class="fas fa-user-edit"> Edit</i>
-      <% end %>
-      <%= link_to destroy_user_session_path, method: :delete, class: "btn-flat-logo-grey" do %>
-        <i class="fas fa-sign-out-alt"> Log Out</i>
-      <% end %>
-	</div>
+  <!-- ログインユーザー -->
+  <% if user_signed_in? %>
+    <!-- 自分のマイページ：プロフィールの編集とログアウト -->
+    <% if user.id == current_user.id %>
+    	<div>
+        <%= link_to edit_user_path(user), class: "btn-flat-logo-green" do %>
+          <i class="fas fa-user-edit"> Edit</i>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "btn-flat-logo-grey" do %>
+          <i class="fas fa-sign-out-alt"> Log Out</i>
+        <% end %>
+    	</div>
+      <div>
+        <%= link_to new_trip_path, class: "btn-flat-border" do %>
+         <i class="fas fa-plane-departure"> Let's make a plan!!</i>
+        <% end %>
+      </div>
+    <!-- 他の人のマイページ：他の人のマイページリンクとフォロー -->
+    <% else %>
+      <div>
+        <%= link_to user_path(user), class: "btn-flat-logo-profile" do %>
+          <i class="fas fa-caret-right"> User Profile</i>
+        <% end %>
+      </div>
+      <div>
+        <%= render 'users/stats', user: user %>
+      </div>
+    <% end %>
+  <!-- 未ログインユーザー：他の人のマイページリンク -->
+  <% else %>
+      <div>
+        <%= link_to user_path(user), class: "btn-flat-logo-profile" do %>
+          <i class="fas fa-caret-right"> User Profile</i>
+        <% end %>
+      </div>
   <% end %>
-	<div>
-	  <%= render 'users/stats', user: user %>
-	</div>
+</div>
+<!-- お気に入り（誰でも見られる） -->
 	<div>
       <%= link_to favorite_trips_path(0, user_id: user.id), class: "btn-flat-logo-pink" do %>
         <i class="fab fa-gratipay"> <%= user.favorite_trips.count %> Favorites</i>
       <% end %>
 	</div>
-  <% if user.id == current_user.id %>
-    <div>
-      <%= link_to new_trip_path, class: "btn-flat-border" do %>
-       <i class="fas fa-plane-departure"> Let's make a plan!!</i>
-      <% end %>
-    </div>
-  <% end %>
-</div>
 
 <div class="introduction-box">
   <div class="profile-title">About Me</div>
