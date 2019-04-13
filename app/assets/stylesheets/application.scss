@@ -371,7 +371,7 @@ footer p {
 }
 /* 以上ロゴ風フラットボタン */
 
-/* 以下（紺）ロゴ風フラットボタン */
+/* 以下（紺）ロゴ風フラットボタン（※marginなし） */
 .btn-flat-logo-navy {
   position: relative;
   display: inline-block;
@@ -386,6 +386,26 @@ footer p {
   background: #6F7D9A;
 }
 .btn-flat-logo-navy a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（紺）ロゴ風フラットボタン（※marginあり） */
+.btn-flat-logo-profile {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #1D3461;
+  transition: .4s;
+  margin: 5px;
+}
+
+.btn-flat-logo-profile:hover {
+  background: #6F7D9A;
+}
+.btn-flat-logo-profile a {
   text-decoration: none;
 }
 /* 以上ロゴ風フラットボタン */
@@ -625,7 +645,7 @@ h5 {
   .container-top {
     width: 100%;
     margin: 0 auto;
-    padding: 100px;
+    padding: 10px;
   }
   .container-inner {
     width: 100%;

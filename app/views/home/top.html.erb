@@ -3,7 +3,7 @@
     <div class="container-top">
       <div class="lead"> はじめに</div>
     　<%= link_to about_path do %>
-        <div class="header-link btn-horizontal-border sp-none">
+        <div class="header-link btn-horizontal-border">
           <i> 本サイトについて</i>
         </div>
       <% end %>
@@ -72,7 +72,7 @@
 			<% @tags.shuffle.each do |tag| %>
 			<% n = TripTag.where(tag_id: tag.id).count %>
 				<div class="tag" style="font-size: -webkit-calc(8px * <%= n %> )">
-					<%= "##{tag.tag}" %>
+					<%= link_to "##{tag.tag}", index_tag_path(tag) %>
 				</div>
 			<% end %>
 	</div>
@@ -85,37 +85,17 @@
   	        <div class="top-link-text"><p>NEW!!</p></div>
   	      </div>
   	      <div class="top-under-area">
+  	      	  <div class="top-link-more"> Search more  <i class="far fa-hand-point-right"></i></div>
+	          <div  class="top-link-">
+	          	<%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
+	      	  		<i class="fas fa-search"> Search</i>
+	      	  	<% end %>
+	      	  </div>
 	      </div>
 	    </div>
 
 		<% @new_trips.each do |trip| %>
-			<div class="plan-s-box">
-			          <div class="trip-image">
-			            <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("/images/no_trip_image.jpg") %>
-			          </div>
-			    <div class="trip-area">
-			        <div class="trip-title">
-			          <%= trip.trip_title %>
-			        </div>
-			        <div class="trip-details">
-			          <i class="fa fa-comment"></i>
-			          <div class="trip-details-text"><%= trip.trip_details %></div>
-			        </div>
-			    </div>
-
-				<div class="tag-area">
-				  <i class="fas fa-tag"></i>
-				  <% trip.tags.first(3).each do |tag| %>
-				    <%= "##{tag.tag}" %>
-				  <% end %>
-				</div>
-
-			    <div class="under-area">
-					<div class="likes">
-					  <i class="fas fa-heart index" aria-hidden="true" style="color: #E56399;"></i><%= trip.favorite_trips.count %> likes
-					</div>
-			    </div>
-			</div>
+			<%= render 'trips/small_box', trip: trip %>
 		<% end %>
 	</div>
 </div>
