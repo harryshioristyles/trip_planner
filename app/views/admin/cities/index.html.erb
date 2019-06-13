@@ -1,0 +1,34 @@
+<div class="flexbox">
+  <div class="side user">
+  	<h3>New Country & City</h3>
+	<%= form_for @country, :url => { :controller => :cities, :action => :create } do |f| %>
+		<ul class="form-style-1">
+		  <h3>Country</h3>
+            <li class="field">
+				<%= f.label :area, "Area" %>
+		    	<%= f.select :area, Country.areas.keys.to_a %>
+            </li>
+            <li class="field">
+                <%= f.label :country_name, "Country Name" %>
+		    	<%= f.text_field :country_name %>
+            </li>
+          <h3>Cities</h3>
+            <%= f.fields_for :cities do |city| %>
+            <li class="field">
+			    <%= render 'city_fields', f: city %>
+			    <% end %>
+			</li>
+			<li id="links">
+		      	<%= link_to_add_association 'Add City',f, :cities, class:"btn btn-primary", style:"margin:5px;" %>
+		    </li>
+		    <%= f.submit :SAVE %>
+        </ul>
+	<% end %>
+  </div>
+
+  <div class="main">
+  		<div class="admin-box">
+  			<%= render 'cities', countries: @countries %>
+        </div>
+  </div>
+</div>

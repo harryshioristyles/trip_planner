@@ -1,0 +1,21 @@
+<div class="flexbox reverse">
+  <div class="side-trip">
+	  <%= render 'trips/side_trip', trip: @trip, days: @days %>
+  </div>
+  <div class="main">
+  	<ul class="form-style-1">
+	  <%= form_for @list do |f| %>
+	    <%= render 'lists/form_list', f: f %>
+	    <li>
+    	  <%= f.hidden_field :trip_id, value: @trip.id %>
+	      <%= f.submit :"Create!" %>
+      </li>
+    <% end %>
+      <li>Did you finish?? >>>
+      	<%= link_to result_trip_path(@trip), class: "btn-flat-border" do %>
+      		<i class="fas fa-plane-arrival"> FINISH!!</i>
+      	<% end %>
+      </li>
+	  </ul>
+  </div>
+</div>

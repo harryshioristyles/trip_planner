@@ -1,0 +1,752 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
+ *= require_self
+ */
+    @import "bootstrap-sprockets";
+    @import "bootstrap";
+    @import "trips";
+    @import "users";
+    @import "admins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+html {
+  height: 100%;
+}
+body {
+  width: 100%;
+  min-height: 100vh;/*←全て含めてmin-height:100vhに*/
+  position: relative;/*←相対位置*/
+  box-sizing: border-box;
+  padding-bottom: 100px;/*←footerの高さ*/
+}
+main, .flexbox {
+  min-height: 100vh
+}
+
+/* users#top */
+.header-bg {
+ background-image : url("/images/top.jpg");
+ background-position: top center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
+}
+.container-top {
+  width: 960px;
+  margin: 0 auto;
+  padding: 100px;
+}
+.container-horizon {
+  width: 100%;
+  padding: 10px 0;
+}
+.container-horizon:nth-child(odd) {
+  background-color: #F7F0F0;
+}
+.container-inner {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.top-link-box {
+  width: 200px;
+  height: 300px;
+  margin: 1rem 3px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  background-color: #1D3461;
+  position: relative;
+}
+.top-link-box:hover {
+  box-shadow: 0px 20px 40px rgba(73,66,56,0.4);
+}
+.top-link-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  border-bottom: solid 1px #FFF;
+}
+.top-link-text {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #FFF;
+  position: relative;
+}
+.top-link-text p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  text-align: center;
+  font-size: 20px;
+  font-family: fantasy;
+}
+.top-link-more, .top-link {
+  padding: 5px;
+}
+.top-under-area {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.top-under-area div {
+  color: #FFF;
+  font-family: fantasy;
+}
+
+.hot-words {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.hot-words h3{
+  font-family: fantasy;
+}
+
+.about-link-box {
+  width: 250px;
+  height: 250px;
+  margin: 1rem 3px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+}
+.about-link-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+}
+.about-link-text {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #FFF;
+  position: relative;
+}
+.about-link-text p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  text-align: center;
+  font-size: 30px;
+  font-family: fantasy;
+  text-shadow: 1px 2px 3px #808080;
+}
+.about-under-area {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.about-under-area div {
+  color: #000;
+  font-family: fantasy;
+  font-size: 18px;
+}
+
+header {
+  background-color: #1D3461;
+  margin-bottom: 0px;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+#notice {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  background-color: #FCFF4B;
+  color: #000;
+  text-align: center;
+}
+
+header i {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.header-left i {
+  font-size: 30px;
+  text-decoration: none;
+}
+.header-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header-link {
+  margin: auto 10px;
+  padding: 0 10px;
+}
+
+footer {
+  width: 100%;
+  background-color: #1D3461;
+  text-align: center;
+  padding: 40px 0;
+  bottom: 0;
+  height: 100px;
+  position: absolute;
+}
+
+footer p {
+  color: #fff;
+}
+
+/* top */
+.lead {
+  color: #FFF;
+  padding: 20px;
+  margin: 5px;
+}
+.no-login, .no-login a {
+  color: #FFF;
+}
+.no-login-black, .no-login-black a {
+  color: #000;
+}
+
+/* 右メイン */
+.main {
+  width: 70%;
+}
+/* 左サイド */
+.side {
+  background-color: #306BAC;
+  width: 30%;
+}
+.main,.side {
+  padding: 2%;
+}
+.side-trip {
+  background-color: #306BAC;
+  width: 30%;
+  height: 100vh;
+  overflow: scroll;
+}
+/* 以下form */
+.trip-form  {
+  padding: 0.5em 1em;
+  color: #676F74;
+  background: #8EDAE5;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  height: 300px;
+}
+.text {
+  color: #000;
+}
+/* 以上form */
+
+/* 以下黄色スタートボタン */
+.btn-flat-border {
+  display: inline-block;
+  padding: 0.3em 1em;
+  color: #FFE74C;
+  border: solid 2px #FFE74C;
+  border-radius: 3px;
+  transition: .4s;
+  margin: 5px;
+}
+
+.btn-flat-border:hover {
+  background-color: #FFE74C;
+  color: #FFF;
+}
+.btn-flat-border:hover a {
+  text-decoration: none;
+}
+/* 以上黄色スタートボタン */
+
+/* 上下線付きボタン（ヘッダー） */
+.btn-horizontal-border {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 12px 20px 8px;
+  text-decoration: none;
+  color: #FFF;
+  transition: .4s;
+}
+
+.btn-horizontal-border:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:100%;
+  left: 0;
+  border-radius: 3px;
+  background: #FFF;
+  transition: .2s;
+}
+
+.btn-horizontal-border:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:0;
+  left: 0;
+  border-radius: 3px;
+  background: #FFF;
+  transition: .2s;
+}
+
+.btn-horizontal-border:hover:before {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
+}
+
+.btn-horizontal-border:hover:after {
+  top: 3px;
+}
+.btn-horizontal-border a {
+  text-decoration: none;
+}
+/* 上下線付きボタン（ヘッダー） */
+
+/* 以下（青）ロゴ風フラットボタン */
+.btn-flat-logo {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #306BAC;
+  transition: .4s;
+}
+
+.btn-flat-logo:hover {
+  background: #4091E8;
+}
+.btn-flat-logo a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（紺）ロゴ風フラットボタン（※marginなし） */
+.btn-flat-logo-navy {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #1D3461;
+  transition: .4s;
+}
+
+.btn-flat-logo-navy:hover {
+  background: #6F7D9A;
+}
+.btn-flat-logo-navy a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（紺）ロゴ風フラットボタン（※marginあり） */
+.btn-flat-logo-profile {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #1D3461;
+  transition: .4s;
+  margin: 5px;
+}
+
+.btn-flat-logo-profile:hover {
+  background: #6F7D9A;
+}
+.btn-flat-logo-profile a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（緑）ロゴ風フラットボタン */
+.btn-flat-logo-green {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #01796F;
+  transition: .4s;
+  margin: 5px;
+}
+
+.btn-flat-logo-green:hover {
+  background: #74B5B0;
+}
+.btn-flat-logo-green a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（赤）ロゴ風フラットボタン */
+.btn-flat-logo-red {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #8D1717;
+  transition: .4s;
+  margin: 5px;
+}
+
+.btn-flat-logo-red:hover {
+  background: #B66B6B;
+}
+.btn-flat-logo-red a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（ピンク）ロゴ風フラットボタン */
+.btn-flat-logo-pink {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  color: #FFF;
+  background: #E56399;
+  transition: .4s;
+  margin: 5px;
+}
+
+.btn-flat-logo-pink:hover {
+  background: #F0A9C7;
+}
+.btn-flat-logo-pink a {
+  text-decoration: none;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（オレンジ）ロゴ風フラットボタン */
+.btn-flat-logo-orange {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  background: #FF822E;
+  transition: .4s;
+}
+.btn-flat-logo-orange:hover {
+  background: #FFB98B;
+}
+.btn-flat-logo-orange a {
+  text-decoration: none;
+  color: #FFF;
+}
+.btn-flat-logo-orange:hover a {
+  color: #1D3461;
+}
+/* 以上ロゴ風フラットボタン */
+
+/* 以下（グレー）ロゴ風フラットボタン */
+.btn-flat-logo-grey {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  background: #62707E;
+  transition: .4s;
+}
+.btn-flat-logo-grey:hover {
+  background: #8F9DAB;
+}
+.btn-flat-logo-grey i {
+  text-decoration: none;
+  color: #FFF;
+}
+/* 以上ロゴ風フラットボタン */
+
+.stats {
+  margin: 5px;
+}
+
+/* 以下followボタン */
+.btn-flat-border-follow {
+  display: inline-block;
+  padding: 0.3em 1em;
+  color: #51BBFE;
+  border: solid 2px #51BBFE;
+  background-color: #306BAC;
+  transition: .4s;
+  margin: 5px;
+}
+.btn-flat-border-follow:hover {
+  background: #51BBFE;
+  color: #FFF;
+}
+.btn-flat-border-follow:hover a {
+  text-decoration: none;
+}
+/* 以上 */
+
+/* 以下unfollowボタン */
+.btn-flat-border-unfollow {
+  display: inline-block;
+  padding: 0.3em 1em;
+  background: #51BBFE;
+  color: #FFF;
+  transition: .4s;
+  margin: 5px;
+}
+.btn-flat-border-unfollow:hover {
+  color: #51BBFE;
+  border: solid 2px #51BBFE;
+  background-color: #306BAC;
+}
+.btn-flat-border-unfollow:hover a {
+  text-decoration: none;
+}
+/* 以上 */
+.follow-user-box {
+  text-align: center;
+}
+
+.follow-button {
+  text-align: center;
+}
+
+.top-under-area .btn-flat-logo-pink {
+  margin: 0;
+}
+
+.page {
+  text-align: center;
+  margin: 10px;
+}
+
+/* modal */
+.modal-body {
+  text-align: center;
+}
+/* about */
+.about-link {
+  color: #FFF;
+}
+h1 {
+  color: #FFF;
+  background: #FFE74C;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+h4 {
+  margin-top: 30px;
+}
+h5 {
+  margin-top: 20px;
+}
+.about-detail {
+  padding: 5px;
+}
+.about-detail a {
+  color: #FFF;
+}
+.list-details-about a {
+  color: #FFF;
+}
+.label-pink {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  color: #FFF;
+  background: #62707E;
+  transition: .4s;
+  margin: 5px;
+}
+
+/* webブラウザで非表示*/
+.btn-circle-3d {
+  display: none;
+}
+/* webブラウザで非表示*/
+.web-none {
+  display: none;
+}
+
+/* Responsive */
+@media (min-width:600px){
+  .flexbox {
+    display: -webkit-flex;
+    display: flex;
+  }
+  .main {
+    margin: 0 10px 0 0;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width:425px) {
+  /* Responsiveで非表示 */
+  .sp-none {
+    display: none;
+  }
+  /* Responsiveで表示*/
+  .web-none {
+    display: block;
+  }
+/* top */
+  html, body, header {
+    width: 100%;
+  }
+  .container-top {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .container-inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .hot-words {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .header-bg {
+    background-image : url("/images/top.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+  }
+  .lead {
+    margin: 5px;
+    padding: 5px;
+  }
+/* top */
+/* profile */
+  .user {
+    width: 100%;
+  }
+  .profile-box {
+    margin: 0 0;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  }
+  .follow-button {
+    text-align: left;
+  }
+  .introduction-box {
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+    color: #FFF;
+  }
+/* profile */
+/* main */
+  .main {
+    width: 100%;
+  }
+/* main */
+/* btn */
+  .btn-circle-3d {
+    display: inline-block;
+    text-decoration: none;
+    background: #1D3461;
+    color: #FFF;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border: solid 1px #FFF;
+    border-bottom: solid 4px #FFF;
+    transition: .4s;
+  }
+
+  .btn-circle-3d:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    border-bottom: none;
+  }
+/* btn */
+/* list-side */
+  .reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .side-trip {
+    background-color: #306BAC;
+    width: 100%;
+    height: 100vh;
+    overflow: none;
+  }
+/* list-side */
+/* follow */
+  .follow-user-box {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .follow-button {
+    text-align: left;
+  }
+  .follow-profile {
+    padding: 5px;
+  }
+/* follow */
+
+}

@@ -10,7 +10,37 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery-ui
+//= require tag-it
+//= require bootstrap-sprockets
+//= require cocoon
 //= require_tree .
+
+$(function(){
+  setTimeout("$('#notice').fadeOut('slow')", 3000)
+})
+
+$(document).on('turbolinks:load', function() {
+  var tag_list, tag_string, error, i, len, results, tag;
+  $('#trip-tags').tagit({
+    fieldName: 'tag_list',
+    singleField: true
+  });
+  $('#trip-tags').tagit();
+  tag_string = $("#tag_hidden").val();
+  try {
+    tag_list = tag_string.split(',');
+    results = [];
+    for (i = 0, len = tag_list.length; i < len; i++) {
+      tag = tag_list[i];
+      results.push($('#trip-tags').tagit('createTag', tag));
+    }
+    return results;
+  } catch (error1) {
+    error = error1;
+  }
+});

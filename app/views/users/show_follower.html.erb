@@ -1,0 +1,26 @@
+<div class="flexbox">
+  <div class="side user">
+  <%= render 'users/profile', user: @user %>
+  </div>
+  <div class="main">
+    <div class="box">
+    <% @user.followers.each do |user| %>
+      <div class="follow-user-box">
+        <div class="profile-box">
+          <%= render 'users/profile_photo', user: user %>
+        </div>
+        <div>
+          <div class="follow-button">
+            <%= render 'follow_form', user: user %>
+          </div>
+          <div class="follow-profile">
+            <%= link_to user_path(user), class:"btn-flat-logo" do %>
+              <i class="fas fa-caret-right"> User Profile</i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

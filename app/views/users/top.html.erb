@@ -1,0 +1,86 @@
+<div class="header-bg">
+    <div class="container-top">
+      <div class="lead"> はじめに</div>
+    　<%= link_to about_path do %>
+        <div class="header-link btn-horizontal-border">
+          <i>本サイトについて</i>
+        </div>
+      <% end %>
+      <div class="lead">It's time to travel</div>
+		<div>
+		  	<%= link_to new_trip_path, class: "btn-flat-border" do %>
+		  	  	<i class="fas fa-plane-departure"> Let's make a plan!!</i>
+		  	<% end %>
+		</div>
+    </div>
+</div>
+
+<div class="container-horizon">
+	<div class="hot-words"><h3><i class="fas fa-tag"></i><a>HOT WORDS</a></h3></div>
+	<div class="container-inner">
+			<% @tags.shuffle.each do |tag| %>
+			<% n = TripTag.where(tag_id: tag.id).count %>
+				<div class="tag" style="font-size: -webkit-calc(8px * <%= n %> )">
+					<%= link_to "##{tag.tag}", index_tag_path(tag) %>
+				</div>
+			<% end %>
+	</div>
+</div>
+
+<div class="container-horizon">
+	<div class="container-inner">
+  	    <div class="top-link-box">
+  	      <div class="top-link-title">
+  	        <div class="top-link-text"><p>NEW!!</p></div>
+  	      </div>
+  	      <div class="top-under-area">
+  	      	  <div class="top-link-more"> Search more  <i class="far fa-hand-point-right"></i></div>
+	          <div  class="top-link-">
+	          	<%= link_to search_path(0), class: "btn-flat-logo-navy" do %>
+	      	  		<i class="fas fa-search"> Search</i>
+	      	  	<% end %>
+	      	  </div>
+	      </div>
+	    </div>
+
+		<% @new_trips.each do |trip| %>
+			<%= render 'trips/small_box', trip: trip %>
+		<% end %>
+	</div>
+</div>
+
+<div class="container-horizon">
+	<div class="container-inner">
+  	    <div class="top-link-box">
+  	      <div class="top-link-title">
+  	        <div class="top-link-text"><p>Follow's new!!</p></div>
+  	      </div>
+	    </div>
+
+		<% @follows.each do |trip| %>
+			<%= render 'trips/small_box', trip: trip %>
+		<% end %>
+	</div>
+</div>
+
+<div class="container-horizon">
+	<div class="container-inner">
+  	    <div class="top-link-box">
+  	      <div class="top-link-title">
+  	        <div class="top-link-text"><p>Favorites!!</p></div>
+  	      </div>
+  	      <div class="top-under-area">
+  	      	  <div class="top-link-more"> Search more  <i class="far fa-hand-point-right"></i></div>
+	          <div  class="top-link-">
+	          	<%= link_to favorite_trips_path(0, user_id: current_user.id), class: "btn-flat-logo-pink" do %>
+	      	  		<i class="fab fa-gratipay"> Favorites</i>
+	      	  	<% end %>
+	      	  </div>
+	      </div>
+	    </div>
+
+		<% @favorites.each do |trip| %>
+			<%= render 'trips/small_box', trip: trip %>
+		<% end %>
+	</div>
+</div>

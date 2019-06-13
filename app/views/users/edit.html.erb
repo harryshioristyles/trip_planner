@@ -1,0 +1,19 @@
+<%= form_for(@user) do |f| %>
+    <ul class="form-style-1">
+		<li>
+			<%= f.label :nickname, "Nickname" %>
+			<%= f.text_field :nickname, placeholder: "Nickname(*required)" %>
+		</li>
+		<li>
+			<%= f.label :introduction, "Introduction" %>
+			<%= f.text_area :introduction %>
+		</li>
+		<li>
+			<%= f.label :user_image, "photo" %>
+		    <%= image_tag(@user.user_image , :size => '100x100') if @user.user_image.attached? %><br>
+		    <%= f.file_field :user_image %>
+		</li>
+		<li>
+        <%= f.submit 'Update' %></li>
+    </ul>
+<% end %>

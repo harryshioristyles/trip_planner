@@ -1,0 +1,29 @@
+<div class="plan-s-box">
+  <div class="trip-image">
+    <%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("/images/no_trip_image.jpg") %>
+  </div>
+
+  <div class="trip-area">
+    <div class="trip-title">
+      <%= trip.trip_title %>
+    </div>
+    <div class="trip-details">
+      <i class="fa fa-comment"></i>
+      <div class="trip-details-text"><%= trip.trip_details %></div>
+    </div>
+  </div>
+
+  <div class="tag-area">
+    <i class="fas fa-tag"></i>
+    <% trip.tags.first(3).each do |tag| %>
+      <%= link_to "##{tag.tag}", index_tag_path(tag) %>
+    <% end %>
+  </div>
+
+  <div class="under-area">
+	<%= render 'favorite_trips/likes', trip: trip %>
+    <%= link_to trip_path(trip), class:"btn-flat-logo" do %>
+      	<i class="fas fa-caret-right"> 詳細</i>
+    <% end %>
+  </div>
+</div>

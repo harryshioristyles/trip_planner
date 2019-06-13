@@ -1,0 +1,16 @@
+<!-- 管理者ログイン -->
+<% if admin_signed_in? %>
+    <%= link_to admins_top_path  do %>
+      <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
+    <% end %>
+<!-- ユーザーログイン -->
+<% elsif user_signed_in? %>
+    <%= link_to top_path  do %>
+      <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
+    <% end %>
+<!-- 未ログイン -->
+<% else %>
+    <%= link_to root_path  do %>
+      <p class="copyright"><i class="far fa-copyright"> Travel Planner </i></p>
+    <% end %>
+<% end %>

@@ -1,0 +1,10 @@
+<div class="container">
+	<div class="search-bar">
+	<h3><i class="fas fa-search"> Search：<%= @tag.tag %></i></h3>
+	</div>
+	<div class="box">
+		<% @trips.each do |trip| %>
+			<%= render 'trips/small_box', trip: trip %>
+		<% end %>
+	</div>
+</div>

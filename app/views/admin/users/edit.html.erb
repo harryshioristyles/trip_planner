@@ -1,0 +1,33 @@
+<div class="flexbox">
+  <div class="side user">
+  	<%= form_for @user, url: admin_user_path(@user) do |f| %>
+    <ul class="form-style-1">
+		<li>
+		    <%= image_tag(@user.user_image , :size => '100x100') if @user.user_image.attached? %><br>
+			<%= f.label :user_image, "photo" %>
+		    <%= f.file_field :user_image %>
+		</li>
+		<li>
+			<%= f.label :nickname, "Nickname" %>
+			<%= f.text_field :nickname, placeholder: "Nickname(*required)" %>
+		</li>
+		<li>
+			<%= f.label :introduction, "Introduction" %>
+			<%= f.text_area :introduction %>
+		</li>
+		<li>
+        	<%= f.submit 'Update' %>
+        </li>
+        <li>
+        	<%= link_to admin_user_path(@user), method: :delete, "data-confirm" => "Are you sure?", class:"btn-flat-logo-red" do %>
+        		<i class="fas fa-trash-alt">DELETE</i>
+        	<% end %>
+        </li>
+    </ul>
+    <% end %>
+  </div>
+
+  <div class="main">
+  	<%= render 'users', users: @users %>
+  </div>
+</div>

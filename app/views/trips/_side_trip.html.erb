@@ -1,0 +1,33 @@
+<div class="trip-side-box">
+  <div class="top-area-side">
+  	<div class="day-area-side">
+  		<div class="day-side">Days.</div>
+  		<div class="day-no-side"><%= days %></div>
+  	</div>
+    <div class="trip-image-side">
+  		<%= trip.trip_image.attached? ? image_tag(trip.trip_image) : image_tag("/images/no_trip_image.jpg") %>
+  	</div>
+  </div>
+  <div class="trip-title"><%= trip.trip_title %></div>
+  <div class="trip-details">
+	  <i class="fa fa-comment"></i>
+	  <div class="trip-details-text"><%= trip.trip_details %></div>
+  </div>
+  <div class="tag-box">
+  	<%= render 'trips/tag', trip: trip %>
+  </div>
+  <div class="under-area">
+	  <%= render 'favorite_trips/likes', trip: trip %>
+  	<div>
+  	  <%= render 'trips/btn_trip_edit', trip: trip %>
+  	</div>
+  </div>
+</div>
+<div class="list-side-box">
+  <div class="list-side-box-new">
+    <%= link_to new_list_path(trip_id: trip), class: "btn-flat-logo" do %>
+      <i class="fas fa-plus"> New list</i>
+    <% end %>
+  </div>
+  <%= render 'trips/side_list', trip: trip %>
+</div>
